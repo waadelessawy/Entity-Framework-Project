@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b1da072049424fad89bd874690d2c14c" Name="Diagram1">
+        <EntityTypeShape EntityType="LinqProjectModel.customer" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinqProjectModel.item" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinqProjectModel.purchase_invoice" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinqProjectModel.quantity_of_purchased" Width="1.5" PointX="8.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinqProjectModel.quantity_of_sold" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinqProjectModel.sales_invoice" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinqProjectModel.supplier" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinqProjectModel.sysdiagram" Width="1.5" PointX="2.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinqProjectModel.unit" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinqProjectModel.warehouse" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <AssociationConnector Association="LinqProjectModel.FK_sales_invoice_customer" ManuallyRouted="false" />
+        <AssociationConnector Association="LinqProjectModel.FK_purchase_invoice_item1" ManuallyRouted="false" />
+        <AssociationConnector Association="LinqProjectModel.FK_quantity_of_purchased_item" ManuallyRouted="false" />
+        <AssociationConnector Association="LinqProjectModel.FK_sales_invoice_item" ManuallyRouted="false" />
+        <AssociationConnector Association="LinqProjectModel.FK_unit_item" ManuallyRouted="false" />
+        <AssociationConnector Association="LinqProjectModel.FK_purchase_invoice_supplier1" ManuallyRouted="false" />
+        <AssociationConnector Association="LinqProjectModel.FK_purchase_invoice_warehouse1" ManuallyRouted="false" />
+        <AssociationConnector Association="LinqProjectModel.FK_quantity_of_purchased_purchase_invoice1" ManuallyRouted="false" />
+        <AssociationConnector Association="LinqProjectModel.FK_quantity_of_sold_sales_invoice" ManuallyRouted="false" />
+        <AssociationConnector Association="LinqProjectModel.FK_sales_invoice_warehouse" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

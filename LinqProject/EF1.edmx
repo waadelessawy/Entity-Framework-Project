@@ -1,0 +1,699 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LinqProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="mobile" Type="bigint" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="website" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="prod_date" Type="date" />
+          <Property Name="exp_date" Type="date" />
+        </EntityType>
+        <EntityType Name="purchase_invoice">
+          <Key>
+            <PropertyRef Name="no" />
+          </Key>
+          <Property Name="no" Type="int" Nullable="false" />
+          <Property Name="supplier_id" Type="int" />
+          <Property Name="item_code" Type="int" />
+          <Property Name="warehouse_id" Type="int" />
+          <Property Name="date" Type="date" />
+        </EntityType>
+        <EntityType Name="quantity_of_purchased">
+          <Key>
+            <PropertyRef Name="purchase_no" />
+            <PropertyRef Name="item_code" />
+            <PropertyRef Name="quantity" />
+          </Key>
+          <Property Name="purchase_no" Type="int" Nullable="false" />
+          <Property Name="item_code" Type="int" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="quantity_of_sold">
+          <Key>
+            <PropertyRef Name="sales_no" />
+            <PropertyRef Name="item_code" />
+            <PropertyRef Name="quatity" />
+          </Key>
+          <Property Name="sales_no" Type="int" Nullable="false" />
+          <Property Name="item_code" Type="int" Nullable="false" />
+          <Property Name="quatity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sales_invoice">
+          <Key>
+            <PropertyRef Name="no" />
+          </Key>
+          <Property Name="no" Type="int" Nullable="false" />
+          <Property Name="customer_id" Type="int" />
+          <Property Name="item_code" Type="int" />
+          <Property Name="warehouse_id" Type="int" />
+          <Property Name="date" Type="date" />
+        </EntityType>
+        <EntityType Name="supplier">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="mobile" Type="bigint" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="website" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="unit">
+          <Key>
+            <PropertyRef Name="item_code" />
+            <PropertyRef Name="unit" />
+          </Key>
+          <Property Name="item_code" Type="int" Nullable="false" />
+          <Property Name="unit" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="warehouse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="manager" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_purchase_invoice_item1">
+          <End Role="item" Type="Self.item" Multiplicity="0..1" />
+          <End Role="purchase_invoice" Type="Self.purchase_invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="purchase_invoice">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_purchase_invoice_supplier1">
+          <End Role="supplier" Type="Self.supplier" Multiplicity="0..1" />
+          <End Role="purchase_invoice" Type="Self.purchase_invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supplier">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="purchase_invoice">
+              <PropertyRef Name="supplier_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_purchase_invoice_warehouse1">
+          <End Role="warehouse" Type="Self.warehouse" Multiplicity="0..1" />
+          <End Role="purchase_invoice" Type="Self.purchase_invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="warehouse">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="purchase_invoice">
+              <PropertyRef Name="warehouse_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quantity_of_purchased_item">
+          <End Role="item" Type="Self.item" Multiplicity="1" />
+          <End Role="quantity_of_purchased" Type="Self.quantity_of_purchased" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="quantity_of_purchased">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quantity_of_purchased_purchase_invoice1">
+          <End Role="purchase_invoice" Type="Self.purchase_invoice" Multiplicity="1" />
+          <End Role="quantity_of_purchased" Type="Self.quantity_of_purchased" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="purchase_invoice">
+              <PropertyRef Name="no" />
+            </Principal>
+            <Dependent Role="quantity_of_purchased">
+              <PropertyRef Name="purchase_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quantity_of_sold_sales_invoice">
+          <End Role="sales_invoice" Type="Self.sales_invoice" Multiplicity="1" />
+          <End Role="quantity_of_sold" Type="Self.quantity_of_sold" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sales_invoice">
+              <PropertyRef Name="no" />
+            </Principal>
+            <Dependent Role="quantity_of_sold">
+              <PropertyRef Name="sales_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sales_invoice_customer">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="sales_invoice" Type="Self.sales_invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sales_invoice">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sales_invoice_item">
+          <End Role="item" Type="Self.item" Multiplicity="0..1" />
+          <End Role="sales_invoice" Type="Self.sales_invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="sales_invoice">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sales_invoice_warehouse">
+          <End Role="warehouse" Type="Self.warehouse" Multiplicity="0..1" />
+          <End Role="sales_invoice" Type="Self.sales_invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="warehouse">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sales_invoice">
+              <PropertyRef Name="warehouse_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_unit_item">
+          <End Role="item" Type="Self.item" Multiplicity="1" />
+          <End Role="unit" Type="Self.unit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="unit">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LinqProjectModelStoreContainer">
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="item" EntityType="Self.item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="purchase_invoice" EntityType="Self.purchase_invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="quantity_of_purchased" EntityType="Self.quantity_of_purchased" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="quantity_of_sold" EntityType="Self.quantity_of_sold" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sales_invoice" EntityType="Self.sales_invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="supplier" EntityType="Self.supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="unit" EntityType="Self.unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="warehouse" EntityType="Self.warehouse" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_purchase_invoice_item1" Association="Self.FK_purchase_invoice_item1">
+            <End Role="item" EntitySet="item" />
+            <End Role="purchase_invoice" EntitySet="purchase_invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_purchase_invoice_supplier1" Association="Self.FK_purchase_invoice_supplier1">
+            <End Role="supplier" EntitySet="supplier" />
+            <End Role="purchase_invoice" EntitySet="purchase_invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_purchase_invoice_warehouse1" Association="Self.FK_purchase_invoice_warehouse1">
+            <End Role="warehouse" EntitySet="warehouse" />
+            <End Role="purchase_invoice" EntitySet="purchase_invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quantity_of_purchased_item" Association="Self.FK_quantity_of_purchased_item">
+            <End Role="item" EntitySet="item" />
+            <End Role="quantity_of_purchased" EntitySet="quantity_of_purchased" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quantity_of_purchased_purchase_invoice1" Association="Self.FK_quantity_of_purchased_purchase_invoice1">
+            <End Role="purchase_invoice" EntitySet="purchase_invoice" />
+            <End Role="quantity_of_purchased" EntitySet="quantity_of_purchased" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quantity_of_sold_sales_invoice" Association="Self.FK_quantity_of_sold_sales_invoice">
+            <End Role="sales_invoice" EntitySet="sales_invoice" />
+            <End Role="quantity_of_sold" EntitySet="quantity_of_sold" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sales_invoice_customer" Association="Self.FK_sales_invoice_customer">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="sales_invoice" EntitySet="sales_invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sales_invoice_item" Association="Self.FK_sales_invoice_item">
+            <End Role="item" EntitySet="item" />
+            <End Role="sales_invoice" EntitySet="sales_invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sales_invoice_warehouse" Association="Self.FK_sales_invoice_warehouse">
+            <End Role="warehouse" EntitySet="warehouse" />
+            <End Role="sales_invoice" EntitySet="sales_invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_unit_item" Association="Self.FK_unit_item">
+            <End Role="item" EntitySet="item" />
+            <End Role="unit" EntitySet="unit" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LinqProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="Int64" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="sales_invoice" Relationship="Self.FK_sales_invoice_customer" FromRole="customer" ToRole="sales_invoice" />
+        </EntityType>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prod_date" Type="DateTime" Precision="0" />
+          <Property Name="exp_date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="purchase_invoice" Relationship="Self.FK_purchase_invoice_item1" FromRole="item" ToRole="purchase_invoice" />
+          <NavigationProperty Name="quantity_of_purchased" Relationship="Self.FK_quantity_of_purchased_item" FromRole="item" ToRole="quantity_of_purchased" />
+          <NavigationProperty Name="sales_invoice" Relationship="Self.FK_sales_invoice_item" FromRole="item" ToRole="sales_invoice" />
+          <NavigationProperty Name="units" Relationship="Self.FK_unit_item" FromRole="item" ToRole="unit" />
+        </EntityType>
+        <EntityType Name="purchase_invoice">
+          <Key>
+            <PropertyRef Name="no" />
+          </Key>
+          <Property Name="no" Type="Int32" Nullable="false" />
+          <Property Name="supplier_id" Type="Int32" />
+          <Property Name="item_code" Type="Int32" />
+          <Property Name="warehouse_id" Type="Int32" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="item" Relationship="Self.FK_purchase_invoice_item1" FromRole="purchase_invoice" ToRole="item" />
+          <NavigationProperty Name="supplier" Relationship="Self.FK_purchase_invoice_supplier1" FromRole="purchase_invoice" ToRole="supplier" />
+          <NavigationProperty Name="warehouse" Relationship="Self.FK_purchase_invoice_warehouse1" FromRole="purchase_invoice" ToRole="warehouse" />
+          <NavigationProperty Name="quantity_of_purchased" Relationship="Self.FK_quantity_of_purchased_purchase_invoice1" FromRole="purchase_invoice" ToRole="quantity_of_purchased" />
+        </EntityType>
+        <EntityType Name="quantity_of_purchased">
+          <Key>
+            <PropertyRef Name="purchase_no" />
+            <PropertyRef Name="item_code" />
+            <PropertyRef Name="quantity" />
+          </Key>
+          <Property Name="purchase_no" Type="Int32" Nullable="false" />
+          <Property Name="item_code" Type="Int32" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="item" Relationship="Self.FK_quantity_of_purchased_item" FromRole="quantity_of_purchased" ToRole="item" />
+          <NavigationProperty Name="purchase_invoice" Relationship="Self.FK_quantity_of_purchased_purchase_invoice1" FromRole="quantity_of_purchased" ToRole="purchase_invoice" />
+        </EntityType>
+        <EntityType Name="quantity_of_sold">
+          <Key>
+            <PropertyRef Name="sales_no" />
+            <PropertyRef Name="item_code" />
+            <PropertyRef Name="quatity" />
+          </Key>
+          <Property Name="sales_no" Type="Int32" Nullable="false" />
+          <Property Name="item_code" Type="Int32" Nullable="false" />
+          <Property Name="quatity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="sales_invoice" Relationship="Self.FK_quantity_of_sold_sales_invoice" FromRole="quantity_of_sold" ToRole="sales_invoice" />
+        </EntityType>
+        <EntityType Name="sales_invoice">
+          <Key>
+            <PropertyRef Name="no" />
+          </Key>
+          <Property Name="no" Type="Int32" Nullable="false" />
+          <Property Name="customer_id" Type="Int32" />
+          <Property Name="item_code" Type="Int32" />
+          <Property Name="warehouse_id" Type="Int32" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="customer" Relationship="Self.FK_sales_invoice_customer" FromRole="sales_invoice" ToRole="customer" />
+          <NavigationProperty Name="item" Relationship="Self.FK_sales_invoice_item" FromRole="sales_invoice" ToRole="item" />
+          <NavigationProperty Name="quantity_of_sold" Relationship="Self.FK_quantity_of_sold_sales_invoice" FromRole="sales_invoice" ToRole="quantity_of_sold" />
+          <NavigationProperty Name="warehouse" Relationship="Self.FK_sales_invoice_warehouse" FromRole="sales_invoice" ToRole="warehouse" />
+        </EntityType>
+        <EntityType Name="supplier">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="Int64" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="purchase_invoice" Relationship="Self.FK_purchase_invoice_supplier1" FromRole="supplier" ToRole="purchase_invoice" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="unit">
+          <Key>
+            <PropertyRef Name="item_code" />
+            <PropertyRef Name="unit1" />
+          </Key>
+          <Property Name="item_code" Type="Int32" Nullable="false" />
+          <Property Name="unit1" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="item" Relationship="Self.FK_unit_item" FromRole="unit" ToRole="item" />
+        </EntityType>
+        <EntityType Name="warehouse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="manager" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="purchase_invoice" Relationship="Self.FK_purchase_invoice_warehouse1" FromRole="warehouse" ToRole="purchase_invoice" />
+          <NavigationProperty Name="sales_invoice" Relationship="Self.FK_sales_invoice_warehouse" FromRole="warehouse" ToRole="sales_invoice" />
+        </EntityType>
+        <Association Name="FK_sales_invoice_customer">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="sales_invoice" Type="Self.sales_invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sales_invoice">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_purchase_invoice_item1">
+          <End Role="item" Type="Self.item" Multiplicity="0..1" />
+          <End Role="purchase_invoice" Type="Self.purchase_invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="purchase_invoice">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quantity_of_purchased_item">
+          <End Role="item" Type="Self.item" Multiplicity="1" />
+          <End Role="quantity_of_purchased" Type="Self.quantity_of_purchased" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="quantity_of_purchased">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sales_invoice_item">
+          <End Role="item" Type="Self.item" Multiplicity="0..1" />
+          <End Role="sales_invoice" Type="Self.sales_invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="sales_invoice">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_unit_item">
+          <End Role="item" Type="Self.item" Multiplicity="1" />
+          <End Role="unit" Type="Self.unit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="unit">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_purchase_invoice_supplier1">
+          <End Role="supplier" Type="Self.supplier" Multiplicity="0..1" />
+          <End Role="purchase_invoice" Type="Self.purchase_invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supplier">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="purchase_invoice">
+              <PropertyRef Name="supplier_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_purchase_invoice_warehouse1">
+          <End Role="warehouse" Type="Self.warehouse" Multiplicity="0..1" />
+          <End Role="purchase_invoice" Type="Self.purchase_invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="warehouse">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="purchase_invoice">
+              <PropertyRef Name="warehouse_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quantity_of_purchased_purchase_invoice1">
+          <End Role="purchase_invoice" Type="Self.purchase_invoice" Multiplicity="1" />
+          <End Role="quantity_of_purchased" Type="Self.quantity_of_purchased" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="purchase_invoice">
+              <PropertyRef Name="no" />
+            </Principal>
+            <Dependent Role="quantity_of_purchased">
+              <PropertyRef Name="purchase_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quantity_of_sold_sales_invoice">
+          <End Role="sales_invoice" Type="Self.sales_invoice" Multiplicity="1" />
+          <End Role="quantity_of_sold" Type="Self.quantity_of_sold" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sales_invoice">
+              <PropertyRef Name="no" />
+            </Principal>
+            <Dependent Role="quantity_of_sold">
+              <PropertyRef Name="sales_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sales_invoice_warehouse">
+          <End Role="warehouse" Type="Self.warehouse" Multiplicity="0..1" />
+          <End Role="sales_invoice" Type="Self.sales_invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="warehouse">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sales_invoice">
+              <PropertyRef Name="warehouse_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LinqProjectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="items" EntityType="Self.item" />
+          <EntitySet Name="purchase_invoice" EntityType="Self.purchase_invoice" />
+          <EntitySet Name="quantity_of_purchased" EntityType="Self.quantity_of_purchased" />
+          <EntitySet Name="quantity_of_sold" EntityType="Self.quantity_of_sold" />
+          <EntitySet Name="sales_invoice" EntityType="Self.sales_invoice" />
+          <EntitySet Name="suppliers" EntityType="Self.supplier" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="units" EntityType="Self.unit" />
+          <EntitySet Name="warehouses" EntityType="Self.warehouse" />
+          <AssociationSet Name="FK_sales_invoice_customer" Association="Self.FK_sales_invoice_customer">
+            <End Role="customer" EntitySet="customers" />
+            <End Role="sales_invoice" EntitySet="sales_invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_purchase_invoice_item1" Association="Self.FK_purchase_invoice_item1">
+            <End Role="item" EntitySet="items" />
+            <End Role="purchase_invoice" EntitySet="purchase_invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quantity_of_purchased_item" Association="Self.FK_quantity_of_purchased_item">
+            <End Role="item" EntitySet="items" />
+            <End Role="quantity_of_purchased" EntitySet="quantity_of_purchased" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sales_invoice_item" Association="Self.FK_sales_invoice_item">
+            <End Role="item" EntitySet="items" />
+            <End Role="sales_invoice" EntitySet="sales_invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_unit_item" Association="Self.FK_unit_item">
+            <End Role="item" EntitySet="items" />
+            <End Role="unit" EntitySet="units" />
+          </AssociationSet>
+          <AssociationSet Name="FK_purchase_invoice_supplier1" Association="Self.FK_purchase_invoice_supplier1">
+            <End Role="supplier" EntitySet="suppliers" />
+            <End Role="purchase_invoice" EntitySet="purchase_invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_purchase_invoice_warehouse1" Association="Self.FK_purchase_invoice_warehouse1">
+            <End Role="warehouse" EntitySet="warehouses" />
+            <End Role="purchase_invoice" EntitySet="purchase_invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quantity_of_purchased_purchase_invoice1" Association="Self.FK_quantity_of_purchased_purchase_invoice1">
+            <End Role="purchase_invoice" EntitySet="purchase_invoice" />
+            <End Role="quantity_of_purchased" EntitySet="quantity_of_purchased" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quantity_of_sold_sales_invoice" Association="Self.FK_quantity_of_sold_sales_invoice">
+            <End Role="sales_invoice" EntitySet="sales_invoice" />
+            <End Role="quantity_of_sold" EntitySet="quantity_of_sold" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sales_invoice_warehouse" Association="Self.FK_sales_invoice_warehouse">
+            <End Role="warehouse" EntitySet="warehouses" />
+            <End Role="sales_invoice" EntitySet="sales_invoice" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LinqProjectModelStoreContainer" CdmEntityContainer="LinqProjectEntities">
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="LinqProjectModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="website" ColumnName="website" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="items">
+            <EntityTypeMapping TypeName="LinqProjectModel.item">
+              <MappingFragment StoreEntitySet="item">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="prod_date" ColumnName="prod_date" />
+                <ScalarProperty Name="exp_date" ColumnName="exp_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="purchase_invoice">
+            <EntityTypeMapping TypeName="LinqProjectModel.purchase_invoice">
+              <MappingFragment StoreEntitySet="purchase_invoice">
+                <ScalarProperty Name="no" ColumnName="no" />
+                <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+                <ScalarProperty Name="item_code" ColumnName="item_code" />
+                <ScalarProperty Name="warehouse_id" ColumnName="warehouse_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quantity_of_purchased">
+            <EntityTypeMapping TypeName="LinqProjectModel.quantity_of_purchased">
+              <MappingFragment StoreEntitySet="quantity_of_purchased">
+                <ScalarProperty Name="purchase_no" ColumnName="purchase_no" />
+                <ScalarProperty Name="item_code" ColumnName="item_code" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quantity_of_sold">
+            <EntityTypeMapping TypeName="LinqProjectModel.quantity_of_sold">
+              <MappingFragment StoreEntitySet="quantity_of_sold">
+                <ScalarProperty Name="sales_no" ColumnName="sales_no" />
+                <ScalarProperty Name="item_code" ColumnName="item_code" />
+                <ScalarProperty Name="quatity" ColumnName="quatity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sales_invoice">
+            <EntityTypeMapping TypeName="LinqProjectModel.sales_invoice">
+              <MappingFragment StoreEntitySet="sales_invoice">
+                <ScalarProperty Name="no" ColumnName="no" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="item_code" ColumnName="item_code" />
+                <ScalarProperty Name="warehouse_id" ColumnName="warehouse_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suppliers">
+            <EntityTypeMapping TypeName="LinqProjectModel.supplier">
+              <MappingFragment StoreEntitySet="supplier">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="website" ColumnName="website" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="LinqProjectModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="units">
+            <EntityTypeMapping TypeName="LinqProjectModel.unit">
+              <MappingFragment StoreEntitySet="unit">
+                <ScalarProperty Name="item_code" ColumnName="item_code" />
+                <ScalarProperty Name="unit1" ColumnName="unit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="warehouses">
+            <EntityTypeMapping TypeName="LinqProjectModel.warehouse">
+              <MappingFragment StoreEntitySet="warehouse">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="manager" ColumnName="manager" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
