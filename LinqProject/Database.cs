@@ -67,5 +67,14 @@ namespace LinqProject
             cf.Show();
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //purchase invoice
+            this.Hide();
+            PurchaseInvoiceForm pif = new PurchaseInvoiceForm();
+            pif.Show();
+
+        }
     }
 }
