@@ -59,13 +59,14 @@ namespace LinqProject
                     {
                         if (p.warehouse_id == i+1)
                         {
-                            
                             idno = p.no;
-                          
                             var invoice= (from pi in myEnt.purchase_invoice
                                           where pi.no == idno
                                       select pi).FirstOrDefault();
-                            string str = invoice.item_code.ToString() + "   " + invoice.warehouse_id.ToString();
+                            var warehouse = (from wh in myEnt.warehouses
+                                             where wh.id == i + 1
+                                             select wh).FirstOrDefault();
+                            string str = invoice.item_code.ToString() + "   " + warehouse.name.ToString();
                             listBox1.Items.Add(str);
                         }
 
