@@ -109,12 +109,13 @@ namespace LinqProject
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.AliceBlue;
-            this.button7.Location = new System.Drawing.Point(14, 243);
+            this.button7.Location = new System.Drawing.Point(104, 270);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(169, 35);
             this.button7.TabIndex = 6;
             this.button7.Text = "Change Warehouse";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -130,12 +131,13 @@ namespace LinqProject
             // button9
             // 
             this.button9.BackColor = System.Drawing.Color.AliceBlue;
-            this.button9.Location = new System.Drawing.Point(214, 227);
+            this.button9.Location = new System.Drawing.Point(72, 215);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(169, 51);
+            this.button9.Size = new System.Drawing.Size(240, 35);
             this.button9.TabIndex = 8;
             this.button9.Text = "Display Warehouses Of Items";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // Database
             // 

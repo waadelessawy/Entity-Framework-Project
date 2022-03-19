@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChanegeWarehouseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChanegeWarehouseForm.Designer.cs">
+      <DependentUpon>ChanegeWarehouseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="customer.cs">
       <DependentUpon>EF1.tt</DependentUpon>
     </Compile>
@@ -141,6 +147,12 @@
     <Compile Include="unit.cs">
       <DependentUpon>EF1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewWarehousesAndItemsForm .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewWarehousesAndItemsForm .Designer.cs">
+      <DependentUpon>ViewWarehousesAndItemsForm .cs</DependentUpon>
+    </Compile>
     <Compile Include="warehouse.cs">
       <DependentUpon>EF1.tt</DependentUpon>
     </Compile>
@@ -150,6 +162,9 @@
     <Compile Include="WarehouseForm.Designer.cs">
       <DependentUpon>WarehouseForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChanegeWarehouseForm.resx">
+      <DependentUpon>ChanegeWarehouseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SupplierForm.resx">
       <DependentUpon>SupplierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewWarehousesAndItemsForm .resx">
+      <DependentUpon>ViewWarehousesAndItemsForm .cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WarehouseForm.resx">
       <DependentUpon>WarehouseForm.cs</DependentUpon>

@@ -76,5 +76,19 @@ namespace LinqProject
             pif.Show();
 
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {//change warehouse
+            this.Hide();
+            ChanegeWarehouseForm cwf = new ChanegeWarehouseForm();
+            cwf.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ViewWarehousesAndItemsForm vwf = new ViewWarehousesAndItemsForm();
+            vwf.Show();
+        }
     }
 }
