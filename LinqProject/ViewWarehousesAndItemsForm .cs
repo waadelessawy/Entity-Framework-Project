@@ -33,7 +33,7 @@ namespace LinqProject
             {
                 box[w.id - 1] = new CheckBox();
                 box[w.id - 1].Tag = w.id.ToString();
-                box[w.id - 1].Text =w.id.ToString();
+                box[w.id - 1].Text =w.name.ToString();
                 box[w.id - 1].AutoSize = true;
                 box[w.id - 1].Location = new Point(90, 40/2* w.id);                              
                 groupBox1.Controls.Add(box[w.id - 1]);
