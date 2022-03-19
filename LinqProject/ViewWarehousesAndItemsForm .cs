@@ -53,7 +53,7 @@ namespace LinqProject
                 {
                     if (box[i].Checked == true) //0
                     {
-                    var purchase = from w in myEnt.purchase_invoice select w; //warehouserows
+                    var purchase = from w in myEnt.purchase_invoice select w; 
                   
                     foreach (var p in purchase)
                     {
@@ -77,6 +77,14 @@ namespace LinqProject
                 }
 
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Back
+            this.Close();
+            Database db = new Database();
+            db.Show();
         }
     }
 }
