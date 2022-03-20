@@ -13,6 +13,7 @@ namespace LinqProject
     public partial class WarehouseForm : Form
     {
         LinqProjectEntities myEnt;
+        //
         public WarehouseForm()
         {
             InitializeComponent();

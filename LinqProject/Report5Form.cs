@@ -10,23 +10,23 @@ using System.Windows.Forms;
 
 namespace LinqProject
 {
-    public partial class Home : Form
+    public partial class Report5Form : Form
     {
-        public Home()
+        public Report5Form()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Report5Form_Load(object sender, EventArgs e)
         {
-            this.Hide();
-            Database db = new Database();
-            db.Show();
+
+            this.reportViewer1.RefreshReport();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //Back
+            this.Close();
             ReportsForm rf = new ReportsForm();
             rf.Show();
         }
