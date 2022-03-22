@@ -125,6 +125,9 @@
     <Compile Include="itemForm.Designer.cs">
       <DependentUpon>itemForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LinqProjectDataSet.cs">
+      <DependentUpon>LinqProjectDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="LinqProjectDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -139,6 +142,9 @@
       <DependentUpon>PurchaseInvoiceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="purchase_invoice.cs">
+      <DependentUpon>EF1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="quantity_at_warehouse.cs">
       <DependentUpon>EF1.tt</DependentUpon>
     </Compile>
     <Compile Include="quantity_of_purchased.cs">

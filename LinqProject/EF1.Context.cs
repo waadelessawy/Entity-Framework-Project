@@ -35,5 +35,6 @@ namespace LinqProject
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<unit> units { get; set; }
         public virtual DbSet<warehouse> warehouses { get; set; }
+        public virtual DbSet<quantity_at_warehouse> quantity_at_warehouse { get; set; }
     }
 }

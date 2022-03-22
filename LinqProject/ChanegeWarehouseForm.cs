@@ -40,53 +40,70 @@ namespace LinqProject
         private void button1_Click(object sender, EventArgs e)
         {
             //Change
-            int qua = 0;
-            int itemcode = 0;
-            int purchaseno = 0;
-            int w_id = int.Parse(textBox1.Text);
+
+            int w1_id = int.Parse(textBox1.Text);
+            int w2_id = int.Parse(textBox2.Text);
             int i_id = int.Parse(textBox3.Text);
-            int s_id = int.Parse(textBox5.Text);
-            var items = (from i in myEnt.items
-                         where i.code == i_id
-                         select i).First();
-            if (items != null)
-            {
-                items.prod_date = DateTime.Parse(textBox6.Text);
-                items.exp_date = DateTime.Parse(textBox7.Text);
-            }
-            var purchase = (from p in myEnt.purchase_invoice
-                         where p.warehouse_id == w_id
-                         where p.item_code == i_id
-                         where p.supplier_id == s_id
-                         select p).First();
-            if (purchase != null)
-            {
-                purchase.warehouse_id = int.Parse(textBox2.Text);
-            
-            }
-            var quantity = (from q in myEnt.quantity_of_purchased
-                            where q.item_code == i_id
-                            select q).First();
+            int q = int.Parse(textBox4.Text);
 
-            qp.quantity = int.Parse(textBox4.Text);
-            qp.item_code = int.Parse(textBox3.Text);
-            qp.purchase_no = int.Parse(textBox8.Text);
 
-            qua = int.Parse(textBox4.Text);
-            itemcode = int.Parse(textBox3.Text);
-            purchaseno = int.Parse(textBox8.Text);
+            var item1 = (from i in myEnt.quantity_at_warehouse
+                         where i.item_code == i_id
+                         where i.warehouse_id == w1_id
+                         select i).FirstOrDefault();
+            var item2 = (from i in myEnt.quantity_at_warehouse
+                         where i.item_code == i_id
+                         where i.warehouse_id == w2_id
+                         select i).FirstOrDefault();
 
-            if (quantity != null)
+            if (item1 != null && item2 != null )
             {
-                myEnt.quantity_of_purchased.Remove(quantity);
+                item1.quantity = item1.quantity - q;
+                item2.quantity = item2.quantity + q;
+
+                if (item1.quantity == 0)
+                {
+                    //remove row
+                    myEnt.quantity_at_warehouse.Remove(item1);
+                    //myEnt.SaveChanges();
+
+                }
                 myEnt.SaveChanges();
+                textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = string.Empty;
+            }
+            else if(item1 !=null && item2 == null)
+            {
+                item1.quantity = item1.quantity - q;
+               
+                //insert new row
+                quantity_at_warehouse qw = new quantity_at_warehouse();
+                qw.item_code =i_id;
+                qw.warehouse_id = w2_id;
+                qw.quantity = q;
+
+                myEnt.quantity_at_warehouse.Add(qw);
+                if (item1.quantity == 0)
+                {
+                    //remove row
+                    myEnt.quantity_at_warehouse.Remove(item1);
+                    //myEnt.SaveChanges();
+
+                }
+                myEnt.SaveChanges();
+                textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = string.Empty;
             }
 
-            myEnt.quantity_of_purchased.Add(qp);
+            
 
-            myEnt.SaveChanges();
-           
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = myEnt.quantity_at_warehouse.ToList();
+           
+        }
+
+      
     }
 }

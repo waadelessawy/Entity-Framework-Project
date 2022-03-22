@@ -19,6 +19,7 @@ namespace LinqProject
         {
             this.purchase_invoice = new HashSet<purchase_invoice>();
             this.sales_invoice = new HashSet<sales_invoice>();
+            this.quantity_at_warehouse = new HashSet<quantity_at_warehouse>();
         }
     
         public int id { get; set; }
@@ -30,5 +31,7 @@ namespace LinqProject
         public virtual ICollection<purchase_invoice> purchase_invoice { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<sales_invoice> sales_invoice { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<quantity_at_warehouse> quantity_at_warehouse { get; set; }
     }
 }
