@@ -92,6 +92,8 @@ namespace LinqProject
 
         private void SupplierForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'linqProjectDataSet8.supplier' table. You can move, or remove it, as needed.
+            this.supplierTableAdapter.Fill(this.linqProjectDataSet8.supplier);
             //onload
             var supplier = from s in myEnt.suppliers select s;
             foreach (var i in supplier)

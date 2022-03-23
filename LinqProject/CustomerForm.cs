@@ -21,6 +21,8 @@ namespace LinqProject
 
         private void CustomerForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'linqProjectDataSet3.customer' table. You can move, or remove it, as needed.
+            this.customerTableAdapter.Fill(this.linqProjectDataSet3.customer);
             //onload
 
             var customer = from c in myEnt.customers select c;

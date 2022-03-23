@@ -25,6 +25,10 @@ namespace LinqProject
 
         private void PurchaseInvoiceForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'linqProjectDataSet5.quantity_of_purchased' table. You can move, or remove it, as needed.
+            this.quantity_of_purchasedTableAdapter.Fill(this.linqProjectDataSet5.quantity_of_purchased);
+            // TODO: This line of code loads data into the 'linqProjectDataSet4.purchase_invoice' table. You can move, or remove it, as needed.
+            this.purchase_invoiceTableAdapter.Fill(this.linqProjectDataSet4.purchase_invoice);
             var purchase = from p in myEnt.purchase_invoice select p;
             foreach (var p in purchase)
             {

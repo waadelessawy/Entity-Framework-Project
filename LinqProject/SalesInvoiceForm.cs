@@ -23,6 +23,10 @@ namespace LinqProject
 
         private void SalesInvoiceForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'linqProjectDataSet7.quantity_of_sold' table. You can move, or remove it, as needed.
+            this.quantity_of_soldTableAdapter.Fill(this.linqProjectDataSet7.quantity_of_sold);
+            // TODO: This line of code loads data into the 'linqProjectDataSet6.sales_invoice' table. You can move, or remove it, as needed.
+            this.sales_invoiceTableAdapter.Fill(this.linqProjectDataSet6.sales_invoice);
             //onload
 
             var sales = from s in myEnt.sales_invoice select s;

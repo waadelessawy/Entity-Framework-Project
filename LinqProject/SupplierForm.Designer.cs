@@ -29,6 +29,7 @@ namespace LinqProject
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -46,8 +47,18 @@ namespace LinqProject
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.linqProjectDataSet8 = new LinqProject.LinqProjectDataSet8();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.supplierTableAdapter = new LinqProject.LinqProjectDataSet8TableAdapters.supplierTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mobileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.websiteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -207,13 +218,75 @@ namespace LinqProject
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.mobileDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.websiteDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.supplierBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(268, 50);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(520, 256);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // linqProjectDataSet8
+            // 
+            this.linqProjectDataSet8.DataSetName = "LinqProjectDataSet8";
+            this.linqProjectDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataMember = "supplier";
+            this.supplierBindingSource.DataSource = this.linqProjectDataSet8;
+            // 
+            // supplierTableAdapter
+            // 
+            this.supplierTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // mobileDataGridViewTextBoxColumn
+            // 
+            this.mobileDataGridViewTextBoxColumn.DataPropertyName = "mobile";
+            this.mobileDataGridViewTextBoxColumn.HeaderText = "mobile";
+            this.mobileDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.mobileDataGridViewTextBoxColumn.Name = "mobileDataGridViewTextBoxColumn";
+            this.mobileDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
+            this.emailDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // websiteDataGridViewTextBoxColumn
+            // 
+            this.websiteDataGridViewTextBoxColumn.DataPropertyName = "website";
+            this.websiteDataGridViewTextBoxColumn.HeaderText = "website";
+            this.websiteDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.websiteDataGridViewTextBoxColumn.Name = "websiteDataGridViewTextBoxColumn";
+            this.websiteDataGridViewTextBoxColumn.Width = 150;
             // 
             // SupplierForm
             // 
@@ -233,6 +306,8 @@ namespace LinqProject
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -256,5 +331,13 @@ namespace LinqProject
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private LinqProjectDataSet8 linqProjectDataSet8;
+        private System.Windows.Forms.BindingSource supplierBindingSource;
+        private LinqProjectDataSet8TableAdapters.supplierTableAdapter supplierTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mobileDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn websiteDataGridViewTextBoxColumn;
     }
 }

@@ -59,6 +59,8 @@ namespace LinqProject
 
         private void itemForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'linqProjectDataSet1.item' table. You can move, or remove it, as needed.
+            this.itemTableAdapter.Fill(this.linqProjectDataSet1.item);
             //onload
             var item = from i in myEnt.items select i;
             foreach (var i in item)
@@ -75,8 +77,11 @@ namespace LinqProject
             item.name = textBox2.Text;
             item.prod_date =DateTime.Parse(textBox3.Text);
             item.exp_date = DateTime.Parse(textBox4.Text);
+  
+         
             myEnt.items.Add(item);
             myEnt.SaveChanges();
+     
             textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = string.Empty;
 
         }

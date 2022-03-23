@@ -29,6 +29,7 @@ namespace LinqProject
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,8 +44,16 @@ namespace LinqProject
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.linqProjectDataSet2 = new LinqProject.LinqProjectDataSet2();
+            this.quantityatwarehouseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quantity_at_warehouseTableAdapter = new LinqProject.LinqProjectDataSet2TableAdapters.quantity_at_warehouseTableAdapter();
+            this.itemcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warehouseidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityatwarehouseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -144,7 +153,13 @@ namespace LinqProject
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.itemcodeDataGridViewTextBoxColumn,
+            this.warehouseidDataGridViewTextBoxColumn,
+            this.quantityDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.quantityatwarehouseBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(251, 45);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
@@ -181,6 +196,44 @@ namespace LinqProject
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Change Warehouse";
             // 
+            // linqProjectDataSet2
+            // 
+            this.linqProjectDataSet2.DataSetName = "LinqProjectDataSet2";
+            this.linqProjectDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // quantityatwarehouseBindingSource
+            // 
+            this.quantityatwarehouseBindingSource.DataMember = "quantity_at_warehouse";
+            this.quantityatwarehouseBindingSource.DataSource = this.linqProjectDataSet2;
+            // 
+            // quantity_at_warehouseTableAdapter
+            // 
+            this.quantity_at_warehouseTableAdapter.ClearBeforeFill = true;
+            // 
+            // itemcodeDataGridViewTextBoxColumn
+            // 
+            this.itemcodeDataGridViewTextBoxColumn.DataPropertyName = "item_code";
+            this.itemcodeDataGridViewTextBoxColumn.HeaderText = "item_code";
+            this.itemcodeDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.itemcodeDataGridViewTextBoxColumn.Name = "itemcodeDataGridViewTextBoxColumn";
+            this.itemcodeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // warehouseidDataGridViewTextBoxColumn
+            // 
+            this.warehouseidDataGridViewTextBoxColumn.DataPropertyName = "warehouse_id";
+            this.warehouseidDataGridViewTextBoxColumn.HeaderText = "warehouse_id";
+            this.warehouseidDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.warehouseidDataGridViewTextBoxColumn.Name = "warehouseidDataGridViewTextBoxColumn";
+            this.warehouseidDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "quantity";
+            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.Width = 150;
+            // 
             // ChanegeWarehouseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -195,9 +248,12 @@ namespace LinqProject
             this.Name = "ChanegeWarehouseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChanegeWarehouseForm";
+            this.Load += new System.EventHandler(this.ChanegeWarehouseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityatwarehouseBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,5 +275,11 @@ namespace LinqProject
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox1;
+        private LinqProjectDataSet2 linqProjectDataSet2;
+        private System.Windows.Forms.BindingSource quantityatwarehouseBindingSource;
+        private LinqProjectDataSet2TableAdapters.quantity_at_warehouseTableAdapter quantity_at_warehouseTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn warehouseidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
     }
 }

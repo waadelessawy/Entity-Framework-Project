@@ -29,10 +29,13 @@ namespace LinqProject
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -41,11 +44,18 @@ namespace LinqProject
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.linqProjectDataSet9 = new LinqProject.LinqProjectDataSet9();
+            this.warehouseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.warehouseTableAdapter = new LinqProject.LinqProjectDataSet9TableAdapters.warehouseTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.managerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -99,6 +109,30 @@ namespace LinqProject
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Warehouse";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(109, 257);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(121, 26);
+            this.textBox4.TabIndex = 9;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.managerDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.warehouseBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(276, 57);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(488, 223);
+            this.dataGridView1.TabIndex = 8;
             // 
             // textBox3
             // 
@@ -166,23 +200,6 @@ namespace LinqProject
             this.label1.TabIndex = 0;
             this.label1.Text = "ID";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(276, 57);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(488, 223);
-            this.dataGridView1.TabIndex = 8;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(109, 257);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(121, 26);
-            this.textBox4.TabIndex = 9;
-            // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.AliceBlue;
@@ -193,6 +210,52 @@ namespace LinqProject
             this.button4.Text = "Back";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // linqProjectDataSet9
+            // 
+            this.linqProjectDataSet9.DataSetName = "LinqProjectDataSet9";
+            this.linqProjectDataSet9.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // warehouseBindingSource
+            // 
+            this.warehouseBindingSource.DataMember = "warehouse";
+            this.warehouseBindingSource.DataSource = this.linqProjectDataSet9;
+            // 
+            // warehouseTableAdapter
+            // 
+            this.warehouseTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // managerDataGridViewTextBoxColumn
+            // 
+            this.managerDataGridViewTextBoxColumn.DataPropertyName = "manager";
+            this.managerDataGridViewTextBoxColumn.HeaderText = "manager";
+            this.managerDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.managerDataGridViewTextBoxColumn.Name = "managerDataGridViewTextBoxColumn";
+            this.managerDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "address";
+            this.addressDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.Width = 150;
             // 
             // WarehouseForm
             // 
@@ -212,6 +275,8 @@ namespace LinqProject
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -233,5 +298,12 @@ namespace LinqProject
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button4;
+        private LinqProjectDataSet9 linqProjectDataSet9;
+        private System.Windows.Forms.BindingSource warehouseBindingSource;
+        private LinqProjectDataSet9TableAdapters.warehouseTableAdapter warehouseTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn managerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
     }
 }

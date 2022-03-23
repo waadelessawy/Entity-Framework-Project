@@ -29,6 +29,7 @@ namespace LinqProject
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -47,11 +48,33 @@ namespace LinqProject
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.linqProjectDataSet2 = new LinqProject.LinqProjectDataSet2();
+            this.linqProjectDataSet2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.linqProjectDataSet4 = new LinqProject.LinqProjectDataSet4();
+            this.purchaseinvoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.purchase_invoiceTableAdapter = new LinqProject.LinqProjectDataSet4TableAdapters.purchase_invoiceTableAdapter();
+            this.noDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplieridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warehouseidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.linqProjectDataSet5 = new LinqProject.LinqProjectDataSet5();
+            this.quantityofpurchasedBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quantity_of_purchasedTableAdapter = new LinqProject.LinqProjectDataSet5TableAdapters.quantity_of_purchasedTableAdapter();
+            this.purchasenoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemcodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet2BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseinvoiceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityofpurchasedBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -227,9 +250,33 @@ namespace LinqProject
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Purchase invoice";
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.purchasenoDataGridViewTextBoxColumn,
+            this.itemcodeDataGridViewTextBoxColumn1,
+            this.quantityDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.quantityofpurchasedBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(293, 164);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 62;
+            this.dataGridView2.RowTemplate.Height = 28;
+            this.dataGridView2.Size = new System.Drawing.Size(496, 133);
+            this.dataGridView2.TabIndex = 18;
+            // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.noDataGridViewTextBoxColumn,
+            this.supplieridDataGridViewTextBoxColumn,
+            this.itemcodeDataGridViewTextBoxColumn,
+            this.warehouseidDataGridViewTextBoxColumn,
+            this.dateDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.purchaseinvoiceBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(293, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
@@ -237,15 +284,107 @@ namespace LinqProject
             this.dataGridView1.Size = new System.Drawing.Size(495, 150);
             this.dataGridView1.TabIndex = 17;
             // 
-            // dataGridView2
+            // linqProjectDataSet2
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(293, 164);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 62;
-            this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(496, 133);
-            this.dataGridView2.TabIndex = 18;
+            this.linqProjectDataSet2.DataSetName = "LinqProjectDataSet2";
+            this.linqProjectDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // linqProjectDataSet2BindingSource
+            // 
+            this.linqProjectDataSet2BindingSource.DataSource = this.linqProjectDataSet2;
+            this.linqProjectDataSet2BindingSource.Position = 0;
+            // 
+            // linqProjectDataSet4
+            // 
+            this.linqProjectDataSet4.DataSetName = "LinqProjectDataSet4";
+            this.linqProjectDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // purchaseinvoiceBindingSource
+            // 
+            this.purchaseinvoiceBindingSource.DataMember = "purchase_invoice";
+            this.purchaseinvoiceBindingSource.DataSource = this.linqProjectDataSet4;
+            // 
+            // purchase_invoiceTableAdapter
+            // 
+            this.purchase_invoiceTableAdapter.ClearBeforeFill = true;
+            // 
+            // noDataGridViewTextBoxColumn
+            // 
+            this.noDataGridViewTextBoxColumn.DataPropertyName = "no";
+            this.noDataGridViewTextBoxColumn.HeaderText = "no";
+            this.noDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.noDataGridViewTextBoxColumn.Name = "noDataGridViewTextBoxColumn";
+            this.noDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // supplieridDataGridViewTextBoxColumn
+            // 
+            this.supplieridDataGridViewTextBoxColumn.DataPropertyName = "supplier_id";
+            this.supplieridDataGridViewTextBoxColumn.HeaderText = "supplier_id";
+            this.supplieridDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.supplieridDataGridViewTextBoxColumn.Name = "supplieridDataGridViewTextBoxColumn";
+            this.supplieridDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // itemcodeDataGridViewTextBoxColumn
+            // 
+            this.itemcodeDataGridViewTextBoxColumn.DataPropertyName = "item_code";
+            this.itemcodeDataGridViewTextBoxColumn.HeaderText = "item_code";
+            this.itemcodeDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.itemcodeDataGridViewTextBoxColumn.Name = "itemcodeDataGridViewTextBoxColumn";
+            this.itemcodeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // warehouseidDataGridViewTextBoxColumn
+            // 
+            this.warehouseidDataGridViewTextBoxColumn.DataPropertyName = "warehouse_id";
+            this.warehouseidDataGridViewTextBoxColumn.HeaderText = "warehouse_id";
+            this.warehouseidDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.warehouseidDataGridViewTextBoxColumn.Name = "warehouseidDataGridViewTextBoxColumn";
+            this.warehouseidDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "date";
+            this.dateDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // linqProjectDataSet5
+            // 
+            this.linqProjectDataSet5.DataSetName = "LinqProjectDataSet5";
+            this.linqProjectDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // quantityofpurchasedBindingSource
+            // 
+            this.quantityofpurchasedBindingSource.DataMember = "quantity_of_purchased";
+            this.quantityofpurchasedBindingSource.DataSource = this.linqProjectDataSet5;
+            // 
+            // quantity_of_purchasedTableAdapter
+            // 
+            this.quantity_of_purchasedTableAdapter.ClearBeforeFill = true;
+            // 
+            // purchasenoDataGridViewTextBoxColumn
+            // 
+            this.purchasenoDataGridViewTextBoxColumn.DataPropertyName = "purchase_no";
+            this.purchasenoDataGridViewTextBoxColumn.HeaderText = "purchase_no";
+            this.purchasenoDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.purchasenoDataGridViewTextBoxColumn.Name = "purchasenoDataGridViewTextBoxColumn";
+            this.purchasenoDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // itemcodeDataGridViewTextBoxColumn1
+            // 
+            this.itemcodeDataGridViewTextBoxColumn1.DataPropertyName = "item_code";
+            this.itemcodeDataGridViewTextBoxColumn1.HeaderText = "item_code";
+            this.itemcodeDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.itemcodeDataGridViewTextBoxColumn1.Name = "itemcodeDataGridViewTextBoxColumn1";
+            this.itemcodeDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "quantity";
+            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.Width = 150;
             // 
             // PurchaseInvoiceForm
             // 
@@ -264,8 +403,14 @@ namespace LinqProject
             this.Load += new System.EventHandler(this.PurchaseInvoiceForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet2BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseinvoiceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityofpurchasedBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -292,5 +437,21 @@ namespace LinqProject
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource linqProjectDataSet2BindingSource;
+        private LinqProjectDataSet2 linqProjectDataSet2;
+        private LinqProjectDataSet4 linqProjectDataSet4;
+        private System.Windows.Forms.BindingSource purchaseinvoiceBindingSource;
+        private LinqProjectDataSet4TableAdapters.purchase_invoiceTableAdapter purchase_invoiceTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplieridDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn warehouseidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private LinqProjectDataSet5 linqProjectDataSet5;
+        private System.Windows.Forms.BindingSource quantityofpurchasedBindingSource;
+        private LinqProjectDataSet5TableAdapters.quantity_of_purchasedTableAdapter quantity_of_purchasedTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn purchasenoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemcodeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
     }
 }
