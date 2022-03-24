@@ -42,6 +42,7 @@ namespace LinqProject
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             //selectedindex
             int code= int.Parse(comboBox1.Text);
             var item = (from i in myEnt.items
@@ -51,16 +52,16 @@ namespace LinqProject
             {
                 textBox1.Text = item.code.ToString();
                 textBox2.Text = item.name.ToString();
-                textBox3.Text = item.prod_date.ToString();
-                textBox4.Text = item.exp_date.ToString();
+     
+              
             }
 
         }
 
         private void itemForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'linqProjectDataSet1.item' table. You can move, or remove it, as needed.
-            this.itemTableAdapter.Fill(this.linqProjectDataSet1.item);
+            // TODO: This line of code loads data into the 'linqProjectDataSet3.item' table. You can move, or remove it, as needed.
+            this.itemTableAdapter.Fill(this.linqProjectDataSet3.item);
             //onload
             var item = from i in myEnt.items select i;
             foreach (var i in item)
@@ -75,14 +76,13 @@ namespace LinqProject
             item item = new item();
             item.code = int.Parse(textBox1.Text);
             item.name = textBox2.Text;
-            item.prod_date =DateTime.Parse(textBox3.Text);
-            item.exp_date = DateTime.Parse(textBox4.Text);
+   
   
          
             myEnt.items.Add(item);
             myEnt.SaveChanges();
      
-            textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = string.Empty;
+            textBox1.Text = textBox2.Text = string.Empty;
 
         }
 
@@ -96,10 +96,9 @@ namespace LinqProject
             if (item != null)
             {
                 item.name = textBox2.Text;
-                item.prod_date = DateTime.Parse(textBox3.Text);
-                item.exp_date = DateTime.Parse(textBox4.Text);
+          
                 myEnt.SaveChanges();
-                textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = string.Empty;
+                textBox1.Text = textBox2.Text = string.Empty;
 
 
             }

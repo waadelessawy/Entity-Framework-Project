@@ -13,26 +13,42 @@ namespace LinqProject
     public partial class PurchaseInvoiceForm : Form
     {
         LinqProjectEntities myEnt;
-        quantity_of_purchased qp;
+        purchase_invoice purchase ;
+    
 
         public PurchaseInvoiceForm()
         {
             InitializeComponent();
             myEnt = new LinqProjectEntities();
-            qp = new quantity_of_purchased();
+      
+            purchase = new purchase_invoice();
 
         }
 
         private void PurchaseInvoiceForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'linqProjectDataSet5.quantity_of_purchased' table. You can move, or remove it, as needed.
-            this.quantity_of_purchasedTableAdapter.Fill(this.linqProjectDataSet5.quantity_of_purchased);
-            // TODO: This line of code loads data into the 'linqProjectDataSet4.purchase_invoice' table. You can move, or remove it, as needed.
-            this.purchase_invoiceTableAdapter.Fill(this.linqProjectDataSet4.purchase_invoice);
+            // TODO: This line of code loads data into the 'linqProjectDataSet.purchase_invoice' table. You can move, or remove it, as needed.
+            this.purchase_invoiceTableAdapter.Fill(this.linqProjectDataSet.purchase_invoice);
+
             var purchase = from p in myEnt.purchase_invoice select p;
             foreach (var p in purchase)
             {
                 comboBox1.Items.Add(p.no.ToString());
+            }
+            var supplier = from s in myEnt.suppliers select s;
+            foreach (var s in supplier)
+            {
+                comboBox3.Items.Add(s.name.ToString());
+            }
+            var item = from i in myEnt.items select i;
+            foreach (var i in item)
+            {
+                comboBox2.Items.Add(i.name.ToString());
+            }
+            var house = from h in myEnt.warehouses select h;
+            foreach (var h in house)
+            {
+                comboBox4.Items.Add(h.name.ToString());
             }
         }
 
@@ -49,7 +65,7 @@ namespace LinqProject
             //Display
             comboBox1.Items.Clear();
             dataGridView1.DataSource = myEnt.purchase_invoice.ToList();
-            dataGridView2.DataSource = myEnt.quantity_of_purchased.ToList();
+          
             var purchase = from p in myEnt.purchase_invoice select p;
             foreach (var p in purchase)
             {
@@ -60,23 +76,24 @@ namespace LinqProject
         private void button1_Click(object sender, EventArgs e)
         {
             //Insert
-            purchase_invoice purchase = new purchase_invoice();
 
             purchase.no = int.Parse(textBox1.Text);
-            purchase.supplier_id = int.Parse(textBox2.Text);
-            purchase.item_code = int.Parse(textBox3.Text);
-            purchase.warehouse_id = int.Parse(textBox4.Text);
+    
+            purchase.supplier_id = comboBox3.SelectedIndex + 1;
+            purchase.item_code = comboBox2.SelectedIndex + 1;
+            purchase.warehouse_id = comboBox4.SelectedIndex + 1;
+         
             purchase.date = DateTime.Parse(textBox5.Text);
+          
+            purchase.quantity =int.Parse( textBox6.Text);
+            purchase.prod_date = DateTime.Parse(textBox7.Text);
+            purchase.exp_date = DateTime.Parse(textBox8.Text);
+
             myEnt.purchase_invoice.Add(purchase);
 
-            quantity_of_purchased qp = new quantity_of_purchased();
-            qp.quantity = int.Parse(textBox6.Text);
-            qp.item_code = int.Parse(textBox3.Text);
-            qp.purchase_no= int.Parse(textBox1.Text);
-            myEnt.quantity_of_purchased.Add(qp);
 
             myEnt.SaveChanges();
-            textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = textBox5.Text = textBox6.Text = string.Empty;
+            textBox1.Text = textBox5.Text = textBox6.Text=textBox7.Text=textBox8.Text=comboBox1.Text =comboBox3.Text = comboBox2.Text = comboBox4.Text = string.Empty;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -89,70 +106,120 @@ namespace LinqProject
                            select i).First();
             if (invoice != null)
             {
+
                 textBox1.Text = invoice.no.ToString();
-                textBox2.Text = invoice.supplier_id.ToString();
-                textBox3.Text = invoice.item_code.ToString();
-                textBox4.Text = invoice.warehouse_id.ToString();
-                textBox5.Text = invoice.date.ToString();
+                var supplier1 = (from s in myEnt.suppliers 
+                               where invoice.supplier_id == s.id
+                               select s).First();
+                var item1 = (from i in myEnt.items
+                                 where invoice.item_code ==  i.code
+                                 select i ).First();
+                var house1= (from h in myEnt.warehouses
+                             where invoice.warehouse_id==h.id
+                             select h).First();
+
+
+                comboBox3.Text = supplier1.name;
+                comboBox2.Text = item1.name.ToString();
+                comboBox4.Text = house1.name.ToString();
+
+                textBox6.Text = invoice.quantity.ToString();
+                DateTime t = invoice.date.Value;
+                textBox5.Text = t.ToShortDateString().ToString();
+                DateTime pd = invoice.prod_date.Value;
+                textBox7.Text = t.ToShortDateString().ToString();
+                DateTime ed = invoice.exp_date.Value;
+                textBox8.Text = t.ToShortDateString().ToString();
+
+
 
             }
-            var quantity = (from q in myEnt.quantity_of_purchased
-                            where q.purchase_no == no
-                            select q).First();
-
-            if (quantity != null)
-            {
-                textBox6.Text = quantity.quantity.ToString();
-
-
-            }
+    
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             //update
-            int qua = 0;
-            int itemcode = 0;
-            int purchaseno = 0;
+
             int no = int.Parse(textBox1.Text);
             var purchase = (from p in myEnt.purchase_invoice
                          where p.no == no
                          select p).First();
             if (purchase != null)
             {
-                purchase.supplier_id= int.Parse(textBox2.Text);
-                purchase.item_code = int.Parse(textBox3.Text);
-                purchase.warehouse_id = int.Parse(textBox4.Text);
+                purchase.supplier_id = comboBox3.SelectedIndex + 1;
+                purchase.item_code = comboBox2.SelectedIndex+1;
+                purchase.warehouse_id = comboBox4.SelectedIndex+1;
                 purchase.date = DateTime.Parse(textBox5.Text);
 
-                qp.quantity = int.Parse(textBox6.Text);
-                qp.item_code = int.Parse(textBox3.Text);
-                qp.purchase_no = int.Parse(textBox1.Text);
-                qua = int.Parse(textBox6.Text);
-                itemcode = int.Parse(textBox3.Text);
-                purchaseno = int.Parse(textBox1.Text);
+                purchase.quantity = int.Parse(textBox6.Text);
+                purchase.prod_date= DateTime.Parse(textBox7.Text);
+                purchase.exp_date = DateTime.Parse(textBox8.Text);
+             
                 myEnt.SaveChanges();
-                textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = textBox5.Text = textBox6.Text = string.Empty;
+                textBox1.Text = textBox5.Text = textBox6.Text = textBox7.Text = textBox8.Text=comboBox1.Text = comboBox3.Text = comboBox2.Text = comboBox4.Text = string.Empty;
 
 
             }
 
-            var quantity = (from q in myEnt.quantity_of_purchased
-                            where q.item_code == itemcode
-                            where q.purchase_no == purchaseno
-                            select q).FirstOrDefault();
-
-            if (quantity != null)
-            {
-                myEnt.quantity_of_purchased.Remove(quantity);
-                myEnt.SaveChanges();
-            }
-
-            myEnt.quantity_of_purchased.Add(qp);
-
+      
             myEnt.SaveChanges();
 
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Supplier_Selected_Index
+         
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            
+            //int no = int.Parse(comboBox1.Text);
+            
+            //int no = int.Parse((string)Cells[0].Value );
+            ////int no = int.Parse(dataGridView1.SelectedRows[0]);
+            //var invoice = (from i in myEnt.purchase_invoice
+            //               where i.no == no
+            //               select i).First();
+            //if (invoice != null)
+            //{
+
+            //    textBox1.Text = invoice.no.ToString();
+            //    var supplier1 = (from s in myEnt.suppliers
+            //                     where invoice.supplier_id == s.id
+            //                     select s).First();
+            //    var item1 = (from i in myEnt.items
+            //                 where invoice.item_code == i.code
+            //                 select i).First();
+            //    var house1 = (from h in myEnt.warehouses
+            //                  where invoice.warehouse_id == h.id
+            //                  select h).First();
+
+
+            //    comboBox3.Text = supplier1.name;
+            //    comboBox2.Text = item1.name.ToString();
+            //    comboBox4.Text = house1.name.ToString();
+
+            //    textBox6.Text = invoice.quantity.ToString();
+            //    DateTime t = invoice.date.Value;
+            //    textBox5.Text = t.ToShortDateString().ToString();
+            //    DateTime pd = invoice.prod_date.Value;
+            //    textBox7.Text = t.ToShortDateString().ToString();
+            //    DateTime ed = invoice.exp_date.Value;
+            //    textBox8.Text = t.ToShortDateString().ToString();
+
+
+
+            //}
         }
     }
 }

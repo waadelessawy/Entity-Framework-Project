@@ -14,7 +14,6 @@ namespace LinqProject
     {
         LinqProjectEntities myEnt;
         item item;
-        quantity_of_purchased qp;
         purchase_invoice pi;
         warehouse warehouse;
         public ChanegeWarehouseForm()
@@ -22,7 +21,6 @@ namespace LinqProject
             InitializeComponent();
             myEnt = new LinqProjectEntities();
             item = new item();
-            qp = new quantity_of_purchased();
             pi = new purchase_invoice();
             warehouse = new warehouse();
 
@@ -106,8 +104,10 @@ namespace LinqProject
 
         private void ChanegeWarehouseForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'linqProjectDataSet1.quantity_at_warehouse' table. You can move, or remove it, as needed.
+            this.quantity_at_warehouseTableAdapter.Fill(this.linqProjectDataSet1.quantity_at_warehouse);
             // TODO: This line of code loads data into the 'linqProjectDataSet2.quantity_at_warehouse' table. You can move, or remove it, as needed.
-            this.quantity_at_warehouseTableAdapter.Fill(this.linqProjectDataSet2.quantity_at_warehouse);
+            //this.quantity_at_warehouseTableAdapter.Fill(this.linqProjectDataSet2.quantity_at_warehouse);
 
         }
     }

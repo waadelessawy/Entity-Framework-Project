@@ -21,7 +21,7 @@ namespace LinqProject
         {
             InitializeComponent();
             myEnt = new LinqProjectEntities();
-            box= new CheckBox[10];
+            box= new CheckBox[100];
             
         }
 

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="LinqProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="LinqProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="customer">
           <Key>
             <PropertyRef Name="id" />
@@ -21,8 +21,6 @@
           </Key>
           <Property Name="code" Type="int" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" />
-          <Property Name="prod_date" Type="date" />
-          <Property Name="exp_date" Type="date" />
         </EntityType>
         <EntityType Name="purchase_invoice">
           <Key>
@@ -33,35 +31,21 @@
           <Property Name="item_code" Type="int" />
           <Property Name="warehouse_id" Type="int" />
           <Property Name="date" Type="date" />
+          <Property Name="prod_date" Type="date" />
+          <Property Name="exp_date" Type="date" />
+          <Property Name="quantity" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LinqProject.dbo.quantity_at_warehouse' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="quantity_at_warehouse">
           <Key>
             <PropertyRef Name="item_code" />
             <PropertyRef Name="warehouse_id" />
+            <PropertyRef Name="quantity" />
           </Key>
           <Property Name="item_code" Type="int" Nullable="false" />
           <Property Name="warehouse_id" Type="int" Nullable="false" />
-          <Property Name="quantity" Type="int" />
-        </EntityType>
-        <EntityType Name="quantity_of_purchased">
-          <Key>
-            <PropertyRef Name="purchase_no" />
-            <PropertyRef Name="item_code" />
-            <PropertyRef Name="quantity" />
-          </Key>
-          <Property Name="purchase_no" Type="int" Nullable="false" />
-          <Property Name="item_code" Type="int" Nullable="false" />
           <Property Name="quantity" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="quantity_of_sold">
-          <Key>
-            <PropertyRef Name="sales_no" />
-            <PropertyRef Name="item_code" />
-            <PropertyRef Name="quatity" />
-          </Key>
-          <Property Name="sales_no" Type="int" Nullable="false" />
-          <Property Name="item_code" Type="int" Nullable="false" />
-          <Property Name="quatity" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sales_invoice">
           <Key>
@@ -72,6 +56,7 @@
           <Property Name="item_code" Type="int" />
           <Property Name="warehouse_id" Type="int" />
           <Property Name="date" Type="date" />
+          <Property Name="quantity" Type="int" />
         </EntityType>
         <EntityType Name="supplier">
           <Key>
@@ -170,42 +155,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_quantity_of_purchased_item">
-          <End Role="item" Type="Self.item" Multiplicity="1" />
-          <End Role="quantity_of_purchased" Type="Self.quantity_of_purchased" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="code" />
-            </Principal>
-            <Dependent Role="quantity_of_purchased">
-              <PropertyRef Name="item_code" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_quantity_of_purchased_purchase_invoice1">
-          <End Role="purchase_invoice" Type="Self.purchase_invoice" Multiplicity="1" />
-          <End Role="quantity_of_purchased" Type="Self.quantity_of_purchased" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="purchase_invoice">
-              <PropertyRef Name="no" />
-            </Principal>
-            <Dependent Role="quantity_of_purchased">
-              <PropertyRef Name="purchase_no" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_quantity_of_sold_sales_invoice">
-          <End Role="sales_invoice" Type="Self.sales_invoice" Multiplicity="1" />
-          <End Role="quantity_of_sold" Type="Self.quantity_of_sold" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="sales_invoice">
-              <PropertyRef Name="no" />
-            </Principal>
-            <Dependent Role="quantity_of_sold">
-              <PropertyRef Name="sales_no" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_sales_invoice_customer">
           <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
           <End Role="sales_invoice" Type="Self.sales_invoice" Multiplicity="*" />
@@ -258,14 +207,18 @@
           <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="item" EntityType="Self.item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="purchase_invoice" EntityType="Self.purchase_invoice" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="quantity_at_warehouse" EntityType="Self.quantity_at_warehouse" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="quantity_of_purchased" EntityType="Self.quantity_of_purchased" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="quantity_of_sold" EntityType="Self.quantity_of_sold" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sales_invoice" EntityType="Self.sales_invoice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="supplier" EntityType="Self.supplier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="unit" EntityType="Self.unit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="warehouse" EntityType="Self.warehouse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="quantity_at_warehouse" EntityType="Self.quantity_at_warehouse" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [quantity_at_warehouse].[item_code] AS [item_code], 
+    [quantity_at_warehouse].[warehouse_id] AS [warehouse_id], 
+    [quantity_at_warehouse].[quantity] AS [quantity]
+    FROM [dbo].[quantity_at_warehouse] AS [quantity_at_warehouse]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_purchase_invoice_item1" Association="Self.FK_purchase_invoice_item1">
             <End Role="item" EntitySet="item" />
             <End Role="purchase_invoice" EntitySet="purchase_invoice" />
@@ -286,18 +239,6 @@
             <End Role="warehouse" EntitySet="warehouse" />
             <End Role="quantity_at_warehouse" EntitySet="quantity_at_warehouse" />
           </AssociationSet>
-          <AssociationSet Name="FK_quantity_of_purchased_item" Association="Self.FK_quantity_of_purchased_item">
-            <End Role="item" EntitySet="item" />
-            <End Role="quantity_of_purchased" EntitySet="quantity_of_purchased" />
-          </AssociationSet>
-          <AssociationSet Name="FK_quantity_of_purchased_purchase_invoice1" Association="Self.FK_quantity_of_purchased_purchase_invoice1">
-            <End Role="purchase_invoice" EntitySet="purchase_invoice" />
-            <End Role="quantity_of_purchased" EntitySet="quantity_of_purchased" />
-          </AssociationSet>
-          <AssociationSet Name="FK_quantity_of_sold_sales_invoice" Association="Self.FK_quantity_of_sold_sales_invoice">
-            <End Role="sales_invoice" EntitySet="sales_invoice" />
-            <End Role="quantity_of_sold" EntitySet="quantity_of_sold" />
-          </AssociationSet>
           <AssociationSet Name="FK_sales_invoice_customer" Association="Self.FK_sales_invoice_customer">
             <End Role="customer" EntitySet="customer" />
             <End Role="sales_invoice" EntitySet="sales_invoice" />
@@ -315,7 +256,8 @@
             <End Role="unit" EntitySet="unit" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LinqProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -336,13 +278,10 @@
           </Key>
           <Property Name="code" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="prod_date" Type="DateTime" Precision="0" />
-          <Property Name="exp_date" Type="DateTime" Precision="0" />
           <NavigationProperty Name="purchase_invoice" Relationship="Self.FK_purchase_invoice_item1" FromRole="item" ToRole="purchase_invoice" />
-          <NavigationProperty Name="quantity_of_purchased" Relationship="Self.FK_quantity_of_purchased_item" FromRole="item" ToRole="quantity_of_purchased" />
+          <NavigationProperty Name="quantity_at_warehouse" Relationship="Self.FK_quantity_at_warehouse_item" FromRole="item" ToRole="quantity_at_warehouse" />
           <NavigationProperty Name="sales_invoice" Relationship="Self.FK_sales_invoice_item" FromRole="item" ToRole="sales_invoice" />
           <NavigationProperty Name="units" Relationship="Self.FK_unit_item" FromRole="item" ToRole="unit" />
-          <NavigationProperty Name="quantity_at_warehouse" Relationship="LinqProjectModel.FK_quantity_at_warehouse_item" FromRole="item" ToRole="quantity_at_warehouse" />
         </EntityType>
         <EntityType Name="purchase_invoice">
           <Key>
@@ -353,33 +292,12 @@
           <Property Name="item_code" Type="Int32" />
           <Property Name="warehouse_id" Type="Int32" />
           <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="prod_date" Type="DateTime" Precision="0" />
+          <Property Name="exp_date" Type="DateTime" Precision="0" />
+          <Property Name="quantity" Type="Int32" />
           <NavigationProperty Name="item" Relationship="Self.FK_purchase_invoice_item1" FromRole="purchase_invoice" ToRole="item" />
           <NavigationProperty Name="supplier" Relationship="Self.FK_purchase_invoice_supplier1" FromRole="purchase_invoice" ToRole="supplier" />
           <NavigationProperty Name="warehouse" Relationship="Self.FK_purchase_invoice_warehouse1" FromRole="purchase_invoice" ToRole="warehouse" />
-          <NavigationProperty Name="quantity_of_purchased" Relationship="Self.FK_quantity_of_purchased_purchase_invoice1" FromRole="purchase_invoice" ToRole="quantity_of_purchased" />
-        </EntityType>
-        <EntityType Name="quantity_of_purchased">
-          <Key>
-            <PropertyRef Name="purchase_no" />
-            <PropertyRef Name="item_code" />
-            <PropertyRef Name="quantity" />
-          </Key>
-          <Property Name="purchase_no" Type="Int32" Nullable="false" />
-          <Property Name="item_code" Type="Int32" Nullable="false" />
-          <Property Name="quantity" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="item" Relationship="Self.FK_quantity_of_purchased_item" FromRole="quantity_of_purchased" ToRole="item" />
-          <NavigationProperty Name="purchase_invoice" Relationship="Self.FK_quantity_of_purchased_purchase_invoice1" FromRole="quantity_of_purchased" ToRole="purchase_invoice" />
-        </EntityType>
-        <EntityType Name="quantity_of_sold">
-          <Key>
-            <PropertyRef Name="sales_no" />
-            <PropertyRef Name="item_code" />
-            <PropertyRef Name="quatity" />
-          </Key>
-          <Property Name="sales_no" Type="Int32" Nullable="false" />
-          <Property Name="item_code" Type="Int32" Nullable="false" />
-          <Property Name="quatity" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="sales_invoice" Relationship="Self.FK_quantity_of_sold_sales_invoice" FromRole="quantity_of_sold" ToRole="sales_invoice" />
         </EntityType>
         <EntityType Name="sales_invoice">
           <Key>
@@ -390,9 +308,9 @@
           <Property Name="item_code" Type="Int32" />
           <Property Name="warehouse_id" Type="Int32" />
           <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="quantity" Type="Int32" />
           <NavigationProperty Name="customer" Relationship="Self.FK_sales_invoice_customer" FromRole="sales_invoice" ToRole="customer" />
           <NavigationProperty Name="item" Relationship="Self.FK_sales_invoice_item" FromRole="sales_invoice" ToRole="item" />
-          <NavigationProperty Name="quantity_of_sold" Relationship="Self.FK_quantity_of_sold_sales_invoice" FromRole="sales_invoice" ToRole="quantity_of_sold" />
           <NavigationProperty Name="warehouse" Relationship="Self.FK_sales_invoice_warehouse" FromRole="sales_invoice" ToRole="warehouse" />
         </EntityType>
         <EntityType Name="supplier">
@@ -435,7 +353,19 @@
           <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="purchase_invoice" Relationship="Self.FK_purchase_invoice_warehouse1" FromRole="warehouse" ToRole="purchase_invoice" />
           <NavigationProperty Name="sales_invoice" Relationship="Self.FK_sales_invoice_warehouse" FromRole="warehouse" ToRole="sales_invoice" />
-          <NavigationProperty Name="quantity_at_warehouse" Relationship="LinqProjectModel.FK_quantity_at_warehouse_warehouse" FromRole="warehouse" ToRole="quantity_at_warehouse" />
+          <NavigationProperty Name="quantity_at_warehouse" Relationship="Self.FK_quantity_at_warehouse_warehouse" FromRole="warehouse" ToRole="quantity_at_warehouse" />
+        </EntityType>
+        <EntityType Name="quantity_at_warehouse">
+          <Key>
+            <PropertyRef Name="item_code" />
+            <PropertyRef Name="warehouse_id" />
+            <PropertyRef Name="quantity" />
+          </Key>
+          <Property Name="item_code" Type="Int32" Nullable="false" />
+          <Property Name="warehouse_id" Type="Int32" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="item" Relationship="Self.FK_quantity_at_warehouse_item" FromRole="quantity_at_warehouse" ToRole="item" />
+          <NavigationProperty Name="warehouse" Relationship="Self.FK_quantity_at_warehouse_warehouse" FromRole="quantity_at_warehouse" ToRole="warehouse" />
         </EntityType>
         <Association Name="FK_sales_invoice_customer">
           <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
@@ -461,14 +391,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_quantity_of_purchased_item">
+        <Association Name="FK_quantity_at_warehouse_item">
           <End Role="item" Type="Self.item" Multiplicity="1" />
-          <End Role="quantity_of_purchased" Type="Self.quantity_of_purchased" Multiplicity="*" />
+          <End Role="quantity_at_warehouse" Type="Self.quantity_at_warehouse" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="item">
               <PropertyRef Name="code" />
             </Principal>
-            <Dependent Role="quantity_of_purchased">
+            <Dependent Role="quantity_at_warehouse">
               <PropertyRef Name="item_code" />
             </Dependent>
           </ReferentialConstraint>
@@ -521,30 +451,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_quantity_of_purchased_purchase_invoice1">
-          <End Role="purchase_invoice" Type="Self.purchase_invoice" Multiplicity="1" />
-          <End Role="quantity_of_purchased" Type="Self.quantity_of_purchased" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="purchase_invoice">
-              <PropertyRef Name="no" />
-            </Principal>
-            <Dependent Role="quantity_of_purchased">
-              <PropertyRef Name="purchase_no" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_quantity_of_sold_sales_invoice">
-          <End Role="sales_invoice" Type="Self.sales_invoice" Multiplicity="1" />
-          <End Role="quantity_of_sold" Type="Self.quantity_of_sold" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="sales_invoice">
-              <PropertyRef Name="no" />
-            </Principal>
-            <Dependent Role="quantity_of_sold">
-              <PropertyRef Name="sales_no" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_sales_invoice_warehouse">
           <End Role="warehouse" Type="Self.warehouse" Multiplicity="0..1" />
           <End Role="sales_invoice" Type="Self.sales_invoice" Multiplicity="*" />
@@ -557,17 +463,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_quantity_at_warehouse_warehouse">
+          <End Role="warehouse" Type="Self.warehouse" Multiplicity="1" />
+          <End Role="quantity_at_warehouse" Type="Self.quantity_at_warehouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="warehouse">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="quantity_at_warehouse">
+              <PropertyRef Name="warehouse_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="LinqProjectEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="customers" EntityType="Self.customer" />
           <EntitySet Name="items" EntityType="Self.item" />
           <EntitySet Name="purchase_invoice" EntityType="Self.purchase_invoice" />
-          <EntitySet Name="quantity_of_purchased" EntityType="Self.quantity_of_purchased" />
-          <EntitySet Name="quantity_of_sold" EntityType="Self.quantity_of_sold" />
           <EntitySet Name="sales_invoice" EntityType="Self.sales_invoice" />
           <EntitySet Name="suppliers" EntityType="Self.supplier" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="units" EntityType="Self.unit" />
           <EntitySet Name="warehouses" EntityType="Self.warehouse" />
+          <EntitySet Name="quantity_at_warehouse" EntityType="Self.quantity_at_warehouse" />
           <AssociationSet Name="FK_sales_invoice_customer" Association="Self.FK_sales_invoice_customer">
             <End Role="customer" EntitySet="customers" />
             <End Role="sales_invoice" EntitySet="sales_invoice" />
@@ -576,9 +493,9 @@
             <End Role="item" EntitySet="items" />
             <End Role="purchase_invoice" EntitySet="purchase_invoice" />
           </AssociationSet>
-          <AssociationSet Name="FK_quantity_of_purchased_item" Association="Self.FK_quantity_of_purchased_item">
+          <AssociationSet Name="FK_quantity_at_warehouse_item" Association="Self.FK_quantity_at_warehouse_item">
             <End Role="item" EntitySet="items" />
-            <End Role="quantity_of_purchased" EntitySet="quantity_of_purchased" />
+            <End Role="quantity_at_warehouse" EntitySet="quantity_at_warehouse" />
           </AssociationSet>
           <AssociationSet Name="FK_sales_invoice_item" Association="Self.FK_sales_invoice_item">
             <End Role="item" EntitySet="items" />
@@ -596,63 +513,15 @@
             <End Role="warehouse" EntitySet="warehouses" />
             <End Role="purchase_invoice" EntitySet="purchase_invoice" />
           </AssociationSet>
-          <AssociationSet Name="FK_quantity_of_purchased_purchase_invoice1" Association="Self.FK_quantity_of_purchased_purchase_invoice1">
-            <End Role="purchase_invoice" EntitySet="purchase_invoice" />
-            <End Role="quantity_of_purchased" EntitySet="quantity_of_purchased" />
-          </AssociationSet>
-          <AssociationSet Name="FK_quantity_of_sold_sales_invoice" Association="Self.FK_quantity_of_sold_sales_invoice">
-            <End Role="sales_invoice" EntitySet="sales_invoice" />
-            <End Role="quantity_of_sold" EntitySet="quantity_of_sold" />
-          </AssociationSet>
           <AssociationSet Name="FK_sales_invoice_warehouse" Association="Self.FK_sales_invoice_warehouse">
             <End Role="warehouse" EntitySet="warehouses" />
             <End Role="sales_invoice" EntitySet="sales_invoice" />
           </AssociationSet>
-          <EntitySet Name="quantity_at_warehouse" EntityType="LinqProjectModel.quantity_at_warehouse" />
-          <AssociationSet Name="FK_quantity_at_warehouse_item" Association="LinqProjectModel.FK_quantity_at_warehouse_item">
-            <End Role="item" EntitySet="items" />
-            <End Role="quantity_at_warehouse" EntitySet="quantity_at_warehouse" />
-          </AssociationSet>
-          <AssociationSet Name="FK_quantity_at_warehouse_warehouse" Association="LinqProjectModel.FK_quantity_at_warehouse_warehouse">
+          <AssociationSet Name="FK_quantity_at_warehouse_warehouse" Association="Self.FK_quantity_at_warehouse_warehouse">
             <End Role="warehouse" EntitySet="warehouses" />
             <End Role="quantity_at_warehouse" EntitySet="quantity_at_warehouse" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="quantity_at_warehouse">
-          <Key>
-            <PropertyRef Name="item_code" />
-            <PropertyRef Name="warehouse_id" />
-          </Key>
-          <Property Name="item_code" Type="Int32" Nullable="false" />
-          <Property Name="warehouse_id" Type="Int32" Nullable="false" />
-          <Property Name="quantity" Type="Int32" />
-          <NavigationProperty Name="item" Relationship="LinqProjectModel.FK_quantity_at_warehouse_item" FromRole="quantity_at_warehouse" ToRole="item" />
-          <NavigationProperty Name="warehouse" Relationship="LinqProjectModel.FK_quantity_at_warehouse_warehouse" FromRole="quantity_at_warehouse" ToRole="warehouse" />
-        </EntityType>
-        <Association Name="FK_quantity_at_warehouse_item">
-          <End Type="LinqProjectModel.item" Role="item" Multiplicity="1" />
-          <End Type="LinqProjectModel.quantity_at_warehouse" Role="quantity_at_warehouse" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="code" />
-            </Principal>
-            <Dependent Role="quantity_at_warehouse">
-              <PropertyRef Name="item_code" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_quantity_at_warehouse_warehouse">
-          <End Type="LinqProjectModel.warehouse" Role="warehouse" Multiplicity="1" />
-          <End Type="LinqProjectModel.quantity_at_warehouse" Role="quantity_at_warehouse" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="warehouse">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="quantity_at_warehouse">
-              <PropertyRef Name="warehouse_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -675,8 +544,6 @@
               <MappingFragment StoreEntitySet="item">
                 <ScalarProperty Name="code" ColumnName="code" />
                 <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="prod_date" ColumnName="prod_date" />
-                <ScalarProperty Name="exp_date" ColumnName="exp_date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -688,24 +555,9 @@
                 <ScalarProperty Name="item_code" ColumnName="item_code" />
                 <ScalarProperty Name="warehouse_id" ColumnName="warehouse_id" />
                 <ScalarProperty Name="date" ColumnName="date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="quantity_of_purchased">
-            <EntityTypeMapping TypeName="LinqProjectModel.quantity_of_purchased">
-              <MappingFragment StoreEntitySet="quantity_of_purchased">
-                <ScalarProperty Name="purchase_no" ColumnName="purchase_no" />
-                <ScalarProperty Name="item_code" ColumnName="item_code" />
+                <ScalarProperty Name="prod_date" ColumnName="prod_date" />
+                <ScalarProperty Name="exp_date" ColumnName="exp_date" />
                 <ScalarProperty Name="quantity" ColumnName="quantity" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="quantity_of_sold">
-            <EntityTypeMapping TypeName="LinqProjectModel.quantity_of_sold">
-              <MappingFragment StoreEntitySet="quantity_of_sold">
-                <ScalarProperty Name="sales_no" ColumnName="sales_no" />
-                <ScalarProperty Name="item_code" ColumnName="item_code" />
-                <ScalarProperty Name="quatity" ColumnName="quatity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -717,6 +569,7 @@
                 <ScalarProperty Name="item_code" ColumnName="item_code" />
                 <ScalarProperty Name="warehouse_id" ColumnName="warehouse_id" />
                 <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -763,9 +616,9 @@
           <EntitySetMapping Name="quantity_at_warehouse">
             <EntityTypeMapping TypeName="LinqProjectModel.quantity_at_warehouse">
               <MappingFragment StoreEntitySet="quantity_at_warehouse">
-                <ScalarProperty Name="quantity" ColumnName="quantity" />
-                <ScalarProperty Name="warehouse_id" ColumnName="warehouse_id" />
                 <ScalarProperty Name="item_code" ColumnName="item_code" />
+                <ScalarProperty Name="warehouse_id" ColumnName="warehouse_id" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -790,32 +643,6 @@
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams>
-      <Diagram DiagramId="099a6639388241398a1fc5c6ce8256e4" Name="Diagram1" ZoomLevel="59">
-        <EntityTypeShape EntityType="LinqProjectModel.customer" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LinqProjectModel.item" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LinqProjectModel.purchase_invoice" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LinqProjectModel.quantity_of_purchased" Width="1.5" PointX="8.25" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="LinqProjectModel.quantity_of_sold" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LinqProjectModel.sales_invoice" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LinqProjectModel.supplier" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="LinqProjectModel.sysdiagram" Width="1.5" PointX="2.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="LinqProjectModel.unit" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="LinqProjectModel.warehouse" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
-        <AssociationConnector Association="LinqProjectModel.FK_sales_invoice_customer" ManuallyRouted="false" />
-        <AssociationConnector Association="LinqProjectModel.FK_purchase_invoice_item1" ManuallyRouted="false" />
-        <AssociationConnector Association="LinqProjectModel.FK_quantity_of_purchased_item" ManuallyRouted="false" />
-        <AssociationConnector Association="LinqProjectModel.FK_sales_invoice_item" ManuallyRouted="false" />
-        <AssociationConnector Association="LinqProjectModel.FK_unit_item" ManuallyRouted="false" />
-        <AssociationConnector Association="LinqProjectModel.FK_purchase_invoice_supplier1" ManuallyRouted="false" />
-        <AssociationConnector Association="LinqProjectModel.FK_purchase_invoice_warehouse1" ManuallyRouted="false" />
-        <AssociationConnector Association="LinqProjectModel.FK_quantity_of_purchased_purchase_invoice1" ManuallyRouted="false" />
-        <AssociationConnector Association="LinqProjectModel.FK_quantity_of_sold_sales_invoice" ManuallyRouted="false" />
-        <AssociationConnector Association="LinqProjectModel.FK_sales_invoice_warehouse" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="LinqProjectModel.quantity_at_warehouse" Width="1.5" PointX="5" PointY="8.625" />
-        <AssociationConnector Association="LinqProjectModel.FK_quantity_at_warehouse_item" />
-        <AssociationConnector Association="LinqProjectModel.FK_quantity_at_warehouse_warehouse" />
-      </Diagram>
-    </Diagrams>
+    <Diagrams></Diagrams>
   </Designer>
 </edmx:Edmx>

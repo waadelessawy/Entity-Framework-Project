@@ -28,8 +28,6 @@ namespace LinqProject
         public virtual DbSet<customer> customers { get; set; }
         public virtual DbSet<item> items { get; set; }
         public virtual DbSet<purchase_invoice> purchase_invoice { get; set; }
-        public virtual DbSet<quantity_of_purchased> quantity_of_purchased { get; set; }
-        public virtual DbSet<quantity_of_sold> quantity_of_sold { get; set; }
         public virtual DbSet<sales_invoice> sales_invoice { get; set; }
         public virtual DbSet<supplier> suppliers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }

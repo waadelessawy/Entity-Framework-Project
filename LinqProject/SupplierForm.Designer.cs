@@ -47,9 +47,9 @@ namespace LinqProject
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.linqProjectDataSet8 = new LinqProject.LinqProjectDataSet8();
+            this.linqProjectDataSet5 = new LinqProject.LinqProjectDataSet5();
             this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.supplierTableAdapter = new LinqProject.LinqProjectDataSet8TableAdapters.supplierTableAdapter();
+            this.supplierTableAdapter = new LinqProject.LinqProjectDataSet5TableAdapters.supplierTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mobileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +57,7 @@ namespace LinqProject
             this.websiteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,7 +90,7 @@ namespace LinqProject
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(110, 37);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Display";
+            this.button3.Text = "Refresh";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -234,15 +234,15 @@ namespace LinqProject
             this.dataGridView1.Size = new System.Drawing.Size(520, 256);
             this.dataGridView1.TabIndex = 0;
             // 
-            // linqProjectDataSet8
+            // linqProjectDataSet5
             // 
-            this.linqProjectDataSet8.DataSetName = "LinqProjectDataSet8";
-            this.linqProjectDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.linqProjectDataSet5.DataSetName = "LinqProjectDataSet5";
+            this.linqProjectDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // supplierBindingSource
             // 
             this.supplierBindingSource.DataMember = "supplier";
-            this.supplierBindingSource.DataSource = this.linqProjectDataSet8;
+            this.supplierBindingSource.DataSource = this.linqProjectDataSet5;
             // 
             // supplierTableAdapter
             // 
@@ -251,7 +251,7 @@ namespace LinqProject
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "ID";
             this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.Width = 150;
@@ -259,7 +259,7 @@ namespace LinqProject
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.Width = 150;
@@ -267,7 +267,7 @@ namespace LinqProject
             // mobileDataGridViewTextBoxColumn
             // 
             this.mobileDataGridViewTextBoxColumn.DataPropertyName = "mobile";
-            this.mobileDataGridViewTextBoxColumn.HeaderText = "mobile";
+            this.mobileDataGridViewTextBoxColumn.HeaderText = "Mobile";
             this.mobileDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.mobileDataGridViewTextBoxColumn.Name = "mobileDataGridViewTextBoxColumn";
             this.mobileDataGridViewTextBoxColumn.Width = 150;
@@ -275,7 +275,7 @@ namespace LinqProject
             // emailDataGridViewTextBoxColumn
             // 
             this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
             this.emailDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             this.emailDataGridViewTextBoxColumn.Width = 150;
@@ -283,7 +283,7 @@ namespace LinqProject
             // websiteDataGridViewTextBoxColumn
             // 
             this.websiteDataGridViewTextBoxColumn.DataPropertyName = "website";
-            this.websiteDataGridViewTextBoxColumn.HeaderText = "website";
+            this.websiteDataGridViewTextBoxColumn.HeaderText = "Website";
             this.websiteDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.websiteDataGridViewTextBoxColumn.Name = "websiteDataGridViewTextBoxColumn";
             this.websiteDataGridViewTextBoxColumn.Width = 150;
@@ -292,7 +292,7 @@ namespace LinqProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button4);
@@ -306,7 +306,7 @@ namespace LinqProject
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -331,9 +331,9 @@ namespace LinqProject
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private LinqProjectDataSet8 linqProjectDataSet8;
+        private LinqProjectDataSet5 linqProjectDataSet5;
         private System.Windows.Forms.BindingSource supplierBindingSource;
-        private LinqProjectDataSet8TableAdapters.supplierTableAdapter supplierTableAdapter;
+        private LinqProjectDataSet5TableAdapters.supplierTableAdapter supplierTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mobileDataGridViewTextBoxColumn;

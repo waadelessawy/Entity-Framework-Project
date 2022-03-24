@@ -42,18 +42,20 @@ namespace LinqProject
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.quantityatwarehouseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.linqProjectDataSet2 = new LinqProject.LinqProjectDataSet2();
-            this.quantityatwarehouseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.quantity_at_warehouseTableAdapter = new LinqProject.LinqProjectDataSet2TableAdapters.quantity_at_warehouseTableAdapter();
-            this.itemcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.warehouseidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.linqProjectDataSet1 = new LinqProject.LinqProjectDataSet1();
+            this.quantityatwarehouseBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.quantity_at_warehouseTableAdapter = new LinqProject.LinqProjectDataSet1TableAdapters.quantity_at_warehouseTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantityatwarehouseBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityatwarehouseBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -154,18 +156,23 @@ namespace LinqProject
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.itemcodeDataGridViewTextBoxColumn,
-            this.warehouseidDataGridViewTextBoxColumn,
-            this.quantityDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.quantityatwarehouseBindingSource;
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.dataGridView1.DataSource = this.quantityatwarehouseBindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(251, 45);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(534, 219);
             this.dataGridView1.TabIndex = 16;
+            // 
+            // quantityatwarehouseBindingSource
+            // 
+            this.quantityatwarehouseBindingSource.DataMember = "quantity_at_warehouse";
             // 
             // button3
             // 
@@ -174,7 +181,7 @@ namespace LinqProject
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(104, 35);
             this.button3.TabIndex = 17;
-            this.button3.Text = "Display";
+            this.button3.Text = "Refresh";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -196,49 +203,49 @@ namespace LinqProject
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Change Warehouse";
             // 
-            // linqProjectDataSet2
+            // linqProjectDataSet1
             // 
-            this.linqProjectDataSet2.DataSetName = "LinqProjectDataSet2";
-            this.linqProjectDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.linqProjectDataSet1.DataSetName = "LinqProjectDataSet1";
+            this.linqProjectDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // quantityatwarehouseBindingSource
+            // quantityatwarehouseBindingSource1
             // 
-            this.quantityatwarehouseBindingSource.DataMember = "quantity_at_warehouse";
-            this.quantityatwarehouseBindingSource.DataSource = this.linqProjectDataSet2;
+            this.quantityatwarehouseBindingSource1.DataMember = "quantity_at_warehouse";
+            this.quantityatwarehouseBindingSource1.DataSource = this.linqProjectDataSet1;
             // 
             // quantity_at_warehouseTableAdapter
             // 
             this.quantity_at_warehouseTableAdapter.ClearBeforeFill = true;
             // 
-            // itemcodeDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            this.itemcodeDataGridViewTextBoxColumn.DataPropertyName = "item_code";
-            this.itemcodeDataGridViewTextBoxColumn.HeaderText = "item_code";
-            this.itemcodeDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.itemcodeDataGridViewTextBoxColumn.Name = "itemcodeDataGridViewTextBoxColumn";
-            this.itemcodeDataGridViewTextBoxColumn.Width = 150;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "item_code";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Item Code";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 150;
             // 
-            // warehouseidDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.warehouseidDataGridViewTextBoxColumn.DataPropertyName = "warehouse_id";
-            this.warehouseidDataGridViewTextBoxColumn.HeaderText = "warehouse_id";
-            this.warehouseidDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.warehouseidDataGridViewTextBoxColumn.Name = "warehouseidDataGridViewTextBoxColumn";
-            this.warehouseidDataGridViewTextBoxColumn.Width = 150;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "warehouse_id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Warehouse ID";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 150;
             // 
-            // quantityDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn3
             // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "quantity";
-            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.Width = 150;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "quantity";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Quantity";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 150;
             // 
             // ChanegeWarehouseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button3);
@@ -250,10 +257,11 @@ namespace LinqProject
             this.Text = "ChanegeWarehouseForm";
             this.Load += new System.EventHandler(this.ChanegeWarehouseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityatwarehouseBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quantityatwarehouseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityatwarehouseBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,11 +283,17 @@ namespace LinqProject
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private LinqProjectDataSet2 linqProjectDataSet2;
+
         private System.Windows.Forms.BindingSource quantityatwarehouseBindingSource;
-        private LinqProjectDataSet2TableAdapters.quantity_at_warehouseTableAdapter quantity_at_warehouseTableAdapter;
+        //private LinqProjectDataSet2TableAdapters.quantity_at_warehouseTableAdapter quantity_at_warehouseTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemcodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn warehouseidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private LinqProjectDataSet1 linqProjectDataSet1;
+        private System.Windows.Forms.BindingSource quantityatwarehouseBindingSource1;
+        private LinqProjectDataSet1TableAdapters.quantity_at_warehouseTableAdapter quantity_at_warehouseTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }

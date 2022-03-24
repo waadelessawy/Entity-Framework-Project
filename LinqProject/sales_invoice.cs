@@ -14,22 +14,15 @@ namespace LinqProject
     
     public partial class sales_invoice
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public sales_invoice()
-        {
-            this.quantity_of_sold = new HashSet<quantity_of_sold>();
-        }
-    
         public int no { get; set; }
         public Nullable<int> customer_id { get; set; }
         public Nullable<int> item_code { get; set; }
         public Nullable<int> warehouse_id { get; set; }
         public Nullable<System.DateTime> date { get; set; }
+        public Nullable<int> quantity { get; set; }
     
         public virtual customer customer { get; set; }
         public virtual item item { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<quantity_of_sold> quantity_of_sold { get; set; }
         public virtual warehouse warehouse { get; set; }
     }
 }

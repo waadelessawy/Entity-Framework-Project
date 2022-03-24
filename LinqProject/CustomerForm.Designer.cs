@@ -47,11 +47,9 @@ namespace LinqProject
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.linqProjectDataSet = new LinqProject.LinqProjectDataSet();
-            this.linqProjectDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.linqProjectDataSet3 = new LinqProject.LinqProjectDataSet3();
+            this.linqProjectDataSet2 = new LinqProject.LinqProjectDataSet2();
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.customerTableAdapter = new LinqProject.LinqProjectDataSet3TableAdapters.customerTableAdapter();
+            this.customerTableAdapter = new LinqProject.LinqProjectDataSet2TableAdapters.customerTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mobileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,9 +57,7 @@ namespace LinqProject
             this.websiteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,7 +90,7 @@ namespace LinqProject
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 36);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Display";
+            this.button3.Text = "Refresh";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -237,25 +233,15 @@ namespace LinqProject
             this.dataGridView1.Size = new System.Drawing.Size(494, 247);
             this.dataGridView1.TabIndex = 0;
             // 
-            // linqProjectDataSet
+            // linqProjectDataSet2
             // 
-            this.linqProjectDataSet.DataSetName = "LinqProjectDataSet";
-            this.linqProjectDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // linqProjectDataSetBindingSource
-            // 
-            this.linqProjectDataSetBindingSource.DataSource = this.linqProjectDataSet;
-            this.linqProjectDataSetBindingSource.Position = 0;
-            // 
-            // linqProjectDataSet3
-            // 
-            this.linqProjectDataSet3.DataSetName = "LinqProjectDataSet3";
-            this.linqProjectDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.linqProjectDataSet2.DataSetName = "LinqProjectDataSet2";
+            this.linqProjectDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // customerBindingSource
             // 
             this.customerBindingSource.DataMember = "customer";
-            this.customerBindingSource.DataSource = this.linqProjectDataSet3;
+            this.customerBindingSource.DataSource = this.linqProjectDataSet2;
             // 
             // customerTableAdapter
             // 
@@ -264,7 +250,7 @@ namespace LinqProject
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "ID";
             this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.Width = 150;
@@ -272,7 +258,7 @@ namespace LinqProject
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.Width = 150;
@@ -280,7 +266,7 @@ namespace LinqProject
             // mobileDataGridViewTextBoxColumn
             // 
             this.mobileDataGridViewTextBoxColumn.DataPropertyName = "mobile";
-            this.mobileDataGridViewTextBoxColumn.HeaderText = "mobile";
+            this.mobileDataGridViewTextBoxColumn.HeaderText = "Mobile";
             this.mobileDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.mobileDataGridViewTextBoxColumn.Name = "mobileDataGridViewTextBoxColumn";
             this.mobileDataGridViewTextBoxColumn.Width = 150;
@@ -288,7 +274,7 @@ namespace LinqProject
             // emailDataGridViewTextBoxColumn
             // 
             this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
             this.emailDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             this.emailDataGridViewTextBoxColumn.Width = 150;
@@ -296,7 +282,7 @@ namespace LinqProject
             // websiteDataGridViewTextBoxColumn
             // 
             this.websiteDataGridViewTextBoxColumn.DataPropertyName = "website";
-            this.websiteDataGridViewTextBoxColumn.HeaderText = "website";
+            this.websiteDataGridViewTextBoxColumn.HeaderText = "Website";
             this.websiteDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.websiteDataGridViewTextBoxColumn.Name = "websiteDataGridViewTextBoxColumn";
             this.websiteDataGridViewTextBoxColumn.Width = 150;
@@ -305,7 +291,7 @@ namespace LinqProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button4);
@@ -319,9 +305,7 @@ namespace LinqProject
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -346,11 +330,9 @@ namespace LinqProject
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource linqProjectDataSetBindingSource;
-        private LinqProjectDataSet linqProjectDataSet;
-        private LinqProjectDataSet3 linqProjectDataSet3;
+        private LinqProjectDataSet2 linqProjectDataSet2;
         private System.Windows.Forms.BindingSource customerBindingSource;
-        private LinqProjectDataSet3TableAdapters.customerTableAdapter customerTableAdapter;
+        private LinqProjectDataSet2TableAdapters.customerTableAdapter customerTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mobileDataGridViewTextBoxColumn;

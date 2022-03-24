@@ -34,8 +34,9 @@ namespace LinqProject
 
         private void WarehouseForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'linqProjectDataSet9.warehouse' table. You can move, or remove it, as needed.
-            this.warehouseTableAdapter.Fill(this.linqProjectDataSet9.warehouse);
+            // TODO: This line of code loads data into the 'linqProjectDataSet6.warehouse' table. You can move, or remove it, as needed.
+            this.warehouseTableAdapter.Fill(this.linqProjectDataSet6.warehouse);
+
             //on_load
             comboBox1.Items.Clear();
             var houses = from w in myEnt.warehouses select w;

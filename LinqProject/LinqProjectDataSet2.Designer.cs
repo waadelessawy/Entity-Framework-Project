@@ -24,7 +24,7 @@ namespace LinqProject {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class LinqProjectDataSet2 : global::System.Data.DataSet {
         
-        private quantity_at_warehouseDataTable tablequantity_at_warehouse;
+        private customerDataTable tablecustomer;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace LinqProject {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["quantity_at_warehouse"] != null)) {
-                    base.Tables.Add(new quantity_at_warehouseDataTable(ds.Tables["quantity_at_warehouse"]));
+                if ((ds.Tables["customer"] != null)) {
+                    base.Tables.Add(new customerDataTable(ds.Tables["customer"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace LinqProject {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public quantity_at_warehouseDataTable quantity_at_warehouse {
+        public customerDataTable customer {
             get {
-                return this.tablequantity_at_warehouse;
+                return this.tablecustomer;
             }
         }
         
@@ -152,8 +152,8 @@ namespace LinqProject {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["quantity_at_warehouse"] != null)) {
-                    base.Tables.Add(new quantity_at_warehouseDataTable(ds.Tables["quantity_at_warehouse"]));
+                if ((ds.Tables["customer"] != null)) {
+                    base.Tables.Add(new customerDataTable(ds.Tables["customer"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace LinqProject {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablequantity_at_warehouse = ((quantity_at_warehouseDataTable)(base.Tables["quantity_at_warehouse"]));
+            this.tablecustomer = ((customerDataTable)(base.Tables["customer"]));
             if ((initTable == true)) {
-                if ((this.tablequantity_at_warehouse != null)) {
-                    this.tablequantity_at_warehouse.InitVars();
+                if ((this.tablecustomer != null)) {
+                    this.tablecustomer.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace LinqProject {
             this.Namespace = "http://tempuri.org/LinqProjectDataSet2.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablequantity_at_warehouse = new quantity_at_warehouseDataTable();
-            base.Tables.Add(this.tablequantity_at_warehouse);
+            this.tablecustomer = new customerDataTable();
+            base.Tables.Add(this.tablecustomer);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializequantity_at_warehouse() {
+        private bool ShouldSerializecustomer() {
             return false;
         }
         
@@ -270,25 +270,29 @@ namespace LinqProject {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void quantity_at_warehouseRowChangeEventHandler(object sender, quantity_at_warehouseRowChangeEvent e);
+        public delegate void customerRowChangeEventHandler(object sender, customerRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class quantity_at_warehouseDataTable : global::System.Data.TypedTableBase<quantity_at_warehouseRow> {
+        public partial class customerDataTable : global::System.Data.TypedTableBase<customerRow> {
             
-            private global::System.Data.DataColumn columnitem_code;
+            private global::System.Data.DataColumn columnid;
             
-            private global::System.Data.DataColumn columnwarehouse_id;
+            private global::System.Data.DataColumn columnname;
             
-            private global::System.Data.DataColumn columnquantity;
+            private global::System.Data.DataColumn columnmobile;
+            
+            private global::System.Data.DataColumn columnemail;
+            
+            private global::System.Data.DataColumn columnwebsite;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public quantity_at_warehouseDataTable() {
-                this.TableName = "quantity_at_warehouse";
+            public customerDataTable() {
+                this.TableName = "customer";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -296,7 +300,7 @@ namespace LinqProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal quantity_at_warehouseDataTable(global::System.Data.DataTable table) {
+            internal customerDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -313,32 +317,48 @@ namespace LinqProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected quantity_at_warehouseDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected customerDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn item_codeColumn {
+            public global::System.Data.DataColumn idColumn {
                 get {
-                    return this.columnitem_code;
+                    return this.columnid;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn warehouse_idColumn {
+            public global::System.Data.DataColumn nameColumn {
                 get {
-                    return this.columnwarehouse_id;
+                    return this.columnname;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn quantityColumn {
+            public global::System.Data.DataColumn mobileColumn {
                 get {
-                    return this.columnquantity;
+                    return this.columnmobile;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn emailColumn {
+                get {
+                    return this.columnemail;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn websiteColumn {
+                get {
+                    return this.columnwebsite;
                 }
             }
             
@@ -353,47 +373,56 @@ namespace LinqProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public quantity_at_warehouseRow this[int index] {
+            public customerRow this[int index] {
                 get {
-                    return ((quantity_at_warehouseRow)(this.Rows[index]));
+                    return ((customerRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event quantity_at_warehouseRowChangeEventHandler quantity_at_warehouseRowChanging;
+            public event customerRowChangeEventHandler customerRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event quantity_at_warehouseRowChangeEventHandler quantity_at_warehouseRowChanged;
+            public event customerRowChangeEventHandler customerRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event quantity_at_warehouseRowChangeEventHandler quantity_at_warehouseRowDeleting;
+            public event customerRowChangeEventHandler customerRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event quantity_at_warehouseRowChangeEventHandler quantity_at_warehouseRowDeleted;
+            public event customerRowChangeEventHandler customerRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Addquantity_at_warehouseRow(quantity_at_warehouseRow row) {
+            public void AddcustomerRow(customerRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public quantity_at_warehouseRow Addquantity_at_warehouseRow(int item_code, int warehouse_id, int quantity) {
-                quantity_at_warehouseRow rowquantity_at_warehouseRow = ((quantity_at_warehouseRow)(this.NewRow()));
+            public customerRow AddcustomerRow(int id, string name, long mobile, string email, string website) {
+                customerRow rowcustomerRow = ((customerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        item_code,
-                        warehouse_id,
-                        quantity};
-                rowquantity_at_warehouseRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowquantity_at_warehouseRow);
-                return rowquantity_at_warehouseRow;
+                        id,
+                        name,
+                        mobile,
+                        email,
+                        website};
+                rowcustomerRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowcustomerRow);
+                return rowcustomerRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public customerRow FindByid(int id) {
+                return ((customerRow)(this.Rows.Find(new object[] {
+                            id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                quantity_at_warehouseDataTable cln = ((quantity_at_warehouseDataTable)(base.Clone()));
+                customerDataTable cln = ((customerDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -401,55 +430,65 @@ namespace LinqProject {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new quantity_at_warehouseDataTable();
+                return new customerDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnitem_code = base.Columns["item_code"];
-                this.columnwarehouse_id = base.Columns["warehouse_id"];
-                this.columnquantity = base.Columns["quantity"];
+                this.columnid = base.Columns["id"];
+                this.columnname = base.Columns["name"];
+                this.columnmobile = base.Columns["mobile"];
+                this.columnemail = base.Columns["email"];
+                this.columnwebsite = base.Columns["website"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnitem_code = new global::System.Data.DataColumn("item_code", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnitem_code);
-                this.columnwarehouse_id = new global::System.Data.DataColumn("warehouse_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnwarehouse_id);
-                this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnquantity);
-                this.columnitem_code.AllowDBNull = false;
-                this.columnwarehouse_id.AllowDBNull = false;
-                this.columnquantity.AllowDBNull = false;
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
+                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnname);
+                this.columnmobile = new global::System.Data.DataColumn("mobile", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmobile);
+                this.columnemail = new global::System.Data.DataColumn("email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnemail);
+                this.columnwebsite = new global::System.Data.DataColumn("website", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwebsite);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid}, true));
+                this.columnid.AllowDBNull = false;
+                this.columnid.Unique = true;
+                this.columnname.MaxLength = 50;
+                this.columnemail.MaxLength = 50;
+                this.columnwebsite.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public quantity_at_warehouseRow Newquantity_at_warehouseRow() {
-                return ((quantity_at_warehouseRow)(this.NewRow()));
+            public customerRow NewcustomerRow() {
+                return ((customerRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new quantity_at_warehouseRow(builder);
+                return new customerRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(quantity_at_warehouseRow);
+                return typeof(customerRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.quantity_at_warehouseRowChanged != null)) {
-                    this.quantity_at_warehouseRowChanged(this, new quantity_at_warehouseRowChangeEvent(((quantity_at_warehouseRow)(e.Row)), e.Action));
+                if ((this.customerRowChanged != null)) {
+                    this.customerRowChanged(this, new customerRowChangeEvent(((customerRow)(e.Row)), e.Action));
                 }
             }
             
@@ -457,8 +496,8 @@ namespace LinqProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.quantity_at_warehouseRowChanging != null)) {
-                    this.quantity_at_warehouseRowChanging(this, new quantity_at_warehouseRowChangeEvent(((quantity_at_warehouseRow)(e.Row)), e.Action));
+                if ((this.customerRowChanging != null)) {
+                    this.customerRowChanging(this, new customerRowChangeEvent(((customerRow)(e.Row)), e.Action));
                 }
             }
             
@@ -466,8 +505,8 @@ namespace LinqProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.quantity_at_warehouseRowDeleted != null)) {
-                    this.quantity_at_warehouseRowDeleted(this, new quantity_at_warehouseRowChangeEvent(((quantity_at_warehouseRow)(e.Row)), e.Action));
+                if ((this.customerRowDeleted != null)) {
+                    this.customerRowDeleted(this, new customerRowChangeEvent(((customerRow)(e.Row)), e.Action));
                 }
             }
             
@@ -475,14 +514,14 @@ namespace LinqProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.quantity_at_warehouseRowDeleting != null)) {
-                    this.quantity_at_warehouseRowDeleting(this, new quantity_at_warehouseRowChangeEvent(((quantity_at_warehouseRow)(e.Row)), e.Action));
+                if ((this.customerRowDeleting != null)) {
+                    this.customerRowDeleting(this, new customerRowChangeEvent(((customerRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Removequantity_at_warehouseRow(quantity_at_warehouseRow row) {
+            public void RemovecustomerRow(customerRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -509,7 +548,7 @@ namespace LinqProject {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "quantity_at_warehouseDataTable";
+                attribute2.FixedValue = "customerDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -553,48 +592,138 @@ namespace LinqProject {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class quantity_at_warehouseRow : global::System.Data.DataRow {
+        public partial class customerRow : global::System.Data.DataRow {
             
-            private quantity_at_warehouseDataTable tablequantity_at_warehouse;
+            private customerDataTable tablecustomer;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal quantity_at_warehouseRow(global::System.Data.DataRowBuilder rb) : 
+            internal customerRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablequantity_at_warehouse = ((quantity_at_warehouseDataTable)(this.Table));
+                this.tablecustomer = ((customerDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int item_code {
+            public int id {
                 get {
-                    return ((int)(this[this.tablequantity_at_warehouse.item_codeColumn]));
+                    return ((int)(this[this.tablecustomer.idColumn]));
                 }
                 set {
-                    this[this.tablequantity_at_warehouse.item_codeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int warehouse_id {
-                get {
-                    return ((int)(this[this.tablequantity_at_warehouse.warehouse_idColumn]));
-                }
-                set {
-                    this[this.tablequantity_at_warehouse.warehouse_idColumn] = value;
+                    this[this.tablecustomer.idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int quantity {
+            public string name {
                 get {
-                    return ((int)(this[this.tablequantity_at_warehouse.quantityColumn]));
+                    try {
+                        return ((string)(this[this.tablecustomer.nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'customer\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tablequantity_at_warehouse.quantityColumn] = value;
+                    this[this.tablecustomer.nameColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public long mobile {
+                get {
+                    try {
+                        return ((long)(this[this.tablecustomer.mobileColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'mobile\' in table \'customer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecustomer.mobileColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string email {
+                get {
+                    try {
+                        return ((string)(this[this.tablecustomer.emailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'email\' in table \'customer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecustomer.emailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string website {
+                get {
+                    try {
+                        return ((string)(this[this.tablecustomer.websiteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'website\' in table \'customer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecustomer.websiteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnameNull() {
+                return this.IsNull(this.tablecustomer.nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnameNull() {
+                this[this.tablecustomer.nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsmobileNull() {
+                return this.IsNull(this.tablecustomer.mobileColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetmobileNull() {
+                this[this.tablecustomer.mobileColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsemailNull() {
+                return this.IsNull(this.tablecustomer.emailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetemailNull() {
+                this[this.tablecustomer.emailColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IswebsiteNull() {
+                return this.IsNull(this.tablecustomer.websiteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetwebsiteNull() {
+                this[this.tablecustomer.websiteColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -602,22 +731,22 @@ namespace LinqProject {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class quantity_at_warehouseRowChangeEvent : global::System.EventArgs {
+        public class customerRowChangeEvent : global::System.EventArgs {
             
-            private quantity_at_warehouseRow eventRow;
+            private customerRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public quantity_at_warehouseRowChangeEvent(quantity_at_warehouseRow row, global::System.Data.DataRowAction action) {
+            public customerRowChangeEvent(customerRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public quantity_at_warehouseRow Row {
+            public customerRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -645,7 +774,7 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class quantity_at_warehouseTableAdapter : global::System.ComponentModel.Component {
+    public partial class customerTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -659,7 +788,7 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public quantity_at_warehouseTableAdapter() {
+        public customerTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -756,19 +885,56 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "quantity_at_warehouse";
-            tableMapping.ColumnMappings.Add("item_code", "item_code");
-            tableMapping.ColumnMappings.Add("warehouse_id", "warehouse_id");
-            tableMapping.ColumnMappings.Add("quantity", "quantity");
+            tableMapping.DataSetTable = "customer";
+            tableMapping.ColumnMappings.Add("id", "id");
+            tableMapping.ColumnMappings.Add("name", "name");
+            tableMapping.ColumnMappings.Add("mobile", "mobile");
+            tableMapping.ColumnMappings.Add("email", "email");
+            tableMapping.ColumnMappings.Add("website", "website");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[customer] WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_mobile = 1 AND [mobile] IS NULL) OR ([mobile] = @Original_mobile)) AND ((@IsNull_email = 1 AND [email] IS NULL) OR ([email] = @Original_email)) AND ((@IsNull_website = 1 AND [website] IS NULL) OR ([website] = @Original_website)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_mobile", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "mobile", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_mobile", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "mobile", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_email", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_website", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "website", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_website", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "website", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[quantity_at_warehouse] ([item_code], [warehouse_id], [quantity" +
-                "]) VALUES (@item_code, @warehouse_id, @quantity)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[customer] ([id], [name], [mobile], [email], [website]) VALUES " +
+                "(@id, @name, @mobile, @email, @website);\r\nSELECT id, name, mobile, email, websit" +
+                "e FROM customer WHERE (id = @id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@item_code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@warehouse_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "warehouse_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@quantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mobile", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "mobile", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@website", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "website", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[customer] SET [id] = @id, [name] = @name, [mobile] = @mobile, [email] = @email, [website] = @website WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_mobile = 1 AND [mobile] IS NULL) OR ([mobile] = @Original_mobile)) AND ((@IsNull_email = 1 AND [email] IS NULL) OR ([email] = @Original_email)) AND ((@IsNull_website = 1 AND [website] IS NULL) OR ([website] = @Original_website)));
+SELECT id, name, mobile, email, website FROM customer WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mobile", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "mobile", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@website", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "website", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_mobile", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "mobile", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_mobile", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "mobile", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_email", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_website", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "website", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_website", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "website", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -784,7 +950,7 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT item_code, warehouse_id, quantity FROM dbo.quantity_at_warehouse";
+            this._commandCollection[0].CommandText = "SELECT id, name, mobile, email, website FROM dbo.customer";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -792,7 +958,7 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(LinqProjectDataSet2.quantity_at_warehouseDataTable dataTable) {
+        public virtual int Fill(LinqProjectDataSet2.customerDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -805,9 +971,9 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual LinqProjectDataSet2.quantity_at_warehouseDataTable GetData() {
+        public virtual LinqProjectDataSet2.customerDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            LinqProjectDataSet2.quantity_at_warehouseDataTable dataTable = new LinqProjectDataSet2.quantity_at_warehouseDataTable();
+            LinqProjectDataSet2.customerDataTable dataTable = new LinqProjectDataSet2.customerDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -815,7 +981,7 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(LinqProjectDataSet2.quantity_at_warehouseDataTable dataTable) {
+        public virtual int Update(LinqProjectDataSet2.customerDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -823,7 +989,7 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(LinqProjectDataSet2 dataSet) {
-            return this.Adapter.Update(dataSet, "quantity_at_warehouse");
+            return this.Adapter.Update(dataSet, "customer");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -844,11 +1010,87 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_id, string Original_name, global::System.Nullable<long> Original_mobile, string Original_email, string Original_website) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
+            if ((Original_name == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_name));
+            }
+            if ((Original_mobile.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((long)(Original_mobile.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_email == null)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_email));
+            }
+            if ((Original_website == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_website));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int item_code, int warehouse_id, int quantity) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(item_code));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(warehouse_id));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(quantity));
+        public virtual int Insert(int id, string name, global::System.Nullable<long> mobile, string email, string website) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id));
+            if ((name == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(name));
+            }
+            if ((mobile.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((long)(mobile.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((email == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(email));
+            }
+            if ((website == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(website));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -864,6 +1106,93 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
                 }
             }
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int id, string name, global::System.Nullable<long> mobile, string email, string website, int Original_id, string Original_name, global::System.Nullable<long> Original_mobile, string Original_email, string Original_website) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(id));
+            if ((name == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(name));
+            }
+            if ((mobile.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((long)(mobile.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((email == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(email));
+            }
+            if ((website == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(website));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_id));
+            if ((Original_name == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_name));
+            }
+            if ((Original_mobile.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((long)(Original_mobile.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Original_email == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_email));
+            }
+            if ((Original_website == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_website));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string name, global::System.Nullable<long> mobile, string email, string website, int Original_id, string Original_name, global::System.Nullable<long> Original_mobile, string Original_email, string Original_website) {
+            return this.Update(Original_id, name, mobile, email, website, Original_id, Original_name, Original_mobile, Original_email, Original_website);
+        }
     }
     
     /// <summary>
@@ -878,7 +1207,7 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private quantity_at_warehouseTableAdapter _quantity_at_warehouseTableAdapter;
+        private customerTableAdapter _customerTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -900,12 +1229,12 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public quantity_at_warehouseTableAdapter quantity_at_warehouseTableAdapter {
+        public customerTableAdapter customerTableAdapter {
             get {
-                return this._quantity_at_warehouseTableAdapter;
+                return this._customerTableAdapter;
             }
             set {
-                this._quantity_at_warehouseTableAdapter = value;
+                this._customerTableAdapter = value;
             }
         }
         
@@ -928,9 +1257,9 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._quantity_at_warehouseTableAdapter != null) 
-                            && (this._quantity_at_warehouseTableAdapter.Connection != null))) {
-                    return this._quantity_at_warehouseTableAdapter.Connection;
+                if (((this._customerTableAdapter != null) 
+                            && (this._customerTableAdapter.Connection != null))) {
+                    return this._customerTableAdapter.Connection;
                 }
                 return null;
             }
@@ -945,7 +1274,7 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._quantity_at_warehouseTableAdapter != null)) {
+                if ((this._customerTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -959,12 +1288,12 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(LinqProjectDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._quantity_at_warehouseTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.quantity_at_warehouse.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._customerTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.customer.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._quantity_at_warehouseTableAdapter.Update(updatedRows));
+                    result = (result + this._customerTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -978,11 +1307,11 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(LinqProjectDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._quantity_at_warehouseTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.quantity_at_warehouse.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._customerTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.customer.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._quantity_at_warehouseTableAdapter.Update(addedRows));
+                    result = (result + this._customerTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -996,11 +1325,11 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(LinqProjectDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._quantity_at_warehouseTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.quantity_at_warehouse.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._customerTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.customer.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._quantity_at_warehouseTableAdapter.Update(deletedRows));
+                    result = (result + this._customerTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1043,8 +1372,8 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._quantity_at_warehouseTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._quantity_at_warehouseTableAdapter.Connection) == false))) {
+            if (((this._customerTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._customerTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1080,13 +1409,13 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._quantity_at_warehouseTableAdapter != null)) {
-                    revertConnections.Add(this._quantity_at_warehouseTableAdapter, this._quantity_at_warehouseTableAdapter.Connection);
-                    this._quantity_at_warehouseTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._quantity_at_warehouseTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._quantity_at_warehouseTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._quantity_at_warehouseTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._quantity_at_warehouseTableAdapter.Adapter);
+                if ((this._customerTableAdapter != null)) {
+                    revertConnections.Add(this._customerTableAdapter, this._customerTableAdapter.Connection);
+                    this._customerTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._customerTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._customerTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._customerTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._customerTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1147,9 +1476,9 @@ namespace LinqProject.LinqProjectDataSet2TableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._quantity_at_warehouseTableAdapter != null)) {
-                    this._quantity_at_warehouseTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._quantity_at_warehouseTableAdapter]));
-                    this._quantity_at_warehouseTableAdapter.Transaction = null;
+                if ((this._customerTableAdapter != null)) {
+                    this._customerTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._customerTableAdapter]));
+                    this._customerTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

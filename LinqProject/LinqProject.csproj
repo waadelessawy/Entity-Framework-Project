@@ -125,9 +125,6 @@
     <Compile Include="itemForm.Designer.cs">
       <DependentUpon>itemForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LinqProjectDataSet.cs">
-      <DependentUpon>LinqProjectDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="LinqProjectDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -163,21 +160,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LinqProjectDataSet6.xsd</DependentUpon>
     </Compile>
-    <Compile Include="LinqProjectDataSet7.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LinqProjectDataSet7.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="LinqProjectDataSet8.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LinqProjectDataSet8.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="LinqProjectDataSet9.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LinqProjectDataSet9.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PurchaseInvoiceForm.cs">
@@ -190,12 +172,6 @@
       <DependentUpon>EF1.tt</DependentUpon>
     </Compile>
     <Compile Include="quantity_at_warehouse.cs">
-      <DependentUpon>EF1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="quantity_of_purchased.cs">
-      <DependentUpon>EF1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="quantity_of_sold.cs">
       <DependentUpon>EF1.tt</DependentUpon>
     </Compile>
     <Compile Include="Report2Form.cs">
@@ -416,39 +392,6 @@
     <None Include="LinqProjectDataSet6.xss">
       <DependentUpon>LinqProjectDataSet6.xsd</DependentUpon>
     </None>
-    <None Include="LinqProjectDataSet7.xsc">
-      <DependentUpon>LinqProjectDataSet7.xsd</DependentUpon>
-    </None>
-    <None Include="LinqProjectDataSet7.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LinqProjectDataSet7.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LinqProjectDataSet7.xss">
-      <DependentUpon>LinqProjectDataSet7.xsd</DependentUpon>
-    </None>
-    <None Include="LinqProjectDataSet8.xsc">
-      <DependentUpon>LinqProjectDataSet8.xsd</DependentUpon>
-    </None>
-    <None Include="LinqProjectDataSet8.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LinqProjectDataSet8.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LinqProjectDataSet8.xss">
-      <DependentUpon>LinqProjectDataSet8.xsd</DependentUpon>
-    </None>
-    <None Include="LinqProjectDataSet9.xsc">
-      <DependentUpon>LinqProjectDataSet9.xsd</DependentUpon>
-    </None>
-    <None Include="LinqProjectDataSet9.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LinqProjectDataSet9.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LinqProjectDataSet9.xss">
-      <DependentUpon>LinqProjectDataSet9.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -464,10 +407,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\report.png" />
     <Content Include="EF1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EF1.Context.cs</LastGenOutput>
       <DependentUpon>EF1.edmx</DependentUpon>
+      <LastGenOutput>EF1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="EF1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

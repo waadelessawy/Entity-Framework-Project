@@ -16,7 +16,7 @@ namespace LinqProject
     {
         public int item_code { get; set; }
         public int warehouse_id { get; set; }
-        public Nullable<int> quantity { get; set; }
+        public int quantity { get; set; }
     
         public virtual item item { get; set; }
         public virtual warehouse warehouse { get; set; }

@@ -24,7 +24,7 @@ namespace LinqProject {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class LinqProjectDataSet1 : global::System.Data.DataSet {
         
-        private itemDataTable tableitem;
+        private quantity_at_warehouseDataTable tablequantity_at_warehouse;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace LinqProject {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["item"] != null)) {
-                    base.Tables.Add(new itemDataTable(ds.Tables["item"]));
+                if ((ds.Tables["quantity_at_warehouse"] != null)) {
+                    base.Tables.Add(new quantity_at_warehouseDataTable(ds.Tables["quantity_at_warehouse"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace LinqProject {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public itemDataTable item {
+        public quantity_at_warehouseDataTable quantity_at_warehouse {
             get {
-                return this.tableitem;
+                return this.tablequantity_at_warehouse;
             }
         }
         
@@ -152,8 +152,8 @@ namespace LinqProject {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["item"] != null)) {
-                    base.Tables.Add(new itemDataTable(ds.Tables["item"]));
+                if ((ds.Tables["quantity_at_warehouse"] != null)) {
+                    base.Tables.Add(new quantity_at_warehouseDataTable(ds.Tables["quantity_at_warehouse"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace LinqProject {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableitem = ((itemDataTable)(base.Tables["item"]));
+            this.tablequantity_at_warehouse = ((quantity_at_warehouseDataTable)(base.Tables["quantity_at_warehouse"]));
             if ((initTable == true)) {
-                if ((this.tableitem != null)) {
-                    this.tableitem.InitVars();
+                if ((this.tablequantity_at_warehouse != null)) {
+                    this.tablequantity_at_warehouse.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace LinqProject {
             this.Namespace = "http://tempuri.org/LinqProjectDataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableitem = new itemDataTable();
-            base.Tables.Add(this.tableitem);
+            this.tablequantity_at_warehouse = new quantity_at_warehouseDataTable();
+            base.Tables.Add(this.tablequantity_at_warehouse);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeitem() {
+        private bool ShouldSerializequantity_at_warehouse() {
             return false;
         }
         
@@ -270,27 +270,25 @@ namespace LinqProject {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void itemRowChangeEventHandler(object sender, itemRowChangeEvent e);
+        public delegate void quantity_at_warehouseRowChangeEventHandler(object sender, quantity_at_warehouseRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class itemDataTable : global::System.Data.TypedTableBase<itemRow> {
+        public partial class quantity_at_warehouseDataTable : global::System.Data.TypedTableBase<quantity_at_warehouseRow> {
             
-            private global::System.Data.DataColumn columncode;
+            private global::System.Data.DataColumn columnitem_code;
             
-            private global::System.Data.DataColumn columnname;
+            private global::System.Data.DataColumn columnwarehouse_id;
             
-            private global::System.Data.DataColumn columnprod_date;
-            
-            private global::System.Data.DataColumn columnexp_date;
+            private global::System.Data.DataColumn columnquantity;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public itemDataTable() {
-                this.TableName = "item";
+            public quantity_at_warehouseDataTable() {
+                this.TableName = "quantity_at_warehouse";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -298,7 +296,7 @@ namespace LinqProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal itemDataTable(global::System.Data.DataTable table) {
+            internal quantity_at_warehouseDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -315,40 +313,32 @@ namespace LinqProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected itemDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected quantity_at_warehouseDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn codeColumn {
+            public global::System.Data.DataColumn item_codeColumn {
                 get {
-                    return this.columncode;
+                    return this.columnitem_code;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn nameColumn {
+            public global::System.Data.DataColumn warehouse_idColumn {
                 get {
-                    return this.columnname;
+                    return this.columnwarehouse_id;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn prod_dateColumn {
+            public global::System.Data.DataColumn quantityColumn {
                 get {
-                    return this.columnprod_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn exp_dateColumn {
-                get {
-                    return this.columnexp_date;
+                    return this.columnquantity;
                 }
             }
             
@@ -363,55 +353,47 @@ namespace LinqProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public itemRow this[int index] {
+            public quantity_at_warehouseRow this[int index] {
                 get {
-                    return ((itemRow)(this.Rows[index]));
+                    return ((quantity_at_warehouseRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event itemRowChangeEventHandler itemRowChanging;
+            public event quantity_at_warehouseRowChangeEventHandler quantity_at_warehouseRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event itemRowChangeEventHandler itemRowChanged;
+            public event quantity_at_warehouseRowChangeEventHandler quantity_at_warehouseRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event itemRowChangeEventHandler itemRowDeleting;
+            public event quantity_at_warehouseRowChangeEventHandler quantity_at_warehouseRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event itemRowChangeEventHandler itemRowDeleted;
+            public event quantity_at_warehouseRowChangeEventHandler quantity_at_warehouseRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AdditemRow(itemRow row) {
+            public void Addquantity_at_warehouseRow(quantity_at_warehouseRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public itemRow AdditemRow(int code, string name, System.DateTime prod_date, System.DateTime exp_date) {
-                itemRow rowitemRow = ((itemRow)(this.NewRow()));
+            public quantity_at_warehouseRow Addquantity_at_warehouseRow(int item_code, int warehouse_id, int quantity) {
+                quantity_at_warehouseRow rowquantity_at_warehouseRow = ((quantity_at_warehouseRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        code,
-                        name,
-                        prod_date,
-                        exp_date};
-                rowitemRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowitemRow);
-                return rowitemRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public itemRow FindBycode(int code) {
-                return ((itemRow)(this.Rows.Find(new object[] {
-                            code})));
+                        item_code,
+                        warehouse_id,
+                        quantity};
+                rowquantity_at_warehouseRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowquantity_at_warehouseRow);
+                return rowquantity_at_warehouseRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                itemDataTable cln = ((itemDataTable)(base.Clone()));
+                quantity_at_warehouseDataTable cln = ((quantity_at_warehouseDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -419,60 +401,55 @@ namespace LinqProject {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new itemDataTable();
+                return new quantity_at_warehouseDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columncode = base.Columns["code"];
-                this.columnname = base.Columns["name"];
-                this.columnprod_date = base.Columns["prod_date"];
-                this.columnexp_date = base.Columns["exp_date"];
+                this.columnitem_code = base.Columns["item_code"];
+                this.columnwarehouse_id = base.Columns["warehouse_id"];
+                this.columnquantity = base.Columns["quantity"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columncode = new global::System.Data.DataColumn("code", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncode);
-                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnname);
-                this.columnprod_date = new global::System.Data.DataColumn("prod_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnprod_date);
-                this.columnexp_date = new global::System.Data.DataColumn("exp_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnexp_date);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columncode}, true));
-                this.columncode.AllowDBNull = false;
-                this.columncode.Unique = true;
-                this.columnname.MaxLength = 50;
+                this.columnitem_code = new global::System.Data.DataColumn("item_code", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnitem_code);
+                this.columnwarehouse_id = new global::System.Data.DataColumn("warehouse_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwarehouse_id);
+                this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnquantity);
+                this.columnitem_code.AllowDBNull = false;
+                this.columnwarehouse_id.AllowDBNull = false;
+                this.columnquantity.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public itemRow NewitemRow() {
-                return ((itemRow)(this.NewRow()));
+            public quantity_at_warehouseRow Newquantity_at_warehouseRow() {
+                return ((quantity_at_warehouseRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new itemRow(builder);
+                return new quantity_at_warehouseRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(itemRow);
+                return typeof(quantity_at_warehouseRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.itemRowChanged != null)) {
-                    this.itemRowChanged(this, new itemRowChangeEvent(((itemRow)(e.Row)), e.Action));
+                if ((this.quantity_at_warehouseRowChanged != null)) {
+                    this.quantity_at_warehouseRowChanged(this, new quantity_at_warehouseRowChangeEvent(((quantity_at_warehouseRow)(e.Row)), e.Action));
                 }
             }
             
@@ -480,8 +457,8 @@ namespace LinqProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.itemRowChanging != null)) {
-                    this.itemRowChanging(this, new itemRowChangeEvent(((itemRow)(e.Row)), e.Action));
+                if ((this.quantity_at_warehouseRowChanging != null)) {
+                    this.quantity_at_warehouseRowChanging(this, new quantity_at_warehouseRowChangeEvent(((quantity_at_warehouseRow)(e.Row)), e.Action));
                 }
             }
             
@@ -489,8 +466,8 @@ namespace LinqProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.itemRowDeleted != null)) {
-                    this.itemRowDeleted(this, new itemRowChangeEvent(((itemRow)(e.Row)), e.Action));
+                if ((this.quantity_at_warehouseRowDeleted != null)) {
+                    this.quantity_at_warehouseRowDeleted(this, new quantity_at_warehouseRowChangeEvent(((quantity_at_warehouseRow)(e.Row)), e.Action));
                 }
             }
             
@@ -498,14 +475,14 @@ namespace LinqProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.itemRowDeleting != null)) {
-                    this.itemRowDeleting(this, new itemRowChangeEvent(((itemRow)(e.Row)), e.Action));
+                if ((this.quantity_at_warehouseRowDeleting != null)) {
+                    this.quantity_at_warehouseRowDeleting(this, new quantity_at_warehouseRowChangeEvent(((quantity_at_warehouseRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveitemRow(itemRow row) {
+            public void Removequantity_at_warehouseRow(quantity_at_warehouseRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -532,7 +509,7 @@ namespace LinqProject {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "itemDataTable";
+                attribute2.FixedValue = "quantity_at_warehouseDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -576,110 +553,48 @@ namespace LinqProject {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class itemRow : global::System.Data.DataRow {
+        public partial class quantity_at_warehouseRow : global::System.Data.DataRow {
             
-            private itemDataTable tableitem;
+            private quantity_at_warehouseDataTable tablequantity_at_warehouse;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal itemRow(global::System.Data.DataRowBuilder rb) : 
+            internal quantity_at_warehouseRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableitem = ((itemDataTable)(this.Table));
+                this.tablequantity_at_warehouse = ((quantity_at_warehouseDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int code {
+            public int item_code {
                 get {
-                    return ((int)(this[this.tableitem.codeColumn]));
+                    return ((int)(this[this.tablequantity_at_warehouse.item_codeColumn]));
                 }
                 set {
-                    this[this.tableitem.codeColumn] = value;
+                    this[this.tablequantity_at_warehouse.item_codeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string name {
+            public int warehouse_id {
                 get {
-                    try {
-                        return ((string)(this[this.tableitem.nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'item\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tablequantity_at_warehouse.warehouse_idColumn]));
                 }
                 set {
-                    this[this.tableitem.nameColumn] = value;
+                    this[this.tablequantity_at_warehouse.warehouse_idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime prod_date {
+            public int quantity {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableitem.prod_dateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'prod_date\' in table \'item\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tablequantity_at_warehouse.quantityColumn]));
                 }
                 set {
-                    this[this.tableitem.prod_dateColumn] = value;
+                    this[this.tablequantity_at_warehouse.quantityColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime exp_date {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableitem.exp_dateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'exp_date\' in table \'item\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableitem.exp_dateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsnameNull() {
-                return this.IsNull(this.tableitem.nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetnameNull() {
-                this[this.tableitem.nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isprod_dateNull() {
-                return this.IsNull(this.tableitem.prod_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setprod_dateNull() {
-                this[this.tableitem.prod_dateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isexp_dateNull() {
-                return this.IsNull(this.tableitem.exp_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setexp_dateNull() {
-                this[this.tableitem.exp_dateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -687,22 +602,22 @@ namespace LinqProject {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class itemRowChangeEvent : global::System.EventArgs {
+        public class quantity_at_warehouseRowChangeEvent : global::System.EventArgs {
             
-            private itemRow eventRow;
+            private quantity_at_warehouseRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public itemRowChangeEvent(itemRow row, global::System.Data.DataRowAction action) {
+            public quantity_at_warehouseRowChangeEvent(quantity_at_warehouseRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public itemRow Row {
+            public quantity_at_warehouseRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -730,7 +645,7 @@ namespace LinqProject.LinqProjectDataSet1TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class itemTableAdapter : global::System.ComponentModel.Component {
+    public partial class quantity_at_warehouseTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -744,7 +659,7 @@ namespace LinqProject.LinqProjectDataSet1TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public itemTableAdapter() {
+        public quantity_at_warehouseTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -841,49 +756,19 @@ namespace LinqProject.LinqProjectDataSet1TableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "item";
-            tableMapping.ColumnMappings.Add("code", "code");
-            tableMapping.ColumnMappings.Add("name", "name");
-            tableMapping.ColumnMappings.Add("prod_date", "prod_date");
-            tableMapping.ColumnMappings.Add("exp_date", "exp_date");
+            tableMapping.DataSetTable = "quantity_at_warehouse";
+            tableMapping.ColumnMappings.Add("item_code", "item_code");
+            tableMapping.ColumnMappings.Add("warehouse_id", "warehouse_id");
+            tableMapping.ColumnMappings.Add("quantity", "quantity");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[item] WHERE (([code] = @Original_code) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_prod_date = 1 AND [prod_date] IS NULL) OR ([prod_date] = @Original_prod_date)) AND ((@IsNull_exp_date = 1 AND [exp_date] IS NULL) OR ([exp_date] = @Original_exp_date)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_prod_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prod_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_prod_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prod_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_exp_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "exp_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_exp_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "exp_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[item] ([code], [name], [prod_date], [exp_date]) VALUES (@code," +
-                " @name, @prod_date, @exp_date);\r\nSELECT code, name, prod_date, exp_date FROM ite" +
-                "m WHERE (code = @code)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[quantity_at_warehouse] ([item_code], [warehouse_id], [quantity" +
+                "]) VALUES (@item_code, @warehouse_id, @quantity)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@prod_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prod_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@exp_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "exp_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[item] SET [code] = @code, [name] = @name, [prod_date] = @prod_date, [exp_date] = @exp_date WHERE (([code] = @Original_code) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_prod_date = 1 AND [prod_date] IS NULL) OR ([prod_date] = @Original_prod_date)) AND ((@IsNull_exp_date = 1 AND [exp_date] IS NULL) OR ([exp_date] = @Original_exp_date)));
-SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@prod_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prod_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@exp_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "exp_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_prod_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prod_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_prod_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prod_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_exp_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "exp_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_exp_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "exp_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@item_code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "item_code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@warehouse_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "warehouse_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@quantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -899,7 +784,7 @@ SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT code, name, prod_date, exp_date FROM dbo.item";
+            this._commandCollection[0].CommandText = "SELECT item_code, warehouse_id, quantity FROM dbo.quantity_at_warehouse";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -907,7 +792,7 @@ SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(LinqProjectDataSet1.itemDataTable dataTable) {
+        public virtual int Fill(LinqProjectDataSet1.quantity_at_warehouseDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -920,9 +805,9 @@ SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual LinqProjectDataSet1.itemDataTable GetData() {
+        public virtual LinqProjectDataSet1.quantity_at_warehouseDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            LinqProjectDataSet1.itemDataTable dataTable = new LinqProjectDataSet1.itemDataTable();
+            LinqProjectDataSet1.quantity_at_warehouseDataTable dataTable = new LinqProjectDataSet1.quantity_at_warehouseDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -930,7 +815,7 @@ SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(LinqProjectDataSet1.itemDataTable dataTable) {
+        public virtual int Update(LinqProjectDataSet1.quantity_at_warehouseDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -938,7 +823,7 @@ SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(LinqProjectDataSet1 dataSet) {
-            return this.Adapter.Update(dataSet, "item");
+            return this.Adapter.Update(dataSet, "quantity_at_warehouse");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -959,73 +844,11 @@ SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_code, string Original_name, global::System.Nullable<global::System.DateTime> Original_prod_date, global::System.Nullable<global::System.DateTime> Original_exp_date) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_code));
-            if ((Original_name == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_name));
-            }
-            if ((Original_prod_date.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_prod_date.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Original_exp_date.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_exp_date.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int code, string name, global::System.Nullable<global::System.DateTime> prod_date, global::System.Nullable<global::System.DateTime> exp_date) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(code));
-            if ((name == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(name));
-            }
-            if ((prod_date.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(prod_date.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((exp_date.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(exp_date.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
+        public virtual int Insert(int item_code, int warehouse_id, int quantity) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(item_code));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(warehouse_id));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(quantity));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1041,79 +864,6 @@ SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
                 }
             }
         }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int code, string name, global::System.Nullable<global::System.DateTime> prod_date, global::System.Nullable<global::System.DateTime> exp_date, int Original_code, string Original_name, global::System.Nullable<global::System.DateTime> Original_prod_date, global::System.Nullable<global::System.DateTime> Original_exp_date) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(code));
-            if ((name == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(name));
-            }
-            if ((prod_date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(prod_date.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((exp_date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(exp_date.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_code));
-            if ((Original_name == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_name));
-            }
-            if ((Original_prod_date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_prod_date.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((Original_exp_date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_exp_date.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string name, global::System.Nullable<global::System.DateTime> prod_date, global::System.Nullable<global::System.DateTime> exp_date, int Original_code, string Original_name, global::System.Nullable<global::System.DateTime> Original_prod_date, global::System.Nullable<global::System.DateTime> Original_exp_date) {
-            return this.Update(Original_code, name, prod_date, exp_date, Original_code, Original_name, Original_prod_date, Original_exp_date);
-        }
     }
     
     /// <summary>
@@ -1128,7 +878,7 @@ SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
         
         private UpdateOrderOption _updateOrder;
         
-        private itemTableAdapter _itemTableAdapter;
+        private quantity_at_warehouseTableAdapter _quantity_at_warehouseTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1150,12 +900,12 @@ SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public itemTableAdapter itemTableAdapter {
+        public quantity_at_warehouseTableAdapter quantity_at_warehouseTableAdapter {
             get {
-                return this._itemTableAdapter;
+                return this._quantity_at_warehouseTableAdapter;
             }
             set {
-                this._itemTableAdapter = value;
+                this._quantity_at_warehouseTableAdapter = value;
             }
         }
         
@@ -1178,9 +928,9 @@ SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._itemTableAdapter != null) 
-                            && (this._itemTableAdapter.Connection != null))) {
-                    return this._itemTableAdapter.Connection;
+                if (((this._quantity_at_warehouseTableAdapter != null) 
+                            && (this._quantity_at_warehouseTableAdapter.Connection != null))) {
+                    return this._quantity_at_warehouseTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1195,7 +945,7 @@ SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._itemTableAdapter != null)) {
+                if ((this._quantity_at_warehouseTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1209,12 +959,12 @@ SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(LinqProjectDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._itemTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.item.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._quantity_at_warehouseTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.quantity_at_warehouse.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._itemTableAdapter.Update(updatedRows));
+                    result = (result + this._quantity_at_warehouseTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1228,11 +978,11 @@ SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(LinqProjectDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._itemTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.item.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._quantity_at_warehouseTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.quantity_at_warehouse.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._itemTableAdapter.Update(addedRows));
+                    result = (result + this._quantity_at_warehouseTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1246,11 +996,11 @@ SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(LinqProjectDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._itemTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.item.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._quantity_at_warehouseTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.quantity_at_warehouse.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._itemTableAdapter.Update(deletedRows));
+                    result = (result + this._quantity_at_warehouseTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1293,8 +1043,8 @@ SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._itemTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._itemTableAdapter.Connection) == false))) {
+            if (((this._quantity_at_warehouseTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._quantity_at_warehouseTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1330,13 +1080,13 @@ SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._itemTableAdapter != null)) {
-                    revertConnections.Add(this._itemTableAdapter, this._itemTableAdapter.Connection);
-                    this._itemTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._itemTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._itemTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._itemTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._itemTableAdapter.Adapter);
+                if ((this._quantity_at_warehouseTableAdapter != null)) {
+                    revertConnections.Add(this._quantity_at_warehouseTableAdapter, this._quantity_at_warehouseTableAdapter.Connection);
+                    this._quantity_at_warehouseTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._quantity_at_warehouseTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._quantity_at_warehouseTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._quantity_at_warehouseTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._quantity_at_warehouseTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1397,9 +1147,9 @@ SELECT code, name, prod_date, exp_date FROM item WHERE (code = @code)";
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._itemTableAdapter != null)) {
-                    this._itemTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._itemTableAdapter]));
-                    this._itemTableAdapter.Transaction = null;
+                if ((this._quantity_at_warehouseTableAdapter != null)) {
+                    this._quantity_at_warehouseTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._quantity_at_warehouseTableAdapter]));
+                    this._quantity_at_warehouseTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
