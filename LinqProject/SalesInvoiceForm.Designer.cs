@@ -29,7 +29,6 @@ namespace LinqProject
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -39,9 +38,6 @@ namespace LinqProject
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,19 +46,17 @@ namespace LinqProject
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.linqProjectDataSet4 = new LinqProject.LinqProjectDataSet4();
-            this.salesinvoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sales_invoiceTableAdapter = new LinqProject.LinqProjectDataSet4TableAdapters.sales_invoiceTableAdapter();
-            this.noDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customeridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.warehouseidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.salesinvoiceBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -111,13 +105,13 @@ namespace LinqProject
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox4);
+            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.comboBox2);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -143,7 +137,7 @@ namespace LinqProject
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(126, 240);
+            this.textBox6.Location = new System.Drawing.Point(126, 246);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(121, 26);
             this.textBox6.TabIndex = 7;
@@ -151,7 +145,7 @@ namespace LinqProject
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 246);
+            this.label6.Location = new System.Drawing.Point(6, 252);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 20);
             this.label6.TabIndex = 12;
@@ -159,31 +153,10 @@ namespace LinqProject
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(126, 208);
+            this.textBox5.Location = new System.Drawing.Point(126, 214);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(121, 26);
             this.textBox5.TabIndex = 11;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(126, 176);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(121, 26);
-            this.textBox4.TabIndex = 10;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(126, 144);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 26);
-            this.textBox3.TabIndex = 9;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(126, 111);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 26);
-            this.textBox2.TabIndex = 8;
             // 
             // textBox1
             // 
@@ -195,7 +168,7 @@ namespace LinqProject
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 214);
+            this.label5.Location = new System.Drawing.Point(6, 217);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 20);
             this.label5.TabIndex = 6;
@@ -204,29 +177,29 @@ namespace LinqProject
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 182);
+            this.label4.Location = new System.Drawing.Point(6, 187);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 20);
+            this.label4.Size = new System.Drawing.Size(91, 20);
             this.label4.TabIndex = 5;
-            this.label4.Text = "WarehouseID";
+            this.label4.Text = "Warehouse";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(8, 150);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 20);
+            this.label3.Size = new System.Drawing.Size(41, 20);
             this.label3.TabIndex = 4;
-            this.label3.Text = "ItemCode";
+            this.label3.Text = "Item";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 117);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 20);
+            this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 3;
-            this.label2.Text = "CustomerID";
+            this.label2.Text = "Customer";
             // 
             // label1
             // 
@@ -248,84 +221,86 @@ namespace LinqProject
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.noDataGridViewTextBoxColumn,
-            this.customeridDataGridViewTextBoxColumn,
-            this.itemcodeDataGridViewTextBoxColumn,
-            this.warehouseidDataGridViewTextBoxColumn,
-            this.dateDataGridViewTextBoxColumn,
-            this.quantityDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.salesinvoiceBindingSource;
+            this.No,
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
             this.dataGridView1.Location = new System.Drawing.Point(275, 45);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(493, 221);
+            this.dataGridView1.Size = new System.Drawing.Size(493, 227);
             this.dataGridView1.TabIndex = 0;
             // 
-            // linqProjectDataSet4
+            // comboBox2
             // 
-            this.linqProjectDataSet4.DataSetName = "LinqProjectDataSet4";
-            this.linqProjectDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(126, 113);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 28);
+            this.comboBox2.TabIndex = 13;
             // 
-            // salesinvoiceBindingSource
+            // comboBox3
             // 
-            this.salesinvoiceBindingSource.DataMember = "sales_invoice";
-            this.salesinvoiceBindingSource.DataSource = this.linqProjectDataSet4;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(126, 147);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 28);
+            this.comboBox3.TabIndex = 14;
             // 
-            // sales_invoiceTableAdapter
+            // comboBox4
             // 
-            this.sales_invoiceTableAdapter.ClearBeforeFill = true;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(126, 179);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(121, 28);
+            this.comboBox4.TabIndex = 15;
             // 
-            // noDataGridViewTextBoxColumn
+            // No
             // 
-            this.noDataGridViewTextBoxColumn.DataPropertyName = "no";
-            this.noDataGridViewTextBoxColumn.HeaderText = "No";
-            this.noDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.noDataGridViewTextBoxColumn.Name = "noDataGridViewTextBoxColumn";
-            this.noDataGridViewTextBoxColumn.Width = 150;
+            this.No.HeaderText = "No";
+            this.No.MinimumWidth = 8;
+            this.No.Name = "No";
+            this.No.Width = 150;
             // 
-            // customeridDataGridViewTextBoxColumn
+            // Column1
             // 
-            this.customeridDataGridViewTextBoxColumn.DataPropertyName = "customer_id";
-            this.customeridDataGridViewTextBoxColumn.HeaderText = "Customer ID";
-            this.customeridDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.customeridDataGridViewTextBoxColumn.Name = "customeridDataGridViewTextBoxColumn";
-            this.customeridDataGridViewTextBoxColumn.Width = 150;
+            this.Column1.HeaderText = "Customer ID";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
             // 
-            // itemcodeDataGridViewTextBoxColumn
+            // Column2
             // 
-            this.itemcodeDataGridViewTextBoxColumn.DataPropertyName = "item_code";
-            this.itemcodeDataGridViewTextBoxColumn.HeaderText = "Item Code";
-            this.itemcodeDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.itemcodeDataGridViewTextBoxColumn.Name = "itemcodeDataGridViewTextBoxColumn";
-            this.itemcodeDataGridViewTextBoxColumn.Width = 150;
+            this.Column2.HeaderText = "Item Code";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 150;
             // 
-            // warehouseidDataGridViewTextBoxColumn
+            // Column3
             // 
-            this.warehouseidDataGridViewTextBoxColumn.DataPropertyName = "warehouse_id";
-            this.warehouseidDataGridViewTextBoxColumn.HeaderText = "Warehouse ID";
-            this.warehouseidDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.warehouseidDataGridViewTextBoxColumn.Name = "warehouseidDataGridViewTextBoxColumn";
-            this.warehouseidDataGridViewTextBoxColumn.Width = 150;
+            this.Column3.HeaderText = "Warehouse ID";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 150;
             // 
-            // dateDataGridViewTextBoxColumn
+            // Column4
             // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.Width = 150;
+            this.Column4.HeaderText = "Date";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 150;
             // 
-            // quantityDataGridViewTextBoxColumn
+            // Column5
             // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.Width = 150;
+            this.Column5.HeaderText = "Quantity";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 150;
             // 
             // SalesInvoiceForm
             // 
@@ -345,8 +320,6 @@ namespace LinqProject
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.salesinvoiceBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -359,9 +332,6 @@ namespace LinqProject
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -373,14 +343,14 @@ namespace LinqProject
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox6;
-        private LinqProjectDataSet4 linqProjectDataSet4;
-        private System.Windows.Forms.BindingSource salesinvoiceBindingSource;
-        private LinqProjectDataSet4TableAdapters.sales_invoiceTableAdapter sales_invoiceTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customeridDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemcodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn warehouseidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

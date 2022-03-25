@@ -32,8 +32,14 @@ namespace LinqProject
         {
             //Display
             comboBox1.Items.Clear();
-            dataGridView1.DataSource = myEnt.items.ToList();
+            dataGridView2.Rows.Clear();
+           
             var item = from i in myEnt.items select i;
+            foreach (var i in item)
+            {
+                dataGridView2.Rows.Add(i.code.ToString(),i.name);
+
+            }
             foreach (var i in item)
             {
                 comboBox1.Items.Add(i.code.ToString());
@@ -60,13 +66,18 @@ namespace LinqProject
 
         private void itemForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'linqProjectDataSet3.item' table. You can move, or remove it, as needed.
-            this.itemTableAdapter.Fill(this.linqProjectDataSet3.item);
+       
             //onload
             var item = from i in myEnt.items select i;
             foreach (var i in item)
             {
                 comboBox1.Items.Add(i.code.ToString());
+            }
+        
+            foreach (var i in item)
+            {
+                dataGridView2.Rows.Add(i.code.ToString(), i.name);
+
             }
         }
 

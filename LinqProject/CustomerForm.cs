@@ -22,14 +22,15 @@ namespace LinqProject
 
         private void CustomerForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'linqProjectDataSet2.customer' table. You can move, or remove it, as needed.
-            this.customerTableAdapter.Fill(this.linqProjectDataSet2.customer);
+            
 
             //onload
+
 
             var customer = from c in myEnt.customers select c;
             foreach (var i in customer)
             {
+                dataGridView1.Rows.Add(i.id,i.name,i.mobile,i.email,i.website);
                 comboBox1.Items.Add(i.id.ToString());
             }
 
@@ -63,11 +64,15 @@ namespace LinqProject
         private void button3_Click(object sender, EventArgs e)
         {
             //Display
+            dataGridView1.Rows.Clear();
+
             comboBox1.Items.Clear();
-            dataGridView1.DataSource = myEnt.customers.ToList();
+        
             var customer = from c in myEnt.customers select c;
             foreach (var i in customer)
             {
+
+                dataGridView1.Rows.Add(i.id, i.name, i.mobile, i.email, i.website);
                 comboBox1.Items.Add(i.id.ToString());
             }
         }

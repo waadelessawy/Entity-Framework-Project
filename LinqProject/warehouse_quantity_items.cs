@@ -12,11 +12,11 @@ namespace LinqProject
     using System;
     using System.Collections.Generic;
     
-    public partial class quantity_at_warehouse
+    public partial class warehouse_quantity_items
     {
         public int item_code { get; set; }
         public int warehouse_id { get; set; }
-        public int quantity { get; set; }
+        public Nullable<int> quantity { get; set; }
     
         public virtual item item { get; set; }
         public virtual warehouse warehouse { get; set; }

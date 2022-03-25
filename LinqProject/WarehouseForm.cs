@@ -24,24 +24,27 @@ namespace LinqProject
         {
             //Display
             comboBox1.Items.Clear();
-            dataGridView1.DataSource = myEnt.warehouses.ToList();
+            dataGridView1.Rows.Clear();
+        
             var houses = from w in myEnt.warehouses select w;
             foreach (var house in houses)
             {
+                dataGridView1.Rows.Add(house.id, house.name, house.manager, house.address);
                 comboBox1.Items.Add(house.id.ToString());
             }
         }
 
         private void WarehouseForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'linqProjectDataSet6.warehouse' table. You can move, or remove it, as needed.
-            this.warehouseTableAdapter.Fill(this.linqProjectDataSet6.warehouse);
+           
 
             //on_load
+            
             comboBox1.Items.Clear();
             var houses = from w in myEnt.warehouses select w;
             foreach (var house in houses)
             {
+                dataGridView1.Rows.Add(house.id,house.name,house.manager,house.address);
                 comboBox1.Items.Add(house.id.ToString());
             }
 

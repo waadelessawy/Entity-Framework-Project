@@ -27,8 +27,12 @@ namespace LinqProject
 
         private void PurchaseInvoiceForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'linqProjectDataSet.purchase_invoice' table. You can move, or remove it, as needed.
-            this.purchase_invoiceTableAdapter.Fill(this.linqProjectDataSet.purchase_invoice);
+            //onLoad
+            var invoice = from p in myEnt.purchase_invoice select p;
+            foreach(var i in invoice)
+            {
+                dataGridView1.Rows.Add(i.no,i.supplier_id,i.item_code,i.warehouse_id,i.date,i.quantity,i.prod_date,i.exp_date);
+            }
 
             var purchase = from p in myEnt.purchase_invoice select p;
             foreach (var p in purchase)
@@ -63,8 +67,16 @@ namespace LinqProject
         private void button3_Click(object sender, EventArgs e)
         {
             //Display
+
+            dataGridView1.Rows.Clear();
+            var invoice = from p in myEnt.purchase_invoice select p;
+            foreach (var i in invoice)
+            {
+                dataGridView1.Rows.Add(i.no, i.supplier_id, i.item_code, i.warehouse_id, i.date, i.quantity, i.prod_date, i.exp_date);
+            }
+
             comboBox1.Items.Clear();
-            dataGridView1.DataSource = myEnt.purchase_invoice.ToList();
+       
           
             var purchase = from p in myEnt.purchase_invoice select p;
             foreach (var p in purchase)
@@ -94,6 +106,7 @@ namespace LinqProject
 
             myEnt.SaveChanges();
             textBox1.Text = textBox5.Text = textBox6.Text=textBox7.Text=textBox8.Text=comboBox1.Text =comboBox3.Text = comboBox2.Text = comboBox4.Text = string.Empty;
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

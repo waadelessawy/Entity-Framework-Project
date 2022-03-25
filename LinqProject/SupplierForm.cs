@@ -73,7 +73,7 @@ namespace LinqProject
                 supplier.email = textBox4.Text;
                 supplier.website = textBox5.Text;
                 myEnt.SaveChanges();
-                textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = textBox5.Text = string.Empty;
+                textBox1.Text = textBox2.Text=comboBox1.Text = textBox3.Text = textBox4.Text = textBox5.Text = string.Empty;
             }
         }
 
@@ -81,10 +81,11 @@ namespace LinqProject
         {
             //Display
             comboBox1.Items.Clear();
-            dataGridView1.DataSource = myEnt.suppliers.ToList();
+            dataGridView1.Rows.Clear();
             var supplier= from s in myEnt.suppliers select s;
             foreach (var i in supplier)
             {
+                dataGridView1.Rows.Add(i.id, i.name, i.mobile, i.email, i.website);
                 comboBox1.Items.Add(i.id.ToString());
             }
 
@@ -92,13 +93,13 @@ namespace LinqProject
 
         private void SupplierForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'linqProjectDataSet5.supplier' table. You can move, or remove it, as needed.
-            this.supplierTableAdapter.Fill(this.linqProjectDataSet5.supplier);
+       
 
             //onload
             var supplier = from s in myEnt.suppliers select s;
             foreach (var i in supplier)
             {
+                dataGridView1.Rows.Add(i.id, i.name, i.mobile, i.email, i.website);
                 comboBox1.Items.Add(i.id.ToString());
             }
         }

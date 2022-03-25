@@ -29,39 +29,31 @@ namespace LinqProject
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.quantityatwarehouseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Item_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.linqProjectDataSet1 = new LinqProject.LinqProjectDataSet1();
-            this.quantityatwarehouseBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.quantity_at_warehouseTableAdapter = new LinqProject.LinqProjectDataSet1TableAdapters.quantity_at_warehouseTableAdapter();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quantityatwarehouseBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quantityatwarehouseBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.label1.BackColor = System.Drawing.Color.LightBlue;
             this.label1.Location = new System.Drawing.Point(11, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 20);
@@ -71,7 +63,7 @@ namespace LinqProject
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 113);
+            this.label2.Location = new System.Drawing.Point(11, 113);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 20);
             this.label2.TabIndex = 1;
@@ -82,9 +74,9 @@ namespace LinqProject
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 176);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 20);
+            this.label3.Size = new System.Drawing.Size(41, 20);
             this.label3.TabIndex = 2;
-            this.label3.Text = "ItemID";
+            this.label3.Text = "Item";
             // 
             // label4
             // 
@@ -102,27 +94,6 @@ namespace LinqProject
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(0, 20);
             this.label7.TabIndex = 6;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(87, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(133, 26);
-            this.textBox1.TabIndex = 7;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(87, 113);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(133, 26);
-            this.textBox2.TabIndex = 8;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(87, 176);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(133, 26);
-            this.textBox3.TabIndex = 9;
             // 
             // textBox4
             // 
@@ -155,24 +126,39 @@ namespace LinqProject
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.dataGridView1.DataSource = this.quantityatwarehouseBindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(251, 45);
+            this.Item_Code,
+            this.Column1,
+            this.Column2});
+            this.dataGridView1.Location = new System.Drawing.Point(251, 42);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(534, 219);
+            this.dataGridView1.Size = new System.Drawing.Size(534, 222);
             this.dataGridView1.TabIndex = 16;
             // 
-            // quantityatwarehouseBindingSource
+            // Item_Code
             // 
-            this.quantityatwarehouseBindingSource.DataMember = "quantity_at_warehouse";
+            this.Item_Code.HeaderText = "Item ";
+            this.Item_Code.MinimumWidth = 8;
+            this.Item_Code.Name = "Item_Code";
+            this.Item_Code.Width = 150;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Warehouse ";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Quantity";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 150;
             // 
             // button3
             // 
@@ -187,11 +173,11 @@ namespace LinqProject
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -202,44 +188,32 @@ namespace LinqProject
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Change Warehouse";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // linqProjectDataSet1
+            // comboBox3
             // 
-            this.linqProjectDataSet1.DataSetName = "LinqProjectDataSet1";
-            this.linqProjectDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(87, 176);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(133, 28);
+            this.comboBox3.TabIndex = 19;
             // 
-            // quantityatwarehouseBindingSource1
+            // comboBox2
             // 
-            this.quantityatwarehouseBindingSource1.DataMember = "quantity_at_warehouse";
-            this.quantityatwarehouseBindingSource1.DataSource = this.linqProjectDataSet1;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(87, 113);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(133, 28);
+            this.comboBox2.TabIndex = 18;
             // 
-            // quantity_at_warehouseTableAdapter
+            // comboBox1
             // 
-            this.quantity_at_warehouseTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "item_code";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Item Code";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "warehouse_id";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Warehouse ID";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "quantity";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Quantity";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 150;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(87, 42);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(133, 28);
+            this.comboBox1.TabIndex = 17;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // ChanegeWarehouseForm
             // 
@@ -257,11 +231,8 @@ namespace LinqProject
             this.Text = "ChanegeWarehouseForm";
             this.Load += new System.EventHandler(this.ChanegeWarehouseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quantityatwarehouseBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.linqProjectDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quantityatwarehouseBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,26 +245,21 @@ namespace LinqProject
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox1;
-
-        private System.Windows.Forms.BindingSource quantityatwarehouseBindingSource;
         //private LinqProjectDataSet2TableAdapters.quantity_at_warehouseTableAdapter quantity_at_warehouseTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemcodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn warehouseidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
-        private LinqProjectDataSet1 linqProjectDataSet1;
-        private System.Windows.Forms.BindingSource quantityatwarehouseBindingSource1;
-        private LinqProjectDataSet1TableAdapters.quantity_at_warehouseTableAdapter quantity_at_warehouseTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Item_Code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }

@@ -39,17 +39,18 @@ namespace LinqProject
         {
             //Change
 
-            int w1_id = int.Parse(textBox1.Text);
-            int w2_id = int.Parse(textBox2.Text);
-            int i_id = int.Parse(textBox3.Text);
+            int w1_id = comboBox1.SelectedIndex+1;
+            int w2_id = comboBox2.SelectedIndex+1;
+            int i_id = comboBox3.SelectedIndex+1;
             int q = int.Parse(textBox4.Text);
+  
 
-
-            var item1 = (from i in myEnt.quantity_at_warehouse
+            var item1 = (from i in myEnt.warehouse_quantity_items
                          where i.item_code == i_id
                          where i.warehouse_id == w1_id
                          select i).FirstOrDefault();
-            var item2 = (from i in myEnt.quantity_at_warehouse
+
+            var item2 = (from i in myEnt.warehouse_quantity_items
                          where i.item_code == i_id
                          where i.warehouse_id == w2_id
                          select i).FirstOrDefault();
@@ -62,52 +63,94 @@ namespace LinqProject
                 if (item1.quantity == 0)
                 {
                     //remove row
-                    myEnt.quantity_at_warehouse.Remove(item1);
+                    myEnt.warehouse_quantity_items.Remove(item1);
                     //myEnt.SaveChanges();
 
                 }
                 myEnt.SaveChanges();
-                textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = string.Empty;
+                comboBox1.Text = comboBox2.Text = comboBox3.Text = textBox4.Text = string.Empty;
             }
             else if(item1 !=null && item2 == null)
             {
                 item1.quantity = item1.quantity - q;
                
                 //insert new row
-                quantity_at_warehouse qw = new quantity_at_warehouse();
+                warehouse_quantity_items qw = new warehouse_quantity_items();
                 qw.item_code =i_id;
                 qw.warehouse_id = w2_id;
                 qw.quantity = q;
 
-                myEnt.quantity_at_warehouse.Add(qw);
+                myEnt.warehouse_quantity_items.Add(qw);
                 if (item1.quantity == 0)
                 {
                     //remove row
-                    myEnt.quantity_at_warehouse.Remove(item1);
+                    myEnt.warehouse_quantity_items.Remove(item1);
                     //myEnt.SaveChanges();
 
                 }
                 myEnt.SaveChanges();
-                textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = string.Empty;
+                comboBox1.Text = comboBox2.Text = comboBox3.Text = textBox4.Text = string.Empty;
+               
             }
 
-            
+           
 
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = myEnt.quantity_at_warehouse.ToList();
-           
+            //refresh
+            dataGridView1.Rows.Clear();
+            var hq = from house in myEnt.warehouse_quantity_items select house;
+
+
+            foreach (var h in hq)
+            {
+                dataGridView1.Rows.Add(h.item_code, h.warehouse_id, h.quantity);
+
+            }
+
+
         }
 
         private void ChanegeWarehouseForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'linqProjectDataSet1.quantity_at_warehouse' table. You can move, or remove it, as needed.
-            this.quantity_at_warehouseTableAdapter.Fill(this.linqProjectDataSet1.quantity_at_warehouse);
-            // TODO: This line of code loads data into the 'linqProjectDataSet2.quantity_at_warehouse' table. You can move, or remove it, as needed.
-            //this.quantity_at_warehouseTableAdapter.Fill(this.linqProjectDataSet2.quantity_at_warehouse);
+
+          
+            var hq = from house in myEnt.warehouse_quantity_items select house;
+     
+
+            foreach (var h in hq)
+            {
+                dataGridView1.Rows.Add(h.item_code,h.warehouse_id,h.quantity);
+
+            }
+            var houses = from house in myEnt.warehouses select house;
+            foreach (var h in houses)
+            {
+                comboBox2.Items.Add(h.name);
+                comboBox1.Items.Add(h.name);
+
+            }
+            
+            var items = from item in myEnt.items select item;
+            foreach(var i in items)
+            {
+                comboBox3.Items.Add(i.name);
+
+            }
+          
+          
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
         }
     }

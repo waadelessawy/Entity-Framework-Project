@@ -23,16 +23,37 @@ namespace LinqProject
 
         private void SalesInvoiceForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'linqProjectDataSet4.sales_invoice' table. You can move, or remove it, as needed.
-            this.sales_invoiceTableAdapter.Fill(this.linqProjectDataSet4.sales_invoice);
-
             //onload
+            var invoice = from p in myEnt.sales_invoice select p;
+            foreach (var i in invoice)
+            {
+                dataGridView1.Rows.Add(i.no, i.customer_id, i.item_code, i.item_code, i.warehouse_id,i.date,i.quantity);
+            }
 
             var sales = from s in myEnt.sales_invoice select s;
             foreach (var s in sales)
             {
                 comboBox1.Items.Add(s.no.ToString());
             }
+
+            var customer = from s in myEnt.customers select s;
+            foreach (var c in customer)
+            {
+                comboBox2.Items.Add(c.name.ToString());
+            }
+            var item = from i in myEnt.items select i;
+            foreach (var i in item)
+            {
+                comboBox3.Items.Add(i.name.ToString());
+            }
+            var house = from h in myEnt.warehouses select h;
+            foreach (var h in house)
+            {
+                comboBox4.Items.Add(h.name.ToString());
+            }
+      
+
+          
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -47,8 +68,15 @@ namespace LinqProject
         {
             //Display
 
+            dataGridView1.Rows.Clear();
+
+            var invoice = from p in myEnt.sales_invoice select p;
+            foreach (var i in invoice)
+            {
+                dataGridView1.Rows.Add(i.no, i.customer_id, i.item_code, i.item_code, i.warehouse_id, i.date, i.quantity);
+            }
             comboBox1.Items.Clear();
-            dataGridView1.DataSource = myEnt.sales_invoice.ToList();
+           
             //dataGridView2.DataSource = myEnt.quantity_of_sold.ToList();
             var si = from s in myEnt.sales_invoice select s;
             foreach (var s in si)
@@ -58,36 +86,47 @@ namespace LinqProject
 
 
 
+
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+       
             //selecteditems
 
             int no = int.Parse(comboBox1.Text);
             var invoice = (from i in myEnt.sales_invoice
                            where i.no == no
                            select i).First();
+            
+
             if (invoice != null)
             {
+                var customer = (from c in myEnt.customers
+                                where invoice.customer_id == c.id
+                                select c).First();
+
+                var item1 = (from i in myEnt.items
+                             where invoice.item_code == i.code
+                             select i).First();
+
+                var house1 = (from h in myEnt.warehouses
+                              where invoice.warehouse_id == h.id
+                              select h).First();
+
+
                 textBox1.Text = invoice.no.ToString();
-                textBox2.Text = invoice.customer_id.ToString();
-                textBox3.Text = invoice.item_code.ToString();
-                textBox4.Text = invoice.warehouse_id.ToString();
+
+                comboBox2.Text = customer.name.ToString();
+                comboBox3.Text = item1.name.ToString();
+                comboBox4.Text = house1.name.ToString();
                 DateTime t = invoice.date.Value;
                 textBox5.Text = t.ToShortDateString().ToString();
 
             }
-            //var quantity = (from q in myEnt.quantity_of_sold
-            //                where q.sales_no == no
-            //                select q).First();
-
-            //if (quantity != null)
-            //{
-            //    textBox6.Text = quantity.quatity.ToString();
-
-
-            //}
+            
+      
 
 
         }
@@ -98,66 +137,40 @@ namespace LinqProject
             sales_invoice sales = new sales_invoice();
            
             sales.no = int.Parse(textBox1.Text);
-            sales.customer_id = int.Parse(textBox2.Text);
-            sales.item_code = int.Parse(textBox3.Text);
-            sales.warehouse_id = int.Parse(textBox4.Text);
+            sales.customer_id = comboBox2.SelectedIndex+1;
+            sales.item_code = comboBox3.SelectedIndex+1;
+            sales.warehouse_id = comboBox4.SelectedIndex+1;
             sales.date = DateTime.Parse(textBox5.Text);
             myEnt.sales_invoice.Add(sales);
 
-            //quantity_of_sold qs = new quantity_of_sold();
-            //qs.quatity= int.Parse(textBox6.Text);
-            //qs.item_code= int.Parse(textBox3.Text);
-            //qs.sales_no = int.Parse(textBox1.Text);
-            //myEnt.quantity_of_sold.Add(qs);
            
             myEnt.SaveChanges();
-            textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = textBox5.Text=textBox6.Text = string.Empty;
+            textBox1.Text = comboBox2.Text = comboBox3.Text=comboBox4.Text = textBox5.Text=textBox6.Text = string.Empty;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             //update
-            int qua=0;
-            int itemcode = 0;
-            int salesno = 0;
+       
             int no = int.Parse(textBox1.Text);
             var sales = (from s in myEnt.sales_invoice
                             where s.no == no
                             select s).First();
             if (sales != null)
             {
-                sales.customer_id = int.Parse(textBox2.Text);
-                sales.item_code = int.Parse(textBox3.Text);
-                sales.warehouse_id = int.Parse(textBox4.Text);
+                sales.customer_id = comboBox2.SelectedIndex+1;
+                sales.item_code = comboBox3.SelectedIndex+1;
+                sales.warehouse_id = comboBox4.SelectedIndex+1;
                 sales.date = DateTime.Parse(textBox5.Text);
               
-                //qs.quatity = int.Parse(textBox6.Text);
-                //qs.item_code = int.Parse(textBox3.Text);
-                //qs.sales_no = int.Parse(textBox1.Text);
-                qua = int.Parse(textBox6.Text);
-                itemcode = int.Parse(textBox3.Text);
-                salesno = int.Parse(textBox1.Text);
+              
                 myEnt.SaveChanges();
-                textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = textBox5.Text = textBox6.Text = string.Empty;
+                textBox1.Text = comboBox2.Text = comboBox3.Text = comboBox4.Text = comboBox1.Text= textBox5.Text = textBox6.Text = string.Empty;
 
 
             }
 
-            //var quantity= (from q in myEnt.quantity_of_sold
-            //               where q.item_code==itemcode
-            //               where q.sales_no==salesno
-            //               select q).FirstOrDefault();
-
-            //if (quantity != null)
-            //{
-            //    myEnt.quantity_of_sold.Remove(quantity);
-            //    myEnt.SaveChanges();
-            //}
-           
-            //myEnt.quantity_of_sold.Add(qs);
-
-            //myEnt.SaveChanges();
-
+          
         }
     }
 }
