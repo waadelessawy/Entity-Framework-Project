@@ -41,12 +41,12 @@ namespace LinqProject
             this.reportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Remote;
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.ServerReport.ReportPath = "/LinqProjectReports/Report4";
-            this.reportViewer1.Size = new System.Drawing.Size(800, 450);
+            this.reportViewer1.Size = new System.Drawing.Size(1088, 450);
             this.reportViewer1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(675, 405);
+            this.button1.Location = new System.Drawing.Point(990, 405);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 33);
             this.button1.TabIndex = 1;
@@ -58,7 +58,7 @@ namespace LinqProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1088, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.reportViewer1);
             this.Name = "Report4Form";

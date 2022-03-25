@@ -95,7 +95,7 @@ namespace LinqProject
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.AliceBlue;
-            this.button6.Location = new System.Drawing.Point(645, 392);
+            this.button6.Location = new System.Drawing.Point(682, 403);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(106, 35);
             this.button6.TabIndex = 5;

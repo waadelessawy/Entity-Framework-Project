@@ -19,8 +19,8 @@ namespace LinqProject
         {
             this.purchase_invoice = new HashSet<purchase_invoice>();
             this.sales_invoice = new HashSet<sales_invoice>();
-            this.units = new HashSet<unit>();
             this.warehouse_quantity_items = new HashSet<warehouse_quantity_items>();
+            this.item_unit = new HashSet<item_unit>();
         }
     
         public int code { get; set; }
@@ -31,8 +31,8 @@ namespace LinqProject
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<sales_invoice> sales_invoice { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<unit> units { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<warehouse_quantity_items> warehouse_quantity_items { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<item_unit> item_unit { get; set; }
     }
 }

@@ -42,7 +42,6 @@ namespace LinqProject
             this.button1.TabIndex = 1;
             this.button1.Text = "Back";
             this.button1.UseVisualStyleBackColor = true;
-         
             // 
             // reportViewer1
             // 
@@ -52,12 +51,12 @@ namespace LinqProject
             this.reportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Remote;
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.ServerReport.ReportPath = "/LinqProjectReports/Report2";
-            this.reportViewer1.Size = new System.Drawing.Size(800, 450);
+            this.reportViewer1.Size = new System.Drawing.Size(974, 450);
             this.reportViewer1.TabIndex = 2;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(674, 393);
+            this.button2.Location = new System.Drawing.Point(869, 403);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(93, 35);
             this.button2.TabIndex = 3;
@@ -69,7 +68,7 @@ namespace LinqProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(974, 450);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.button1);

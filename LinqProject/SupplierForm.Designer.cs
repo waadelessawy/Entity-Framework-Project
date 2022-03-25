@@ -91,7 +91,7 @@ namespace LinqProject
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.AliceBlue;
-            this.button4.Location = new System.Drawing.Point(653, 408);
+            this.button4.Location = new System.Drawing.Point(997, 408);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(110, 37);
             this.button4.TabIndex = 3;
@@ -101,7 +101,7 @@ namespace LinqProject
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBox1.BackColor = System.Drawing.Color.LightBlue;
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.textBox3);
@@ -116,7 +116,7 @@ namespace LinqProject
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(0, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(797, 318);
+            this.groupBox1.Size = new System.Drawing.Size(1095, 318);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Supplier";
@@ -204,7 +204,7 @@ namespace LinqProject
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(91, 50);
+            this.comboBox1.Location = new System.Drawing.Point(91, 25);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(132, 28);
             this.comboBox1.TabIndex = 1;
@@ -219,11 +219,11 @@ namespace LinqProject
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(268, 50);
+            this.dataGridView1.Location = new System.Drawing.Point(268, 25);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(520, 256);
+            this.dataGridView1.Size = new System.Drawing.Size(814, 281);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column1
@@ -266,7 +266,7 @@ namespace LinqProject
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1107, 450);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);

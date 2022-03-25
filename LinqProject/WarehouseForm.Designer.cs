@@ -35,6 +35,10 @@ namespace LinqProject
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -44,10 +48,6 @@ namespace LinqProject
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +55,7 @@ namespace LinqProject
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.AliceBlue;
-            this.button1.Location = new System.Drawing.Point(28, 324);
+            this.button1.Location = new System.Drawing.Point(16, 333);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 34);
             this.button1.TabIndex = 0;
@@ -66,7 +66,7 @@ namespace LinqProject
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.AliceBlue;
-            this.button2.Location = new System.Drawing.Point(28, 364);
+            this.button2.Location = new System.Drawing.Point(16, 373);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(111, 34);
             this.button2.TabIndex = 1;
@@ -77,7 +77,7 @@ namespace LinqProject
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.AliceBlue;
-            this.button3.Location = new System.Drawing.Point(28, 404);
+            this.button3.Location = new System.Drawing.Point(16, 413);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(111, 34);
             this.button3.TabIndex = 2;
@@ -99,7 +99,7 @@ namespace LinqProject
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(-1, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(789, 292);
+            this.groupBox1.Size = new System.Drawing.Size(931, 292);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Warehouse";
@@ -123,8 +123,36 @@ namespace LinqProject
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(488, 223);
+            this.dataGridView1.Size = new System.Drawing.Size(645, 223);
             this.dataGridView1.TabIndex = 8;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Name";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Manager";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Address";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 150;
             // 
             // textBox3
             // 
@@ -195,7 +223,7 @@ namespace LinqProject
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.AliceBlue;
-            this.button4.Location = new System.Drawing.Point(670, 404);
+            this.button4.Location = new System.Drawing.Point(814, 414);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(104, 34);
             this.button4.TabIndex = 4;
@@ -203,40 +231,12 @@ namespace LinqProject
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Name";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Manager";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Address";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
-            // 
             // WarehouseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(930, 450);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button3);

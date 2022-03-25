@@ -22,6 +22,16 @@
           <Property Name="code" Type="int" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LinqProject.dbo.item_unit' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="item_unit">
+          <Key>
+            <PropertyRef Name="item_code" />
+            <PropertyRef Name="unit" />
+          </Key>
+          <Property Name="item_code" Type="int" Nullable="false" />
+          <Property Name="unit" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="purchase_invoice">
           <Key>
             <PropertyRef Name="no" />
@@ -66,14 +76,6 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <EntityType Name="unit">
-          <Key>
-            <PropertyRef Name="item_code" />
-            <PropertyRef Name="unit" />
-          </Key>
-          <Property Name="item_code" Type="int" Nullable="false" />
-          <Property Name="unit" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="warehouse">
           <Key>
             <PropertyRef Name="id" />
@@ -92,6 +94,18 @@
           <Property Name="warehouse_id" Type="int" Nullable="false" />
           <Property Name="quantity" Type="int" />
         </EntityType>
+        <Association Name="FK_item_unit_item">
+          <End Role="item" Type="Self.item" Multiplicity="1" />
+          <End Role="item_unit" Type="Self.item_unit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="item_unit">
+              <PropertyRef Name="item_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_purchase_invoice_item1">
           <End Role="item" Type="Self.item" Multiplicity="0..1" />
           <End Role="purchase_invoice" Type="Self.purchase_invoice" Multiplicity="*" />
@@ -164,18 +178,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_unit_item">
-          <End Role="item" Type="Self.item" Multiplicity="1" />
-          <End Role="unit" Type="Self.unit" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="code" />
-            </Principal>
-            <Dependent Role="unit">
-              <PropertyRef Name="item_code" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_warehouse_quantity_items_item">
           <End Role="item" Type="Self.item" Multiplicity="1" />
           <End Role="warehouse_quantity_items" Type="Self.warehouse_quantity_items" Multiplicity="*" />
@@ -207,9 +209,18 @@
           <EntitySet Name="sales_invoice" EntityType="Self.sales_invoice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="supplier" EntityType="Self.supplier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="unit" EntityType="Self.unit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="warehouse" EntityType="Self.warehouse" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="warehouse_quantity_items" EntityType="Self.warehouse_quantity_items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="item_unit" EntityType="Self.item_unit" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [item_unit].[item_code] AS [item_code], 
+    [item_unit].[unit] AS [unit]
+    FROM [dbo].[item_unit] AS [item_unit]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_item_unit_item" Association="Self.FK_item_unit_item">
+            <End Role="item" EntitySet="item" />
+            <End Role="item_unit" EntitySet="item_unit" />
+          </AssociationSet>
           <AssociationSet Name="FK_purchase_invoice_item1" Association="Self.FK_purchase_invoice_item1">
             <End Role="item" EntitySet="item" />
             <End Role="purchase_invoice" EntitySet="purchase_invoice" />
@@ -233,10 +244,6 @@
           <AssociationSet Name="FK_sales_invoice_warehouse" Association="Self.FK_sales_invoice_warehouse">
             <End Role="warehouse" EntitySet="warehouse" />
             <End Role="sales_invoice" EntitySet="sales_invoice" />
-          </AssociationSet>
-          <AssociationSet Name="FK_unit_item" Association="Self.FK_unit_item">
-            <End Role="item" EntitySet="item" />
-            <End Role="unit" EntitySet="unit" />
           </AssociationSet>
           <AssociationSet Name="FK_warehouse_quantity_items_item" Association="Self.FK_warehouse_quantity_items_item">
             <End Role="item" EntitySet="item" />
@@ -270,8 +277,8 @@
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="purchase_invoice" Relationship="Self.FK_purchase_invoice_item1" FromRole="item" ToRole="purchase_invoice" />
           <NavigationProperty Name="sales_invoice" Relationship="Self.FK_sales_invoice_item" FromRole="item" ToRole="sales_invoice" />
-          <NavigationProperty Name="units" Relationship="Self.FK_unit_item" FromRole="item" ToRole="unit" />
           <NavigationProperty Name="warehouse_quantity_items" Relationship="LinqProjectModel.FK_warehouse_quantity_items_item" FromRole="item" ToRole="warehouse_quantity_items" />
+          <NavigationProperty Name="item_unit" Relationship="LinqProjectModel.FK_item_unit_item" FromRole="item" ToRole="item_unit" />
         </EntityType>
         <EntityType Name="purchase_invoice">
           <Key>
@@ -324,15 +331,6 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="unit">
-          <Key>
-            <PropertyRef Name="item_code" />
-            <PropertyRef Name="unit1" />
-          </Key>
-          <Property Name="item_code" Type="Int32" Nullable="false" />
-          <Property Name="unit1" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="item" Relationship="Self.FK_unit_item" FromRole="unit" ToRole="item" />
-        </EntityType>
         <EntityType Name="warehouse">
           <Key>
             <PropertyRef Name="id" />
@@ -381,18 +379,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_unit_item">
-          <End Role="item" Type="Self.item" Multiplicity="1" />
-          <End Role="unit" Type="Self.unit" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="item">
-              <PropertyRef Name="code" />
-            </Principal>
-            <Dependent Role="unit">
-              <PropertyRef Name="item_code" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_purchase_invoice_supplier1">
           <End Role="supplier" Type="Self.supplier" Multiplicity="0..1" />
           <End Role="purchase_invoice" Type="Self.purchase_invoice" Multiplicity="*" />
@@ -436,7 +422,6 @@
           <EntitySet Name="sales_invoice" EntityType="Self.sales_invoice" />
           <EntitySet Name="suppliers" EntityType="Self.supplier" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="units" EntityType="Self.unit" />
           <EntitySet Name="warehouses" EntityType="Self.warehouse" />
           <AssociationSet Name="FK_sales_invoice_customer" Association="Self.FK_sales_invoice_customer">
             <End Role="customer" EntitySet="customers" />
@@ -449,10 +434,6 @@
           <AssociationSet Name="FK_sales_invoice_item" Association="Self.FK_sales_invoice_item">
             <End Role="item" EntitySet="items" />
             <End Role="sales_invoice" EntitySet="sales_invoice" />
-          </AssociationSet>
-          <AssociationSet Name="FK_unit_item" Association="Self.FK_unit_item">
-            <End Role="item" EntitySet="items" />
-            <End Role="unit" EntitySet="units" />
           </AssociationSet>
           <AssociationSet Name="FK_purchase_invoice_supplier1" Association="Self.FK_purchase_invoice_supplier1">
             <End Role="supplier" EntitySet="suppliers" />
@@ -474,6 +455,11 @@
           <AssociationSet Name="FK_warehouse_quantity_items_warehouse" Association="LinqProjectModel.FK_warehouse_quantity_items_warehouse">
             <End Role="warehouse" EntitySet="warehouses" />
             <End Role="warehouse_quantity_items" EntitySet="warehouse_quantity_items" />
+          </AssociationSet>
+          <EntitySet Name="item_unit" EntityType="LinqProjectModel.item_unit" />
+          <AssociationSet Name="FK_item_unit_item" Association="LinqProjectModel.FK_item_unit_item">
+            <End Role="item" EntitySet="items" />
+            <End Role="item_unit" EntitySet="item_unit" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="warehouse_quantity_items">
@@ -508,6 +494,27 @@
             </Principal>
             <Dependent Role="warehouse_quantity_items">
               <PropertyRef Name="warehouse_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="item_unit">
+          <Key>
+            <PropertyRef Name="item_code" />
+            <PropertyRef Name="unit" />
+          </Key>
+          <Property Name="item_code" Type="Int32" Nullable="false" />
+          <Property Name="unit" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="item" Relationship="LinqProjectModel.FK_item_unit_item" FromRole="item_unit" ToRole="item" />
+        </EntityType>
+        <Association Name="FK_item_unit_item">
+          <End Type="LinqProjectModel.item" Role="item" Multiplicity="1" />
+          <End Type="LinqProjectModel.item_unit" Role="item_unit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="item_unit">
+              <PropertyRef Name="item_code" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -584,14 +591,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="units">
-            <EntityTypeMapping TypeName="LinqProjectModel.unit">
-              <MappingFragment StoreEntitySet="unit">
-                <ScalarProperty Name="item_code" ColumnName="item_code" />
-                <ScalarProperty Name="unit1" ColumnName="unit" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="warehouses">
             <EntityTypeMapping TypeName="LinqProjectModel.warehouse">
               <MappingFragment StoreEntitySet="warehouse">
@@ -607,6 +606,14 @@
               <MappingFragment StoreEntitySet="warehouse_quantity_items">
                 <ScalarProperty Name="quantity" ColumnName="quantity" />
                 <ScalarProperty Name="warehouse_id" ColumnName="warehouse_id" />
+                <ScalarProperty Name="item_code" ColumnName="item_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="item_unit">
+            <EntityTypeMapping TypeName="LinqProjectModel.item_unit">
+              <MappingFragment StoreEntitySet="item_unit">
+                <ScalarProperty Name="unit" ColumnName="unit" />
                 <ScalarProperty Name="item_code" ColumnName="item_code" />
               </MappingFragment>
             </EntityTypeMapping>

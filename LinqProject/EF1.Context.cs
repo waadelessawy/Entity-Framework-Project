@@ -31,8 +31,8 @@ namespace LinqProject
         public virtual DbSet<sales_invoice> sales_invoice { get; set; }
         public virtual DbSet<supplier> suppliers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<unit> units { get; set; }
         public virtual DbSet<warehouse> warehouses { get; set; }
         public virtual DbSet<warehouse_quantity_items> warehouse_quantity_items { get; set; }
+        public virtual DbSet<item_unit> item_unit { get; set; }
     }
 }

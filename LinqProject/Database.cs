@@ -90,5 +90,10 @@ namespace LinqProject
             ViewWarehousesAndItemsForm vwf = new ViewWarehousesAndItemsForm();
             vwf.Show();
         }
+
+        private void Database_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

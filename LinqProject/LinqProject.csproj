@@ -125,6 +125,9 @@
     <Compile Include="itemForm.Designer.cs">
       <DependentUpon>itemForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="item_unit.cs">
+      <DependentUpon>EF1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PurchaseInvoiceForm.cs">
@@ -186,9 +189,6 @@
       <DependentUpon>SupplierForm.cs</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
-      <DependentUpon>EF1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="unit.cs">
       <DependentUpon>EF1.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewWarehousesAndItemsForm .cs">

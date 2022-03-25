@@ -12,10 +12,10 @@ namespace LinqProject
     using System;
     using System.Collections.Generic;
     
-    public partial class unit
+    public partial class item_unit
     {
         public int item_code { get; set; }
-        public int unit1 { get; set; }
+        public string unit { get; set; }
     
         public virtual item item { get; set; }
     }

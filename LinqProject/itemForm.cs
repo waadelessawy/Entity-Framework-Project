@@ -35,11 +35,14 @@ namespace LinqProject
             dataGridView2.Rows.Clear();
            
             var item = from i in myEnt.items select i;
-            foreach (var i in item)
+           
+            foreach (var i in item  )
             {
-                dataGridView2.Rows.Add(i.code.ToString(),i.name);
+                var units = (from u in myEnt.item_unit where u.item_code == i.code select u).FirstOrDefault();
+                dataGridView2.Rows.Add(i.code.ToString(), i.name, units.unit);
 
             }
+
             foreach (var i in item)
             {
                 comboBox1.Items.Add(i.code.ToString());
@@ -54,10 +57,15 @@ namespace LinqProject
             var item = (from i in myEnt.items
                          where i.code== code
                          select i).First();
-            if (item != null)
+            var unit = (from u in myEnt.item_unit
+                        where u.item_code == code
+                        select u).First();
+            if (item != null )
             {
                 textBox1.Text = item.code.ToString();
                 textBox2.Text = item.name.ToString();
+                textBox3.Text = unit.unit.ToString();
+
      
               
             }
@@ -73,10 +81,13 @@ namespace LinqProject
             {
                 comboBox1.Items.Add(i.code.ToString());
             }
-        
+
+         
+
             foreach (var i in item)
             {
-                dataGridView2.Rows.Add(i.code.ToString(), i.name);
+                var units = (from u in myEnt.item_unit where u.item_code == i.code select u).FirstOrDefault();
+                dataGridView2.Rows.Add(i.code.ToString(), i.name, units.unit);
 
             }
         }
@@ -85,15 +96,22 @@ namespace LinqProject
         {
             //insert
             item item = new item();
+            item_unit unit = new item_unit();
+
             item.code = int.Parse(textBox1.Text);
             item.name = textBox2.Text;
-   
-  
-         
+
+            //unit.item_code= int.Parse(textBox1.Text);
+            //unit.unit = textBox3.Text;
+
+
+            //myEnt.item_unit.Add(unit);
             myEnt.items.Add(item);
+
             myEnt.SaveChanges();
+
      
-            textBox1.Text = textBox2.Text = string.Empty;
+            textBox1.Text = textBox2.Text=textBox3.Text = string.Empty;
 
         }
 
@@ -104,12 +122,15 @@ namespace LinqProject
             var item = (from i in myEnt.items
                         where i.code == code
                         select i).First();
+            var unit = (from u in myEnt.item_unit
+                        where u.item_code== code
+                        select u).First();
             if (item != null)
             {
                 item.name = textBox2.Text;
-          
+                //unit.unit = textBox3.Text;
                 myEnt.SaveChanges();
-                textBox1.Text = textBox2.Text = string.Empty;
+                textBox1.Text = textBox2.Text =textBox3.Text= string.Empty;
 
 
             }

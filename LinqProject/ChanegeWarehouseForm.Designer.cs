@@ -54,7 +54,7 @@ namespace LinqProject
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.LightBlue;
-            this.label1.Location = new System.Drawing.Point(11, 45);
+            this.label1.Location = new System.Drawing.Point(11, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 20);
             this.label1.TabIndex = 0;
@@ -63,7 +63,7 @@ namespace LinqProject
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 113);
+            this.label2.Location = new System.Drawing.Point(11, 140);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 20);
             this.label2.TabIndex = 1;
@@ -72,7 +72,7 @@ namespace LinqProject
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 176);
+            this.label3.Location = new System.Drawing.Point(6, 207);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 20);
             this.label3.TabIndex = 2;
@@ -81,7 +81,7 @@ namespace LinqProject
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 241);
+            this.label4.Location = new System.Drawing.Point(6, 279);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 20);
             this.label4.TabIndex = 3;
@@ -97,7 +97,7 @@ namespace LinqProject
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(87, 238);
+            this.textBox4.Location = new System.Drawing.Point(87, 279);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(133, 26);
             this.textBox4.TabIndex = 10;
@@ -105,7 +105,7 @@ namespace LinqProject
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.AliceBlue;
-            this.button1.Location = new System.Drawing.Point(27, 362);
+            this.button1.Location = new System.Drawing.Point(22, 443);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(104, 35);
             this.button1.TabIndex = 14;
@@ -116,7 +116,7 @@ namespace LinqProject
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.AliceBlue;
-            this.button2.Location = new System.Drawing.Point(655, 403);
+            this.button2.Location = new System.Drawing.Point(796, 484);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(104, 35);
             this.button2.TabIndex = 15;
@@ -132,11 +132,11 @@ namespace LinqProject
             this.Item_Code,
             this.Column1,
             this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(251, 42);
+            this.dataGridView1.Location = new System.Drawing.Point(251, 62);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(534, 222);
+            this.dataGridView1.Size = new System.Drawing.Size(637, 243);
             this.dataGridView1.TabIndex = 16;
             // 
             // Item_Code
@@ -163,7 +163,7 @@ namespace LinqProject
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.AliceBlue;
-            this.button3.Location = new System.Drawing.Point(27, 403);
+            this.button3.Location = new System.Drawing.Point(22, 484);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(104, 35);
             this.button3.TabIndex = 17;
@@ -182,9 +182,9 @@ namespace LinqProject
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 49);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(785, 289);
+            this.groupBox1.Size = new System.Drawing.Size(903, 324);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Change Warehouse";
@@ -193,7 +193,7 @@ namespace LinqProject
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(87, 176);
+            this.comboBox3.Location = new System.Drawing.Point(87, 207);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(133, 28);
             this.comboBox3.TabIndex = 19;
@@ -201,7 +201,7 @@ namespace LinqProject
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(87, 113);
+            this.comboBox2.Location = new System.Drawing.Point(87, 140);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(133, 28);
             this.comboBox2.TabIndex = 18;
@@ -209,7 +209,7 @@ namespace LinqProject
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(87, 42);
+            this.comboBox1.Location = new System.Drawing.Point(87, 62);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(133, 28);
             this.comboBox1.TabIndex = 17;
@@ -220,7 +220,7 @@ namespace LinqProject
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(927, 531);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);

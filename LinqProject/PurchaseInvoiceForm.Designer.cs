@@ -67,7 +67,7 @@ namespace LinqProject
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.AliceBlue;
-            this.button1.Location = new System.Drawing.Point(0, 408);
+            this.button1.Location = new System.Drawing.Point(17, 489);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 39);
             this.button1.TabIndex = 0;
@@ -78,7 +78,7 @@ namespace LinqProject
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.AliceBlue;
-            this.button2.Location = new System.Drawing.Point(106, 408);
+            this.button2.Location = new System.Drawing.Point(17, 444);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 39);
             this.button2.TabIndex = 1;
@@ -89,7 +89,7 @@ namespace LinqProject
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.AliceBlue;
-            this.button3.Location = new System.Drawing.Point(212, 408);
+            this.button3.Location = new System.Drawing.Point(17, 534);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 39);
             this.button3.TabIndex = 2;
@@ -100,7 +100,7 @@ namespace LinqProject
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.AliceBlue;
-            this.button4.Location = new System.Drawing.Point(688, 408);
+            this.button4.Location = new System.Drawing.Point(1128, 539);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 39);
             this.button4.TabIndex = 3;
@@ -111,7 +111,7 @@ namespace LinqProject
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 90);
+            this.label1.Location = new System.Drawing.Point(12, 96);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 20);
             this.label1.TabIndex = 4;
@@ -120,7 +120,7 @@ namespace LinqProject
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 122);
+            this.label2.Location = new System.Drawing.Point(12, 140);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 20);
             this.label2.TabIndex = 5;
@@ -129,7 +129,7 @@ namespace LinqProject
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 154);
+            this.label3.Location = new System.Drawing.Point(13, 181);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 20);
             this.label3.TabIndex = 6;
@@ -138,7 +138,7 @@ namespace LinqProject
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 186);
+            this.label4.Location = new System.Drawing.Point(13, 226);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 20);
             this.label4.TabIndex = 7;
@@ -147,7 +147,7 @@ namespace LinqProject
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 218);
+            this.label5.Location = new System.Drawing.Point(13, 265);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 20);
             this.label5.TabIndex = 8;
@@ -164,21 +164,21 @@ namespace LinqProject
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(144, 84);
+            this.textBox1.Location = new System.Drawing.Point(144, 90);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(121, 26);
             this.textBox1.TabIndex = 10;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(144, 218);
+            this.textBox5.Location = new System.Drawing.Point(144, 262);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(121, 26);
             this.textBox5.TabIndex = 14;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(144, 252);
+            this.textBox6.Location = new System.Drawing.Point(144, 303);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(121, 26);
             this.textBox6.TabIndex = 15;
@@ -186,7 +186,7 @@ namespace LinqProject
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 250);
+            this.label6.Location = new System.Drawing.Point(13, 306);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 20);
             this.label6.TabIndex = 16;
@@ -214,7 +214,7 @@ namespace LinqProject
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(795, 356);
+            this.groupBox1.Size = new System.Drawing.Size(1234, 438);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Purchase invoice";
@@ -222,7 +222,7 @@ namespace LinqProject
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(144, 183);
+            this.comboBox4.Location = new System.Drawing.Point(144, 218);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(121, 28);
             this.comboBox4.TabIndex = 24;
@@ -230,31 +230,29 @@ namespace LinqProject
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(144, 114);
+            this.comboBox3.Location = new System.Drawing.Point(144, 132);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 28);
             this.comboBox3.TabIndex = 23;
-          
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(144, 149);
+            this.comboBox2.Location = new System.Drawing.Point(144, 178);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 28);
             this.comboBox2.TabIndex = 22;
-        
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(144, 316);
+            this.textBox8.Location = new System.Drawing.Point(144, 380);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(121, 26);
             this.textBox8.TabIndex = 21;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(144, 284);
+            this.textBox7.Location = new System.Drawing.Point(144, 344);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(121, 26);
             this.textBox7.TabIndex = 20;
@@ -262,7 +260,7 @@ namespace LinqProject
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 319);
+            this.label8.Location = new System.Drawing.Point(12, 386);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(75, 20);
             this.label8.TabIndex = 19;
@@ -271,7 +269,7 @@ namespace LinqProject
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 283);
+            this.label7.Location = new System.Drawing.Point(12, 350);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 20);
             this.label7.TabIndex = 18;
@@ -293,9 +291,8 @@ namespace LinqProject
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(495, 289);
+            this.dataGridView1.Size = new System.Drawing.Size(935, 356);
             this.dataGridView1.TabIndex = 17;
- 
             // 
             // No
             // 
@@ -358,7 +355,7 @@ namespace LinqProject
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1246, 590);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);

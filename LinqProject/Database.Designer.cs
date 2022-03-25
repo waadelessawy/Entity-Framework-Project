@@ -43,7 +43,7 @@ namespace LinqProject
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.AliceBlue;
-            this.button1.Location = new System.Drawing.Point(14, 32);
+            this.button1.Location = new System.Drawing.Point(108, 32);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(169, 35);
             this.button1.TabIndex = 0;
@@ -54,7 +54,7 @@ namespace LinqProject
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.AliceBlue;
-            this.button2.Location = new System.Drawing.Point(14, 95);
+            this.button2.Location = new System.Drawing.Point(108, 84);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(169, 35);
             this.button2.TabIndex = 1;
@@ -65,7 +65,7 @@ namespace LinqProject
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.AliceBlue;
-            this.button3.Location = new System.Drawing.Point(214, 160);
+            this.button3.Location = new System.Drawing.Point(334, 135);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(169, 35);
             this.button3.TabIndex = 2;
@@ -76,7 +76,7 @@ namespace LinqProject
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.AliceBlue;
-            this.button4.Location = new System.Drawing.Point(214, 32);
+            this.button4.Location = new System.Drawing.Point(334, 32);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(169, 35);
             this.button4.TabIndex = 3;
@@ -87,7 +87,7 @@ namespace LinqProject
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.AliceBlue;
-            this.button5.Location = new System.Drawing.Point(214, 95);
+            this.button5.Location = new System.Drawing.Point(334, 84);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(169, 35);
             this.button5.TabIndex = 4;
@@ -98,7 +98,7 @@ namespace LinqProject
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.AliceBlue;
-            this.button6.Location = new System.Drawing.Point(14, 160);
+            this.button6.Location = new System.Drawing.Point(108, 135);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(169, 35);
             this.button6.TabIndex = 5;
@@ -109,7 +109,7 @@ namespace LinqProject
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.AliceBlue;
-            this.button7.Location = new System.Drawing.Point(104, 270);
+            this.button7.Location = new System.Drawing.Point(219, 239);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(169, 35);
             this.button7.TabIndex = 6;
@@ -120,7 +120,7 @@ namespace LinqProject
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.AliceBlue;
-            this.button8.Location = new System.Drawing.Point(656, 404);
+            this.button8.Location = new System.Drawing.Point(850, 475);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(109, 34);
             this.button8.TabIndex = 7;
@@ -131,7 +131,7 @@ namespace LinqProject
             // button9
             // 
             this.button9.BackColor = System.Drawing.Color.AliceBlue;
-            this.button9.Location = new System.Drawing.Point(72, 215);
+            this.button9.Location = new System.Drawing.Point(186, 189);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(240, 35);
             this.button9.TabIndex = 8;
@@ -145,7 +145,7 @@ namespace LinqProject
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::LinqProject.Properties.Resources.blue_abstract_background_310971;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(994, 520);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -159,6 +159,7 @@ namespace LinqProject
             this.Name = "Database";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Database";
+            this.Load += new System.EventHandler(this.Database_Load);
             this.ResumeLayout(false);
 
         }
