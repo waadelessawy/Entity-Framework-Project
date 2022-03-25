@@ -50,7 +50,7 @@ namespace LinqProject
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Remote;
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.ServerReport.ReportPath = "/LinqProjectReports/WarehouseReport";
+            this.reportViewer1.ServerReport.ReportPath = "/LinqProjectReports/Report1";
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
             // 
