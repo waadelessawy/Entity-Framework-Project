@@ -95,7 +95,7 @@ namespace LinqProject
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.AliceBlue;
-            this.button4.Location = new System.Drawing.Point(1112, 489);
+            this.button4.Location = new System.Drawing.Point(939, 489);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(98, 34);
             this.button4.TabIndex = 3;
@@ -122,7 +122,7 @@ namespace LinqProject
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1216, 396);
+            this.groupBox1.Size = new System.Drawing.Size(1050, 396);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sales Invoice";
@@ -257,7 +257,7 @@ namespace LinqProject
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(918, 341);
+            this.dataGridView1.Size = new System.Drawing.Size(745, 341);
             this.dataGridView1.TabIndex = 0;
             // 
             // No
@@ -265,28 +265,28 @@ namespace LinqProject
             this.No.HeaderText = "No";
             this.No.MinimumWidth = 8;
             this.No.Name = "No";
-            this.No.Width = 150;
+            this.No.Width = 50;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Customer ID";
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
+            this.Column1.Width = 50;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Item Code";
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
+            this.Column2.Width = 50;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Warehouse ID";
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
+            this.Column3.Width = 50;
             // 
             // Column4
             // 
@@ -300,14 +300,14 @@ namespace LinqProject
             this.Column5.HeaderText = "Quantity";
             this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
-            this.Column5.Width = 150;
+            this.Column5.Width = 70;
             // 
             // SalesInvoiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1228, 535);
+            this.ClientSize = new System.Drawing.Size(1062, 535);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);

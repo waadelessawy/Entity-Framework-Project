@@ -38,8 +38,8 @@ namespace LinqProject
            
             foreach (var i in item  )
             {
-                var units = (from u in myEnt.item_unit where u.item_code == i.code select u).FirstOrDefault();
-                dataGridView2.Rows.Add(i.code.ToString(), i.name, units.unit);
+                //var units = (from u in myEnt.item_unit where u.item_code == i.code select u).FirstOrDefault();
+                dataGridView2.Rows.Add(i.code.ToString(), i.name);
 
             }
 
@@ -86,8 +86,8 @@ namespace LinqProject
 
             foreach (var i in item)
             {
-                var units = (from u in myEnt.item_unit where u.item_code == i.code select u).FirstOrDefault();
-                dataGridView2.Rows.Add(i.code.ToString(), i.name, units.unit);
+                //var units = (from u in myEnt.item_unit where u.item_code == i.code select u).FirstOrDefault();
+                dataGridView2.Rows.Add(i.code.ToString(), i.name);
 
             }
         }
@@ -111,7 +111,7 @@ namespace LinqProject
             myEnt.SaveChanges();
 
      
-            textBox1.Text = textBox2.Text=textBox3.Text = string.Empty;
+            textBox1.Text=comboBox1.Text = textBox2.Text=textBox3.Text = string.Empty;
 
         }
 
@@ -130,7 +130,7 @@ namespace LinqProject
                 item.name = textBox2.Text;
                 //unit.unit = textBox3.Text;
                 myEnt.SaveChanges();
-                textBox1.Text = textBox2.Text =textBox3.Text= string.Empty;
+                textBox1.Text = textBox2.Text=comboBox1.Text =textBox3.Text= string.Empty;
 
 
             }

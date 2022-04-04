@@ -299,28 +299,28 @@ namespace LinqProject
             this.No.HeaderText = "No";
             this.No.MinimumWidth = 8;
             this.No.Name = "No";
-            this.No.Width = 150;
+            this.No.Width = 50;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Supplier ID";
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
+            this.Column1.Width = 50;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Item ID";
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
+            this.Column2.Width = 50;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Warehouse ID";
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
+            this.Column3.Width = 50;
             // 
             // Column4
             // 
@@ -334,7 +334,7 @@ namespace LinqProject
             this.Column5.HeaderText = "Quantity";
             this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
-            this.Column5.Width = 150;
+            this.Column5.Width = 70;
             // 
             // Column6
             // 
